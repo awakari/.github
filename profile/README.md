@@ -1,4 +1,4 @@
-![logo](profile/logo.svg)
-# Meandros
+![logo](logo.svg)
+![title](title.png)
 
-![dia-seq-subscription-resolution](profile/dia-seq-subscription-resolution.png)
+![dia-seq-subscription-resolution](dia-seq-subscription-resolution.png)
