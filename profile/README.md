@@ -1,6 +1,6 @@
 <img alt="title" height="80" src="title.png"/>
 
-# Scalable wildcard subscription resolution.
+# Scalable Wildcard Subscriptions
 
 Resolution sequence diagram:
 
