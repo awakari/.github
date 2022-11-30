@@ -64,8 +64,12 @@ sequenceDiagram
         Resolver->>Adapter: next subscriptions page
         deactivate Resolver
         activate Adapter
-        Adapter-)Destination: message, next subscriptions batch
-        deactivate Adapter
+        
+        loop each subscription in page
+            Adapter-)Destination: message, subscription's route
+            deactivate Adapter
+        end
+        
     end
     deactivate Adapter
     deactivate Adapter
