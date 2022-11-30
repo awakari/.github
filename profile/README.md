@@ -35,10 +35,18 @@ sequenceDiagram
         
         activate Resolver
         loop matchers
+            
             Resolver->>Subscriptions: resolve by next matcher
             activate Subscriptions
             Subscriptions->>Resolver: next subscriptions page
             deactivate Subscriptions
+            
+            activate Resolver
+            loop subscriptions
+                Resolver->>Resolver: enroll match
+            end
+            deactivate Resolver
+            
         end
         deactivate Resolver
     end
@@ -51,7 +59,7 @@ sequenceDiagram
     activate Adapter
     loop subscriptions
         Adapter->>Resolver: resolve subscriptions matches by the message id
-        Resolver-->>Adapter: next subscriptions matches page
+        Resolver->>Adapter: next subscriptions matches page
     end
     deactivate Adapter
     deactivate Adapter
