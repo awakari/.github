@@ -25,7 +25,8 @@ sequenceDiagram
     Source-)Input Adapter: message
     activate Input Adapter
     
-    Input Adapter->>Resolver: message id, metadata
+    Input Adapter-)Resolver: message id, metadata
+    deactivate Input Adapter
     activate Resolver
     
     loop message metadata (k, v)
@@ -55,11 +56,11 @@ sequenceDiagram
     
     
     
-    Resolver-->>Input Adapter: done
+    Resolver->>Input Adapter: message id
     deactivate Resolver
 
     activate Input Adapter
-    loop each subscription page
+    loop each matching subscriptions page
         Input Adapter->>Resolver: resolve matches by message id
         activate Resolver
         Resolver->>Input Adapter: next subscriptions page
@@ -75,6 +76,5 @@ sequenceDiagram
         end
         
     end
-    deactivate Input Adapter
     deactivate Input Adapter
 ```
