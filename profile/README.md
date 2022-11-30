@@ -14,13 +14,13 @@ The above diagram is simplified, it hides:
 %%{init: {'theme': 'neutral' } }%%
 sequenceDiagram
 
-    actor 3rd Party Message Bus
+    actor Source
     participant Adapter
     participant Resolver
     participant Matchers
     participant Subscriptions
 
-    3rd Party Message Bus-)Adapter: message
+    Source-)Adapter: message
     activate Adapter
     
     Adapter->>Resolver: message id, metadata
