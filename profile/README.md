@@ -11,6 +11,7 @@ sequenceDiagram
     participant Resolver
     participant Matchers
     participant Subscriptions
+    participant Matches
     participant Aggregator
     participant Output Adapter
     actor Destination
@@ -39,7 +40,10 @@ sequenceDiagram
             
             activate Resolver
             loop each subscription in page
-                Resolver->>Resolver: register next match for message id, subscription
+                Resolver->>Matches: register next match for message id, subscription
+                activate Matches
+                Matcher-->>Resolver: ack
+                deactivate Matches
             end
             deactivate Resolver
             
@@ -53,13 +57,13 @@ sequenceDiagram
     activate Aggregator
     loop each matching subscriptions page
         
-        Aggregator->>Resolver: resolve matches by message id
-        activate Resolver
-        Resolver->>Aggregator: next subscriptions page
-        deactivate Resolver
+        Aggregator->>Matches: resolve matches by message id
+        activate Matches
+        Matches->>Aggregator: next subscriptions page
+        deactivate Matches
         
         loop each subscription in page
-            Aggregator-)Output Adapter: message, subscription
+            Aggregator-)Output Adapter: message, route
             deactivate Aggregator
             activate Output Adapter
             Output Adapter-)Destination: message, route
