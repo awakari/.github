@@ -56,7 +56,7 @@ sequenceDiagram
     
     
     
-    Resolver->>Input Adapter: message id
+    Resolver-)Input Adapter: message id
     deactivate Resolver
 
     activate Input Adapter
