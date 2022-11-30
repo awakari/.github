@@ -12,13 +12,8 @@ The above diagram is simplified, it hides:
 
 ```mermaid
 sequenceDiagram
-    ->>Client: msg
-    activate Client
-    Client->>Resolver: msg (id, md)
-    activate Resolver
-    loop md(k, v)
-        
-    end
-    Resolver-->>Client: done 
-    Client-->>: done
+    participant Alice
+    participant Bob
+    Alice->>Bob: Hi Bob
+    Bob->>Alice: Hi Alice
 ```
