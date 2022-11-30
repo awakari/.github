@@ -27,11 +27,23 @@ sequenceDiagram
     activate Resolver
     
     loop message metadata (k, v)
-        Resolver->>Matchers: resolve matchers by next (k, v)
+    
+        Resolver->>Matchers: resolve by next (k, v)
         activate Matchers
         Matchers->>Resolver: next matchers page
         deactivate Matchers
+        
+        activate Resolver
+        loop matchers
+            Resolver->>Subscriptions: resolve by next matcher
+            activate Subscriptions
+            Subscriptions->>Resolver: next subscriptions page
+            deactivate Subscriptions
+        end
+        deactivate Resolver
     end
+    
+    
     
     Resolver-->>Adapter: done
     deactivate Resolver
