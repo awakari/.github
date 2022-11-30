@@ -77,6 +77,6 @@ sequenceDiagram
         end
         
     end
-    deactivate Adapter
-    deactivate Adapter
+    deactivate Input Adapter
+    deactivate Input Adapter
 ```
