@@ -44,7 +44,7 @@ sequenceDiagram
             
             activate Resolver
             loop each subscription in page
-                Resolver->>Resolver: enroll match
+                Resolver->>Resolver: register next match for message id, subscription
             end
             deactivate Resolver
             
@@ -59,9 +59,9 @@ sequenceDiagram
 
     activate Adapter
     loop each subscription page
-        Adapter->>Resolver: resolve subscriptions matches by the message id
+        Adapter->>Resolver: resolve matches by message id
         activate Resolver
-        Resolver->>Adapter: next subscriptions matches page
+        Resolver->>Adapter: next subscriptions page
         deactivate Resolver
         activate Adapter
         Adapter-)Destination: message, next subscriptions batch
