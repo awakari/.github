@@ -65,6 +65,12 @@ sequenceDiagram
     deactivate Resolver
 
     activate Aggregator
+    
+    Aggregator->>Messages: get message by id
+    activate Messages
+    Messages->>Aggregator: message
+    deactivate Messages
+    
     loop each matching subscriptions page
         
         Aggregator->>Resolver: resolve matches by message id
@@ -73,11 +79,6 @@ sequenceDiagram
         deactivate Resolver
         
         activate Aggregator
-        Aggregator->>Messages: get message by id
-        activate Messages
-        Messages->>Aggregator: message
-        deactivate Messages
-        
         loop each subscription in page
             Aggregator-)Output Adapter: message, subscription
             deactivate Aggregator
