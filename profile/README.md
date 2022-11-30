@@ -42,7 +42,7 @@ sequenceDiagram
             loop each subscription in page
                 Resolver->>Matches: register next match for message id, subscription
                 activate Matches
-                Matcher-->>Resolver: ack
+                Matches-->>Resolver: ack
                 deactivate Matches
             end
             deactivate Resolver
