@@ -23,9 +23,11 @@ sequenceDiagram
     Adapter->>Resolver: msg (id, md) 
     Resolver-->>Adapter: done
     activate Adapter
-    Adapter->>Resolver: resolve subscriptions matches by the message id
-    Resolver-->>Adapter: next subscriptions matches page
-    deactivate Adapter
+    loop subscriptions
+        Adapter->>Resolver: resolve subscriptions matches by the message id
+        Resolver-->>Adapter: next subscriptions matches page
+        deactivate Adapter
+    end
     Adapter-->>3rd Party Message Bus: done
     deactivate Adapter
 ```
