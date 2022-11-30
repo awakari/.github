@@ -57,7 +57,7 @@ sequenceDiagram
     activate Aggregator
     loop each matching subscriptions page
         
-        Aggregator->>Matches: resolve matches by message id
+        Aggregator->>Matches: message id
         activate Matches
         Matches->>Aggregator: next subscriptions page
         deactivate Matches
