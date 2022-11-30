@@ -70,7 +70,6 @@ sequenceDiagram
         Resolver->>Aggregator: next subscriptions page
         deactivate Resolver
         
-        activate Aggregator
         loop each subscription in page
             Aggregator-)Output Adapter: message, subscription
             deactivate Aggregator
@@ -80,5 +79,4 @@ sequenceDiagram
         end
         
     end
-    deactivate Aggregator
 ```
