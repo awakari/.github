@@ -13,12 +13,14 @@ The above diagram is simplified, it hides:
 ```mermaid
 %%{init: {'theme': 'neutral' } }%%
 sequenceDiagram
+
     actor 3rd Party Message Bus
     participant Adapter
     participant Resolver
     participant Matchers
     participant Subscriptions
-    3rd Party Message Bus->>Adapter: message
+
+    3rd Party Message Bus-)Adapter: message
     activate Adapter
     Adapter->>Resolver: message id, metadata
     activate Resolver
@@ -30,6 +32,5 @@ sequenceDiagram
         Resolver-->>Adapter: next subscriptions matches page
     end
     deactivate Adapter
-    Adapter-->>3rd Party Message Bus: done
     deactivate Adapter
 ```
