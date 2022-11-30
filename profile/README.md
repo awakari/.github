@@ -12,8 +12,8 @@ The above diagram is simplified, it hides:
 
 ```mermaid
 sequenceDiagram
-    participant Alice
-    participant Bob
-    Alice->>Bob: Hi Bob
-    Bob->>Alice: Hi Alice
+    participant Client
+    participant Resolver
+    Client->>Resolver: msg (id, md) 
+    Resolver-->>Client: done
 ```
