@@ -17,9 +17,10 @@ sequenceDiagram
     actor Source
     participant Input Adapter
     participant Resolver
-    participant Messages
     participant Subscriptions
     participant Matchers
+    participant Messages
+    participant Aggregator
     participant Output Adapter
     actor Destination
 
@@ -60,27 +61,25 @@ sequenceDiagram
         deactivate Resolver
     end
     
-    
-    
-    Resolver-)Input Adapter: message id
+    Resolver-)Aggregator: message id
     deactivate Resolver
 
-    activate Input Adapter
+    activate Aggregator
     loop each matching subscriptions page
-        Input Adapter->>Resolver: resolve matches by message id
+        Aggregator->>Resolver: resolve matches by message id
         activate Resolver
-        Resolver->>Input Adapter: next subscriptions page
+        Resolver->>Aggregator: next subscriptions page
         deactivate Resolver
-        activate Input Adapter
+        activate Aggregator
         
         loop each subscription in page
-            Input Adapter-)Output Adapter: message, matching subscription
-            deactivate Input Adapter
+            Aggregator-)Output Adapter: message, matching subscription
+            deactivate Aggregator
             activate Output Adapter
             Output Adapter-)Destination: message, route
             deactivate Output Adapter
         end
         
     end
-    deactivate Input Adapter
+    deactivate Aggregator
 ```
