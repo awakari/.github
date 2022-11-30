@@ -14,6 +14,8 @@ The above diagram is simplified, it hides:
 sequenceDiagram
     participant Client
     participant Resolver
+    -->Client: msg
+    activate Client
     Client->>Resolver: msg (id, md) 
     Resolver-->>Client: done
 ```
