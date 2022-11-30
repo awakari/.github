@@ -25,7 +25,6 @@ sequenceDiagram
     deactivate Messages
     
     Input Adapter-)Resolver: message id, metadata
-    deactivate Input Adapter
     activate Resolver
     
     loop message metadata (k, v)
@@ -53,8 +52,11 @@ sequenceDiagram
         deactivate Resolver
     end
     
-    Resolver-)Aggregator: message id
+    Resolver-->>Input Adapter: done
     deactivate Resolver
+    
+    Input Adapter-)Aggregator: message id
+    deactivate Input Adapter
 
     activate Aggregator
     
