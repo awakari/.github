@@ -12,17 +12,17 @@ The above diagram is simplified, it hides:
 
 ```mermaid
 sequenceDiagram
-    participant 3rd Party
+    actor Bus
     participant Adapter
     participant Resolver
     participant Matchers
     participant Subscriptions
-    3rd Party->>Adapter: msg
+    Bus->>Adapter: msg
     activate Adapter
     Adapter->>Resolver: msg (id, md) 
     activate Resolver
     Resolver-->>Adapter: done
     deactivate Resolver
-    Adapter-->>3rd Party
+    Adapter-->>Bus
     deactivate Adapter
 ```
