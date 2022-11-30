@@ -11,6 +11,7 @@ The above diagram is simplified, it hides:
 2. 4 different matchers services - includes/excludes x complete/partial
 
 ```mermaid
+%%{init: {'theme': 'neutral' } }%%
 sequenceDiagram
     actor 3rd Party Message Bus
     participant Adapter
