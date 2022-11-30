@@ -16,10 +16,10 @@ sequenceDiagram
 
     actor Source
     participant Input Adapter
-    participant Resolver
-    participant Subscriptions
-    participant Matchers
     participant Messages
+    participant Resolver
+    participant Matchers
+    participant Subscriptions
     participant Aggregator
     participant Output Adapter
     actor Destination
