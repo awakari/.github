@@ -15,16 +15,17 @@ The above diagram is simplified, it hides:
 sequenceDiagram
 
     actor Source
-    participant Adapter
+    participant Input Adapter
     participant Resolver
     participant Matchers
     participant Subscriptions
+    participant Output Adapter
     actor Destination
 
-    Source-)Adapter: message
-    activate Adapter
+    Source-)Input Adapter: message
+    activate Input Adapter
     
-    Adapter->>Resolver: message id, metadata
+    Input Adapter->>Resolver: message id, metadata
     activate Resolver
     
     loop message metadata (k, v)
@@ -54,20 +55,25 @@ sequenceDiagram
     
     
     
-    Resolver-->>Adapter: done
+    Resolver-->>Input Adapter: done
     deactivate Resolver
 
-    activate Adapter
+    activate Input Adapter
     loop each subscription page
-        Adapter->>Resolver: resolve matches by message id
+        Input Adapter->>Resolver: resolve matches by message id
         activate Resolver
-        Resolver->>Adapter: next subscriptions page
+        Resolver->>Input Adapter: next subscriptions page
         deactivate Resolver
-        activate Adapter
+        activate Input Adapter
         
         loop each subscription in page
-            Adapter-)Destination: message, subscription's route
-            deactivate Adapter
+            Input Adapter-)Output Adapter: message, matching subscription
+            
+            activate Output Adapter
+            Output Adapter-)Destination: message, route
+            deactivate Output Adapter
+            
+            deactivate Input Adapter
         end
         
     end
