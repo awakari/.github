@@ -20,9 +20,7 @@ sequenceDiagram
     Bus->>Adapter: msg
     activate Adapter
     Adapter->>Resolver: msg (id, md) 
-    activate Resolver
     Resolver-->>Adapter: done
-    deactivate Resolver
-    Adapter-->>Bus
+    Adapter-->>Bus: done
     deactivate Adapter
 ```
