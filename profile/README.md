@@ -22,10 +22,20 @@ sequenceDiagram
 
     3rd Party Message Bus-)Adapter: message
     activate Adapter
+    
     Adapter->>Resolver: message id, metadata
     activate Resolver
-    deactivate Resolver
+    
+    loop message metadata (k, v)
+        Resolver->>Matchers: resolve matchers by next (k, v)
+        activate Matchers
+        Matchers->>Resolver: next matchers page
+        deactivate Matchers
+    end
+    
     Resolver-->>Adapter: done
+    deactivate Resolver
+
     activate Adapter
     loop subscriptions
         Adapter->>Resolver: resolve subscriptions matches by the message id
