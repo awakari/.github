@@ -8,7 +8,6 @@ sequenceDiagram
 
     actor Source
     participant Input Adapter
-    participant Messages
     participant Resolver
     participant Matchers
     participant Subscriptions
@@ -18,59 +17,40 @@ sequenceDiagram
 
     Source-)Input Adapter: message
     activate Input Adapter
-    
-    par register message
-    
-        Input Adapter->>Messages: message
-        activate Messages
-        Messages-->>Input Adapter: ack
-        deactivate Messages
         
-    and resolve subscription matches
+    Input Adapter-)Resolver: message
+    deactivate Input Adapter
+    activate Resolver
     
-        Input Adapter-)Resolver: message id, metadata
+    loop message metadata (k, v)
+    
+        Resolver->>Matchers: resolve by next (k, v)
+        activate Matchers
+        Matchers->>Resolver: next matchers page
+        deactivate Matchers
+        
         activate Resolver
-        
-        loop message metadata (k, v)
-        
-            Resolver->>Matchers: resolve by next (k, v)
-            activate Matchers
-            Matchers->>Resolver: next matchers page
-            deactivate Matchers
+        loop each matcher in page
+            
+            Resolver->>Subscriptions: resolve by next matcher
+            activate Subscriptions
+            Subscriptions->>Resolver: next subscriptions page
+            deactivate Subscriptions
             
             activate Resolver
-            loop each matcher in page
-                
-                Resolver->>Subscriptions: resolve by next matcher
-                activate Subscriptions
-                Subscriptions->>Resolver: next subscriptions page
-                deactivate Subscriptions
-                
-                activate Resolver
-                loop each subscription in page
-                    Resolver->>Resolver: register next match for message id, subscription
-                end
-                deactivate Resolver
-                
+            loop each subscription in page
+                Resolver->>Resolver: register next match for message id, subscription
             end
             deactivate Resolver
+            
         end
-        
-        Resolver-->>Input Adapter: done
         deactivate Resolver
-    
     end
-    
-    Input Adapter-)Aggregator: message id
-    deactivate Input Adapter
+        
+    Resolver-)Aggregator: message
+    deactivate Resolver
 
     activate Aggregator
-    
-    Aggregator->>Messages: get message by id
-    activate Messages
-    Messages->>Aggregator: message
-    deactivate Messages
-    
     loop each matching subscriptions page
         
         Aggregator->>Resolver: resolve matches by message id
