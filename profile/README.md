@@ -19,6 +19,7 @@ sequenceDiagram
     participant Resolver
     participant Matchers
     participant Subscriptions
+    actor Destination
 
     Source-)Adapter: message
     activate Adapter
@@ -34,7 +35,7 @@ sequenceDiagram
         deactivate Matchers
         
         activate Resolver
-        loop matchers
+        loop each matcher in page
             
             Resolver->>Subscriptions: resolve by next matcher
             activate Subscriptions
@@ -42,7 +43,7 @@ sequenceDiagram
             deactivate Subscriptions
             
             activate Resolver
-            loop subscriptions
+            loop each subscription in page
                 Resolver->>Resolver: enroll match
             end
             deactivate Resolver
@@ -57,9 +58,10 @@ sequenceDiagram
     deactivate Resolver
 
     activate Adapter
-    loop subscriptions
+    loop each subscription page
         Adapter->>Resolver: resolve subscriptions matches by the message id
         Resolver->>Adapter: next subscriptions matches page
+        Adapter-)Destination: message, next subscriptions batch
     end
     deactivate Adapter
     deactivate Adapter
