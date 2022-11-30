@@ -68,12 +68,10 @@ sequenceDiagram
         
         loop each subscription in page
             Input Adapter-)Output Adapter: message, matching subscription
-            
+            deactivate Input Adapter
             activate Output Adapter
             Output Adapter-)Destination: message, route
             deactivate Output Adapter
-            
-            deactivate Input Adapter
         end
         
     end
