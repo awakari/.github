@@ -18,16 +18,18 @@ sequenceDiagram
     participant Resolver
     participant Matchers
     participant Subscriptions
-    3rd Party Message Bus->>Adapter: msg
+    3rd Party Message Bus->>Adapter: message
     activate Adapter
-    Adapter->>Resolver: msg (id, md) 
+    Adapter->>Resolver: message id, metadata
+    activate Resolver
+    deactivate Resolver
     Resolver-->>Adapter: done
     activate Adapter
     loop subscriptions
         Adapter->>Resolver: resolve subscriptions matches by the message id
         Resolver-->>Adapter: next subscriptions matches page
-        deactivate Adapter
     end
+    deactivate Adapter
     Adapter-->>3rd Party Message Bus: done
     deactivate Adapter
 ```
