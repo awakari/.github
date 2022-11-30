@@ -60,8 +60,12 @@ sequenceDiagram
     activate Adapter
     loop each subscription page
         Adapter->>Resolver: resolve subscriptions matches by the message id
+        activate Resolver
         Resolver->>Adapter: next subscriptions matches page
+        deactivate Resolver
+        activate Adapter
         Adapter-)Destination: message, next subscriptions batch
+        deactivate Adapter
     end
     deactivate Adapter
     deactivate Adapter
