@@ -66,14 +66,20 @@ sequenceDiagram
 
     activate Aggregator
     loop each matching subscriptions page
+        
         Aggregator->>Resolver: resolve matches by message id
         activate Resolver
         Resolver->>Aggregator: next subscriptions page
         deactivate Resolver
+        
         activate Aggregator
+        Aggregator->>Messages: get message by id
+        activate Messages
+        Messages->>Aggregator: message
+        deactivate Messages
         
         loop each subscription in page
-            Aggregator-)Output Adapter: message, matching subscription
+            Aggregator-)Output Adapter: message, subscription
             deactivate Aggregator
             activate Output Adapter
             Output Adapter-)Destination: message, route
