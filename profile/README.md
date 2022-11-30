@@ -9,3 +9,20 @@ Resolution sequence diagram:
 The above diagram is simplified, it hides:
 1. message metadata values segmentation and matches against every lexeme
 2. 4 different matchers services - includes/excludes x complete/partial
+
+```mermaid
+sequenceDiagram
+    participant Client
+    paritcipant Resolver
+    participant Matchers
+    participant Subscriptions
+    ->>Client: msg
+    activate Client
+    Client->>Resolver: msg (id, md)
+    activate Resolver
+    loop md(k, v)
+        
+    end
+    Resolver-->>Client: done 
+    Client-->>: done
+```
