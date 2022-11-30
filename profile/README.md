@@ -16,6 +16,7 @@ sequenceDiagram
 
     actor Source
     participant Input Adapter
+    participant Messages
     participant Resolver
     participant Matchers
     participant Subscriptions
@@ -24,6 +25,11 @@ sequenceDiagram
 
     Source-)Input Adapter: message
     activate Input Adapter
+    
+    Input Adapter->>Messages: register message
+    activate Messages
+    Messages-->>Input Adapter: ack
+    deactivate Messages
     
     Input Adapter-)Resolver: message id, metadata
     deactivate Input Adapter
