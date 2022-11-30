@@ -12,10 +12,6 @@ The above diagram is simplified, it hides:
 
 ```mermaid
 sequenceDiagram
-    participant Client
-    paritcipant Resolver
-    participant Matchers
-    participant Subscriptions
     ->>Client: msg
     activate Client
     Client->>Resolver: msg (id, md)
