@@ -7,20 +7,14 @@
 sequenceDiagram
 
     actor Source
-    participant Input Adapter
     participant Resolver
     participant Matchers
     participant Subscriptions
     participant Matches
     participant Aggregator
-    participant Output Adapter
     actor Destination
 
-    Source-)Input Adapter: message
-    activate Input Adapter
-        
-    Input Adapter-)Resolver: message
-    deactivate Input Adapter
+    Source-)Resolver: message
     activate Resolver
     
     loop message metadata (k, v)
@@ -63,11 +57,8 @@ sequenceDiagram
         deactivate Matches
         
         loop each subscription in page
-            Aggregator-)Output Adapter: message, route
+            Aggregator-)Destination: message, route
             deactivate Aggregator
-            activate Output Adapter
-            Output Adapter-)Destination: message, route
-            deactivate Output Adapter
         end
         
     end
