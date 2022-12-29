@@ -1,6 +1,4 @@
-<img alt="title" height="80" src="title.png"/>
-
-# Scalable Wildcard Subscriptions
+# Scalable wildcard message routing
 
 ```mermaid
 %%{init: {'theme': 'neutral' } }%%
