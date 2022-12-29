@@ -1,5 +1,22 @@
 # Scalable wildcard message routing
 
+Existing messaging solutions offer wildcard subscriptions:
+* [Redis](https://redis.io/commands/psubscribe/)
+* [NATS](https://docs.nats.io/nats-concepts/subjects#wildcards)
+* [Kafka](https://kafka.apache.org/32/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html#subscribe(java.util.regex.Pattern,org.apache.kafka.clients.consumer.ConsumerRebalanceListener))
+
+These solutions are able to resolve subscriptions in O(N) time, where N is the number of wildcard subscriptions.
+This is not scalable because the time to resolve such subscriptions will grow with increasing number of subscriptions.
+Awakari offers a scalable solution for this.
+
+Nevertheless, Awakari is not a messaging delivery system but a primitive.
+The purpose is only to resolve subscriptions by an input message.
+So it should be used as a component of a more sophisticated system.
+For example, it can be used as a part of the system working ahead of Redis/NATS/Kafka to solve their scalability issues.
+
+The heart of Awakari is [Kiwi](https://github.com/awakari/kiwi) providing the wildcards search by a sample in a O(log N)
+time. 
+
 ```mermaid
 %%{init: {'theme': 'neutral' } }%%
 sequenceDiagram
