@@ -6,8 +6,8 @@ Existing messaging solutions offer wildcard subscriptions:
 * [Kafka](https://kafka.apache.org/32/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html#subscribe(java.util.regex.Pattern,org.apache.kafka.clients.consumer.ConsumerRebalanceListener))
 
 These solutions are able to resolve subscriptions in O(N) time, where N is the number of wildcard subscriptions.
-This is not scalable because the time to resolve such subscriptions will grow with increasing number of subscriptions.
-Awakari offers a scalable solution for this.
+This is not efficient because the time to resolve such subscriptions will grow with increasing number of subscriptions.
+Awakari offers a more scalable solution for this.
 
 Nevertheless, Awakari is not a messaging delivery system but a primitive.
 The purpose is only to resolve subscriptions by an input message.
