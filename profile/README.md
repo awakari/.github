@@ -6,7 +6,7 @@ sequenceDiagram
 
     actor Source
     participant Resolver
-    participant Matchers
+    participant Kiwi
     participant Subscriptions
     participant Matches
     participant Aggregator
@@ -17,10 +17,10 @@ sequenceDiagram
     
     loop message metadata (k, v)
     
-        Resolver->>Matchers: resolve by next (k, v)
-        activate Matchers
-        Matchers->>Resolver: next matchers page
-        deactivate Matchers
+        Resolver->>Kiwi: resolve by next (k, v)
+        activate Kiwi
+        Kiwi->>Resolver: next matchers page
+        deactivate Kiwi
         
         activate Resolver
         loop each matcher in page
