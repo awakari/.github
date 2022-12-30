@@ -36,13 +36,13 @@ sequenceDiagram
     
         Resolver->>Kiwi: resolve by next (k, v)
         activate Kiwi
-        Kiwi->>Resolver: next matchers page
+        Kiwi->>Resolver: next patterns page
         deactivate Kiwi
         
         activate Resolver
         loop each matcher in page
             
-            Resolver->>Subscriptions: resolve by next matcher
+            Resolver->>Subscriptions: resolve by next (k, pattern) pair
             activate Subscriptions
             Subscriptions->>Resolver: next subscriptions page
             deactivate Subscriptions
