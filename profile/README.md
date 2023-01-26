@@ -1,6 +1,6 @@
 # Scalable wildcard message routing
 
-<table>
+<table align="center">
     <thead>
         <tr>
             <td></td>
@@ -36,20 +36,12 @@
             <td><img width="16px" src="icon-no.svg"/> O(N)</td>
         </tr>
         <tr>
-            <td>Matching Side</td>
-            <td><img width="16px" src="icon-yes.svg"/> Broker</td>
-            <td><img width="16px" src="icon-yes.svg"/> Broker</td>
-            <td><img width="16px" src="icon-no.svg"/> Consumer</td>
-            <td><img width="16px" src="icon-yes.svg"/> Broker</td>
-            <td><img width="16px" src="icon-yes.svg"/> Broker</td>
-        </tr>
-        <tr>
             <td>Horizontal Scalability</td>
             <td><img width="16px" src="icon-yes.svg"/></td>
             <td><img width="16px" src="icon-yes.svg"/></td>
-            <td><img width="16px" src="icon-no.svg"/></td>
-            <td><img width="16px" src="icon-yes.svg"/> Broker</td>
-            <td><img width="16px" src="icon-yes.svg"/> Broker</td>
+            <td><img width="16px" src="icon-no.svg"/> Consumer is responsible for matching</td>
+            <td><img width="16px" src="icon-yes.svg"/></td>
+            <td><img width="16px" src="icon-yes.svg"/></td>
         </tr>
     </tbody>
 </table>
