@@ -59,7 +59,7 @@
             <td><img width="16px" src="icon-no.svg" title="O(N)"/></td>
         </tr>
         <tr>
-            <td><b>Matching Criteria Attribute</b></td>
+            <td><b>Matching Criteria Attributes</b></td>
             <td><img width="16px" src="icon-no.svg" title="Channel only"/></td>
             <td><img width="16px" src="icon-no.svg" title="Subject only"/></td>
             <td><img width="16px" src="icon-no.svg" title="Topic only"/></td>
