@@ -1,8 +1,8 @@
 # Scalable wildcard message routing
 
-<table align="center">
+<table>
     <thead>
-        <tr>
+        <tr align="center">
             <td></td>
             <td colspan="5">Solution</td>
         </tr>
