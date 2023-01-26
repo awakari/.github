@@ -21,59 +21,59 @@
     <tbody>
         <tr>
             <td><b>Horizontal Scalability</b></td>
-            <td><img width="16px" src="icon-yes.svg"/></td>
-            <td><img width="16px" src="icon-yes.svg"/></td>
-            <td><img width="16px" src="icon-no.svg" alt="matching happens on the consumer side"/></td>
-            <td><img width="16px" src="icon-yes.svg"/></td>
-            <td><img width="16px" src="icon-yes.svg"/></td>
+            <td><img width="16px" src="icon-yes.svg" title=""/></td>
+            <td><img width="16px" src="icon-yes.svg" title=""/></td>
+            <td><img width="16px" src="icon-no.svg" title="matching happens on the consumer side"/></td>
+            <td><img width="16px" src="icon-yes.svg" title=""/></td>
+            <td><img width="16px" src="icon-yes.svg" title=""/></td>
         </tr>
         <tr>
             <td><b>Persistence</b></td>
-            <td><img width="16px" src="icon-no.svg"/></td>
-            <td><img width="16px" src="icon-yes.svg" alt="JetStream"/></td>
-            <td><img width="16px" src="icon-yes.svg"/></td>
-            <td><img width="16px" src="icon-no.svg"/></td>
-            <td><img width="16px" src="icon-no.svg"/></td>
+            <td><img width="16px" src="icon-no.svg" title=""/></td>
+            <td><img width="16px" src="icon-yes.svg" title="JetStream"/></td>
+            <td><img width="16px" src="icon-yes.svg" title=""/></td>
+            <td><img width="16px" src="icon-no.svg" title=""/></td>
+            <td><img width="16px" src="icon-no.svg" title=""/></td>
         </tr>
         <tr>
             <td><b>Delivery Guarantee</b></td>
-            <td><img width="16px" src="icon-no.svg" alt="At most once"/></td>
-            <td><img width="16px" src="icon-yes.svg" alt="Exactly once (JetStream)"/></td>
-            <td><img width="16px" src="icon-yes.svg" alt="Exactly once"/></td>
-            <td><img width="16px" src="icon-no.svg"/><br/>At Most Once</td>
-            <td><img width="16px" src="icon-no.svg"/><br/>At Most Once</td>
+            <td><img width="16px" src="icon-no.svg" title="At most once"/></td>
+            <td><img width="16px" src="icon-yes.svg" title="Exactly once (JetStream)"/></td>
+            <td><img width="16px" src="icon-yes.svg" title="Exactly once"/></td>
+            <td><img width="16px" src="icon-no.svg" title="At most once"/></td>
+            <td><img width="16px" src="icon-no.svg" title="At most once"/></td>
         </tr>
         <tr>
             <td><b>Pattern Syntax</b></td>
-            <td><img width="16px" src="icon-no.svg"/><br/>Limited</td>
-            <td><img width="16px" src="icon-no.svg"/><br/>Limited</td>
-            <td><img width="16px" src="icon-yes.svg"/><br/>Full</td>
-            <td><img width="16px" src="icon-no.svg"/><br/>Limited</td>
-            <td><img width="16px" src="icon-yes.svg"/><br/>Full</td>
+            <td><img width="16px" src="icon-no.svg" title="Limited"/></td>
+            <td><img width="16px" src="icon-no.svg" title="Limited"/></td>
+            <td><img width="16px" src="icon-yes.svg" title="Full"/></td>
+            <td><img width="16px" src="icon-no.svg" title="Limited"/></td>
+            <td><img width="16px" src="icon-yes.svg" title="Full"/></td>
         </tr>
         <tr>
             <td><b>Matching Time</b><br/>(N subscriptions)</td>
-            <td><img width="16px" src="icon-no.svg"/><br/>O(N)</td>
-            <td><img width="16px" src="icon-no.svg"/><br/>O(N)</td>
-            <td><img width="16px" src="icon-no.svg"/><br/>O(N)</td>
-            <td><img width="16px" src="icon-yes.svg"/><br/>O(log(N))</td>
-            <td><img width="16px" src="icon-no.svg"/><br/>O(N)</td>
+            <td><img width="16px" src="icon-no.svg" title="O(N)"/></td>
+            <td><img width="16px" src="icon-no.svg" title="O(N)"/></td>
+            <td><img width="16px" src="icon-no.svg" title="O(N)"/></td>
+            <td><img width="16px" src="icon-yes.svg" title="O(log(N))"/></td>
+            <td><img width="16px" src="icon-no.svg" title="O(N)"/></td>
         </tr>
         <tr>
             <td><b>Matching Criteria Attribute</b></td>
-            <td><img width="16px" src="icon-no.svg"/><br/>Channel only</td>
-            <td><img width="16px" src="icon-no.svg"/><br/>Subject only</td>
-            <td><img width="16px" src="icon-no.svg"/><br/>Topic only</td>
-            <td><img width="16px" src="icon-yes.svg"/><br/>Any metadata<br/>(key/value)</td>
-            <td><img width="16px" src="icon-yes.svg"/><br/>Any metadata<br/>(key/value)</td>
+            <td><img width="16px" src="icon-no.svg" title="Channel only"/></td>
+            <td><img width="16px" src="icon-no.svg" title="Subject only"/></td>
+            <td><img width="16px" src="icon-no.svg" title="Topic only"/></td>
+            <td><img width="16px" src="icon-yes.svg" title="Any metadata (key/value)"/></td>
+            <td><img width="16px" src="icon-yes.svg" title="Any metadata (key/value)"/></td>
         </tr>
         <tr>
             <td><b>Matching Criteria Groups/Logic</b></td>
-            <td><img width="16px" src="icon-no.svg"/></td>
-            <td><img width="16px" src="icon-no.svg"/></td>
-            <td><img width="16px" src="icon-no.svg"/></td>
-            <td><img width="16px" src="icon-yes.svg"/></td>
-            <td><img width="16px" src="icon-yes.svg"/></td>
+            <td><img width="16px" src="icon-no.svg" title=""/></td>
+            <td><img width="16px" src="icon-no.svg" title=""/></td>
+            <td><img width="16px" src="icon-no.svg" title=""/></td>
+            <td><img width="16px" src="icon-yes.svg" title=""/></td>
+            <td><img width="16px" src="icon-yes.svg" title=""/></td>
         </tr>
     </tbody>
 </table>
