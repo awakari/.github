@@ -21,11 +21,11 @@
     <tbody>
         <tr>
             <td>Subscription Pattern Syntax</td>
-            <td><img src="icon-no.svg"/></img>Limited</td>
-            <td><img src="icon-no.svg"/></img>Limited</td>
-            <td><img src="icon-yes.svg"/></img>Full</td>
-            <td><img src="icon-no.svg"/></img>Limited</td>
-            <td><img src="icon-yes.svg"/></img>Full</td>
+            <td><img width="32px" src="icon-no.svg"/></img>Limited</td>
+            <td><img width="32px" src="icon-no.svg"/></img>Limited</td>
+            <td><img width="32px" src="icon-yes.svg"/></img>Full</td>
+            <td><img width="32px" src="icon-no.svg"/></img>Limited</td>
+            <td><img width="32px" src="icon-yes.svg"/></img>Full</td>
         </tr>
     </tbody>
 </table>
