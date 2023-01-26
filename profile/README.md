@@ -4,14 +4,14 @@
     <thead>
         <tr>
             <td></td>
-            <td colspan="5" align="center">Solution</td>
+            <td colspan="5" align="center"><b>Solution</b></td>
         </tr>
         <tr>
             <td rowspan="2"></td>
-            <td rowspan="2">Redis</td>
-            <td rowspan="2">Nats</td>
-            <td rowspan="2">Kafka</td>
-            <td colspan="2">Awakari</td>
+            <td rowspan="2" align="center"><b>Redis</b></td>
+            <td rowspan="2" align="center"><b>Nats</b></td>
+            <td rowspan="2" align="center"><b>Kafka</b></td>
+            <td colspan="2" align="center"><b>Awakari</b></td>
         </tr>
         <tr>
             <td>kiwi-tree</td>
@@ -20,7 +20,7 @@
     </thead>
     <tbody>
         <tr>
-            <td>Pattern Syntax</td>
+            <td><b>Pattern Syntax</b></td>
             <td><img width="16px" src="icon-no.svg"/> Limited</td>
             <td><img width="16px" src="icon-no.svg"/> Limited</td>
             <td><img width="16px" src="icon-yes.svg"/> Full</td>
@@ -28,7 +28,7 @@
             <td><img width="16px" src="icon-yes.svg"/></img> Full</td>
         </tr>
         <tr>
-            <td>Matching Time<br/>(N subscriptions)</td>
+            <td><b>Matching Time</b><br/>(N subscriptions)</td>
             <td><img width="16px" src="icon-no.svg"/> O(N)</td>
             <td><img width="16px" src="icon-no.svg"/> O(N)</td>
             <td><img width="16px" src="icon-no.svg"/> O(N)</td>
@@ -36,7 +36,7 @@
             <td><img width="16px" src="icon-no.svg"/> O(N)</td>
         </tr>
         <tr>
-            <td>Horizontal Scalability</td>
+            <td><b>Horizontal Scalability</b></td>
             <td><img width="16px" src="icon-yes.svg"/></td>
             <td><img width="16px" src="icon-yes.svg"/></td>
             <td><img width="16px" src="icon-no.svg"/> Consumer is responsible for matching</td>
