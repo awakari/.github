@@ -20,12 +20,36 @@
     </thead>
     <tbody>
         <tr>
-            <td>Subscription Pattern Syntax</td>
-            <td><img width="16px" src="icon-no.svg"/></img>Limited</td>
-            <td><img width="16px" src="icon-no.svg"/></img>Limited</td>
-            <td><img width="16px" src="icon-yes.svg"/></img>Full</td>
-            <td><img width="16px" src="icon-no.svg"/></img>Limited</td>
-            <td><img width="16px" src="icon-yes.svg"/></img>Full</td>
+            <td>Pattern Syntax</td>
+            <td><img width="16px" src="icon-no.svg"/> Limited</td>
+            <td><img width="16px" src="icon-no.svg"/> Limited</td>
+            <td><img width="16px" src="icon-yes.svg"/> Full</td>
+            <td><img width="16px" src="icon-no.svg"/> Limited</td>
+            <td><img width="16px" src="icon-yes.svg"/></img> Full</td>
+        </tr>
+        <tr>
+            <td>Matching Time<br/>(N subscriptions)</td>
+            <td><img width="16px" src="icon-no.svg"/> O(N)</td>
+            <td><img width="16px" src="icon-no.svg"/> O(N)</td>
+            <td><img width="16px" src="icon-no.svg"/> O(N)</td>
+            <td><img width="16px" src="icon-yes.svg"/> O(log(N))</td>
+            <td><img width="16px" src="icon-no.svg"/> O(N)</td>
+        </tr>
+        <tr>
+            <td>Matching Side</td>
+            <td><img width="16px" src="icon-yes.svg"/> Broker</td>
+            <td><img width="16px" src="icon-yes.svg"/> Broker</td>
+            <td><img width="16px" src="icon-no.svg"/> Consumer</td>
+            <td><img width="16px" src="icon-yes.svg"/> Broker</td>
+            <td><img width="16px" src="icon-yes.svg"/> Broker</td>
+        </tr>
+        <tr>
+            <td>Horizontal Scalability</td>
+            <td><img width="16px" src="icon-yes.svg"/></td>
+            <td><img width="16px" src="icon-yes.svg"/></td>
+            <td><img width="16px" src="icon-no.svg"/></td>
+            <td><img width="16px" src="icon-yes.svg"/> Broker</td>
+            <td><img width="16px" src="icon-yes.svg"/> Broker</td>
         </tr>
     </tbody>
 </table>
