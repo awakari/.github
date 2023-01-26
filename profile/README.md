@@ -1,5 +1,25 @@
 # Scalable wildcard message routing
 
+<table>
+    <thead>
+        <tr>
+            <td rowspan="2"></td>
+            <td rowspan="2">Redis</td>
+            <td rowspan="2">Nats</td>
+            <td rowspan="2">Kafka</td>
+            <td colspan="2">Awakari</td>
+        </tr>
+        <tr>
+            <td>kiwi-tree</td>
+            <td>kiwi-bird</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        </tr>
+    </tbody>
+</table>
+
 | Solution                          | Redis                                       | Nats                                        | Kafka                                        | Awakari<br>kiwi-tree                        | Awakari<br/>kiwi-bird                       |
 |-----------------------------------|---------------------------------------------|---------------------------------------------|----------------------------------------------|---------------------------------------------|---------------------------------------------|
 | Subscription Pattern Syntax       | <span style="color:red">Limited</span>      | <span style="color:red">Limited</span>      | <span style="color:green">Full</span>        | <span style="color:red">Limited</span>      | <span style="color:green">Full</span>       |
