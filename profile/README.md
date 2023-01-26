@@ -3,15 +3,14 @@
 <table>
     <thead>
         <tr>
-            <td></td>
+            <td rowspan="3"></td>
             <td colspan="5" align="center"><b>Solution</b></td>
         </tr>
         <tr>
-            <td rowspan="2"></td>
-            <td rowspan="2" align="center"><b>Redis</b></td>
-            <td rowspan="2" align="center"><b>Nats</b></td>
-            <td rowspan="2" align="center"><b>Kafka</b></td>
-            <td colspan="2" align="center"><b>Awakari</b></td>
+            <td rowspan="2" align="center" valign="top"><b>Redis</b></td>
+            <td rowspan="2" align="center" valign="top"><b>Nats</b></td>
+            <td rowspan="2" align="center" valign="top"><b>Kafka</b></td>
+            <td colspan="2" align="center" valign="top"><b>Awakari</b></td>
         </tr>
         <tr>
             <td>kiwi-tree</td>
@@ -47,12 +46,12 @@
             <td><b>Pattern Syntax</b></td>
             <td><img width="16px" src="icon-no.svg" title="Limited"/></td>
             <td><img width="16px" src="icon-no.svg" title="Limited"/></td>
-            <td><img width="16px" src="icon-yes.svg" title="Full"/></td>
+            <td><img width="16px" src="icon-yes.svg" title="Complete"/></td>
             <td><img width="16px" src="icon-no.svg" title="Limited"/></td>
-            <td><img width="16px" src="icon-yes.svg" title="Full"/></td>
+            <td><img width="16px" src="icon-yes.svg" title="Complete"/></td>
         </tr>
         <tr>
-            <td><b>Matching Time</b><br/>(N subscriptions)</td>
+            <td><b>Matching Time</b> (N subscriptions)</td>
             <td><img width="16px" src="icon-no.svg" title="O(N)"/></td>
             <td><img width="16px" src="icon-no.svg" title="O(N)"/></td>
             <td><img width="16px" src="icon-no.svg" title="O(N)"/></td>
@@ -72,8 +71,8 @@
             <td><img width="16px" src="icon-no.svg" title=""/></td>
             <td><img width="16px" src="icon-no.svg" title=""/></td>
             <td><img width="16px" src="icon-no.svg" title=""/></td>
-            <td><img width="16px" src="icon-yes.svg" title=""/></td>
-            <td><img width="16px" src="icon-yes.svg" title=""/></td>
+            <td><img width="16px" src="icon-yes.svg" title="nested groups + logic and/or/xor"/></td>
+            <td><img width="16px" src="icon-yes.svg" title="nested groups + logic and/or/xor"/></td>
         </tr>
     </tbody>
 </table>
