@@ -1,12 +1,11 @@
 # Scalable wildcard message routing
 
-| Solution               | Subscription<br/>Pattern<br/>Syntax | Matching time<br/>for N subscriptions |
-|------------------------|-------------------------------------|---------------------------------------|
-| Redis                  | Limited                             | O(N)                                  |
-| NATS                   | Limited                             | O(N)                                  |
-| Kafka                  | Full                                | O(N)                                  |
-| Awakari (w/ kiwi-tree) | Limited                             | **O(log(N)**                          |
-| Awakari (w/ kiwi-bird) | Full                                | O(N)                                  |
+| Solution                            | Redis   | Nats    | Kafka   | Awakari     | Awakari       |
+|-------------------------------------|---------|---------|---------|-------------|---------------|
+|                                     |         |         |         | kiwi-tree   | kiwi-bird     |
+| =================================== | ======= | ======  | ======= | =========== | ============= |
+| Subscription Pattern Syntax         | Limited | Limited | Full    | Limited     | Full          |
+| Matching time for N subscriptions   | O(N)    | O(N)    | O(N)    | O(log(N))   | O(N)          |
 
 Existing messaging solutions offer wildcard subscriptions:
 * [Redis](https://redis.io/commands/psubscribe/)
