@@ -7,19 +7,42 @@
    viewBox="0 0 264.58333 264.58333"
    version="1.1"
    id="svg5"
+   sodipodi:docname="logo-color.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview11291"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.236"
+     inkscape:cx="451.27119"
+     inkscape:cy="502.11864"
+     inkscape:window-width="1916"
+     inkscape:window-height="1036"
+     inkscape:window-x="0"
+     inkscape:window-y="42"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg5" />
   <defs
      id="defs2">
     <linearGradient
        id="linearGradient10639">
       <stop
-         style="stop-color:#4095bf;stop-opacity:1;"
+         style="stop-color:#5540bf;stop-opacity:1;"
          offset="0"
          id="stop10635" />
       <stop
-         style="stop-color:#5540bf;stop-opacity:1;"
+         style="stop-color:#4095bf;stop-opacity:1;"
          offset="1"
          id="stop10637" />
     </linearGradient>
