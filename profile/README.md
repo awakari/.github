@@ -3,7 +3,8 @@
 <table>
     <thead>
         <tr>
-            <td colspan="6">Solution</td>
+            <td></td>
+            <td colspan="5">Solution</td>
         </tr>
         <tr>
             <td rowspan="2"></td>
@@ -20,11 +21,11 @@
     <tbody>
         <tr>
             <td>Subscription Pattern Syntax</td>
-            <td bgcolor="red">Limited</td>
-            <td style="background-color: red">Limited</td>
-            <td style="background-color: green">Full</td>
-            <td style="background-color: red">Limited</td>
-            <td style="background-color: green">Full</td>
+            <td><img src="icon-no.svg"/></img>Limited</td>
+            <td><img src="icon-no.svg"/></img>Limited</td>
+            <td><img src="icon-yes.svg"/></img>Full</td>
+            <td><img src="icon-no.svg"/></img>Limited</td>
+            <td><img src="icon-yes.svg"/></img>Full</td>
         </tr>
     </tbody>
 </table>
