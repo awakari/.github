@@ -20,7 +20,7 @@
     <tbody>
         <tr>
             <td>Subscription Pattern Syntax</td>
-            <td style="background-color: red">Limited</td>
+            <td bgcolor="red">Limited</td>
             <td style="background-color: red">Limited</td>
             <td style="background-color: green">Full</td>
             <td style="background-color: red">Limited</td>
