@@ -43,7 +43,7 @@
             <td><img width="16px" src="icon-no.svg" title="At most once"/></td>
         </tr>
         <tr>
-            <td><b>Pattern Syntax</b></td>
+            <td><b>Full Pattern Syntax</b></td>
             <td><img width="16px" src="icon-no.svg" title="Limited"/></td>
             <td><img width="16px" src="icon-no.svg" title="Limited"/></td>
             <td><img width="16px" src="icon-yes.svg" title="Complete"/></td>
