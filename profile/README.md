@@ -3,6 +3,9 @@
 <table>
     <thead>
         <tr>
+            <td colspan="6">Solution</td>
+        </tr>
+        <tr>
             <td rowspan="2"></td>
             <td rowspan="2">Redis</td>
             <td rowspan="2">Nats</td>
@@ -16,6 +19,12 @@
     </thead>
     <tbody>
         <tr>
+            <td>Subscription Pattern Syntax</td>
+            <td style="background-color: red">Limited</td>
+            <td style="background-color: red">Limited</td>
+            <td style="background-color: green">Full</td>
+            <td style="background-color: red">Limited</td>
+            <td style="background-color: green">Full</td>
         </tr>
     </tbody>
 </table>
