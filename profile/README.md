@@ -23,32 +23,33 @@
             <td><b>Horizontal Scalability</b></td>
             <td><img width="16px" src="icon-yes.svg"/></td>
             <td><img width="16px" src="icon-yes.svg"/></td>
-            <td><img width="16px" src="icon-no.svg"/> Consumer matches</td>
+            <td><img width="16px" src="icon-no.svg"/><br/>Consumer matches</td>
             <td><img width="16px" src="icon-yes.svg"/></td>
             <td><img width="16px" src="icon-yes.svg"/></td>
         </tr>
         <tr>
             <td><b>Pattern Syntax</b></td>
-            <td><img width="16px" src="icon-no.svg"/> Limited</td>
-            <td><img width="16px" src="icon-no.svg"/> Limited</td>
-            <td><img width="16px" src="icon-yes.svg"/> Full</td>
-            <td><img width="16px" src="icon-no.svg"/> Limited</td>
-            <td><img width="16px" src="icon-yes.svg"/></img> Full</td>
+            <td><img width="16px" src="icon-no.svg"/><br/>Limited</td>
+            <td><img width="16px" src="icon-no.svg"/><br/>Limited</td>
+            <td><img width="16px" src="icon-yes.svg"/><br/>Full</td>
+            <td><img width="16px" src="icon-no.svg"/><br/>Limited</td>
+            <td><img width="16px" src="icon-yes.svg"/><br/>Full</td>
         </tr>
         <tr>
             <td><b>Matching Time</b><br/>(N subscriptions)</td>
-            <td><img width="16px" src="icon-no.svg"/> O(N)</td>
-            <td><img width="16px" src="icon-no.svg"/> O(N)</td>
-            <td><img width="16px" src="icon-no.svg"/> O(N)</td>
-            <td><img width="16px" src="icon-yes.svg"/> O(log(N))</td>
-            <td><img width="16px" src="icon-no.svg"/> O(N)</td>
+            <td><img width="16px" src="icon-no.svg"/><br/>O(N)</td>
+            <td><img width="16px" src="icon-no.svg"/><br/>O(N)</td>
+            <td><img width="16px" src="icon-no.svg"/><br/>O(N)</td>
+            <td><img width="16px" src="icon-yes.svg"/><br/>O(log(N))</td>
+            <td><img width="16px" src="icon-no.svg"/><br/>O(N)</td>
         </tr>
         <tr>
-            <td><b>Matching Criteria</b></td>
-            <td><img width="16px" src="icon-no.svg"/> Channel only</td>
-            <td><img width="16px" src="icon-no.svg"/> Subject only</td>
-            <td><img width="16px" src="icon-no.svg"/> Topic only</td>
-            <td colspan="2"><img width="16px" src="icon-yes.svg"/> Any metadata (key-value)</td>
+            <td><b>Matching Criteria Attribute</b></td>
+            <td><img width="16px" src="icon-no.svg"/><br/>Channel only</td>
+            <td><img width="16px" src="icon-no.svg"/><br/>Subject only</td>
+            <td><img width="16px" src="icon-no.svg"/><br/>Topic only</td>
+            <td><img width="16px" src="icon-yes.svg"/><br/>Any metadata<br/>(key/value)</td>
+            <td><img width="16px" src="icon-yes.svg"/><br/>Any metadata<br/>(key/value)</td>
         </tr>
         <tr>
             <td><b>Matching Criteria Groups/Logic</b></td>
@@ -57,6 +58,22 @@
             <td><img width="16px" src="icon-no.svg"/></td>
             <td><img width="16px" src="icon-yes.svg"/></td>
             <td><img width="16px" src="icon-yes.svg"/></td>
+        </tr>
+        <tr>
+            <td><b>Persistence</b></td>
+            <td><img width="16px" src="icon-no.svg"/></td>
+            <td><img width="16px" src="icon-yes.svg"/><br/>(JetStream)</td>
+            <td><img width="16px" src="icon-yes.svg"/></td>
+            <td><img width="16px" src="icon-no.svg"/></td>
+            <td><img width="16px" src="icon-no.svg"/></td>
+        </tr>
+        <tr>
+            <td><b>Quality Of Service</b></td>
+            <td><img width="16px" src="icon-no.svg"/><br/>At Most Once</td>
+            <td><img width="16px" src="icon-yes.svg"/><br/>Exactly Once<br/>(JetStream)</td>
+            <td><img width="16px" src="icon-yes.svg"/><br/>Exactly Once</td>
+            <td><img width="16px" src="icon-no.svg"/><br/>At Most Once</td>
+            <td><img width="16px" src="icon-no.svg"/><br/>At Most Once</td>
         </tr>
     </tbody>
 </table>
