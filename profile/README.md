@@ -2,9 +2,9 @@
 
 <table>
     <thead>
-        <tr align="center">
+        <tr>
             <td></td>
-            <td colspan="5">Solution</td>
+            <td colspan="5" align="center">Solution</td>
         </tr>
         <tr>
             <td rowspan="2"></td>
