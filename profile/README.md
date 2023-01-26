@@ -1,11 +1,11 @@
 # Scalable wildcard message routing
 
-| Solution                            | Redis   | Nats    | Kafka   | Awakari     | Awakari       |
-|-------------------------------------|---------|---------|---------|-------------|---------------|
-|                                     |         |         |         | kiwi-tree   | kiwi-bird     |
-| =================================== | ======= | ======  | ======= | =========== | ============= |
-| Subscription Pattern Syntax         | Limited | Limited | Full    | Limited     | Full          |
-| Matching time for N subscriptions   | O(N)    | O(N)    | O(N)    | O(log(N))   | O(N)          |
+| Solution                          | Redis                                       | Nats                                        | Kafka                                        | Awakari<br>kiwi-tree                        | Awakari<br/>kiwi-bird                       |
+|-----------------------------------|---------------------------------------------|---------------------------------------------|----------------------------------------------|---------------------------------------------|---------------------------------------------|
+| Subscription Pattern Syntax       | <span style="color:red">Limited</span>      | <span style="color:red">Limited</span>      | <span style="color:green">Full</span>        | <span style="color:red">Limited</span>      | <span style="color:green">Full</span>       |
+| Matching time for N subscriptions | <span style="color:red">O(N)</span>         | <span style="color:red">O(N)</span>         | <span style="color:red">O(N)</span>          | <span style="color:green">O(log(N))</span>  | <span style="color:red">O(N)</span>         |
+| Matching side                     | <span style="color:green">Broker</span>     | <span style="color:green">Broker</span>     | <span style="color:red">Consumer</span>      | <span style="color:green">Broker</span>     | <span style="color:green">Broker</span>     |
+| Scalability                       | <span style="color:green">Horizontal</span> | <span style="color:green">Horizontal</span> | <span style="color:red">Vertical only</span> | <span style="color:green">Horizontal</span> | <span style="color:green">Horizontal</span> |
 
 Existing messaging solutions offer wildcard subscriptions:
 * [Redis](https://redis.io/commands/psubscribe/)
