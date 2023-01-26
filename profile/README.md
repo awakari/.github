@@ -20,6 +20,14 @@
     </thead>
     <tbody>
         <tr>
+            <td><b>Horizontal Scalability</b></td>
+            <td><img width="16px" src="icon-yes.svg"/></td>
+            <td><img width="16px" src="icon-yes.svg"/></td>
+            <td><img width="16px" src="icon-no.svg"/> Consumer matches</td>
+            <td><img width="16px" src="icon-yes.svg"/></td>
+            <td><img width="16px" src="icon-yes.svg"/></td>
+        </tr>
+        <tr>
             <td><b>Pattern Syntax</b></td>
             <td><img width="16px" src="icon-no.svg"/> Limited</td>
             <td><img width="16px" src="icon-no.svg"/> Limited</td>
@@ -36,19 +44,19 @@
             <td><img width="16px" src="icon-no.svg"/> O(N)</td>
         </tr>
         <tr>
-            <td><b>Horizontal Scalability</b></td>
-            <td><img width="16px" src="icon-yes.svg"/></td>
-            <td><img width="16px" src="icon-yes.svg"/></td>
-            <td><img width="16px" src="icon-no.svg"/> Consumer matches</td>
-            <td><img width="16px" src="icon-yes.svg"/></td>
-            <td><img width="16px" src="icon-yes.svg"/></td>
+            <td><b>Matching Criteria</b></td>
+            <td><img width="16px" src="icon-no.svg"/> Channel only</td>
+            <td><img width="16px" src="icon-no.svg"/> Subject only</td>
+            <td><img width="16px" src="icon-no.svg"/> Topic only</td>
+            <td colspan="2"><img width="16px" src="icon-yes.svg"/> Any metadata (key-value)</td>
         </tr>
         <tr>
-            <td><b>Matching Criteria</b></td>
-            <td><img width="16px" src="icon-no.svg"/>Channel only</td>
-            <td><img width="16px" src="icon-no.svg"/>Subject only</td>
-            <td><img width="16px" src="icon-no.svg"/>Topic only</td>
-            <td colspan="2"><img width="16px" src="icon-yes.svg"/>Any metadata (key-value)</td>
+            <td><b>Matching Criteria Groups/Logic</b></td>
+            <td><img width="16px" src="icon-no.svg"/></td>
+            <td><img width="16px" src="icon-no.svg"/></td>
+            <td><img width="16px" src="icon-no.svg"/></td>
+            <td><img width="16px" src="icon-yes.svg"/></td>
+            <td><img width="16px" src="icon-yes.svg"/></td>
         </tr>
     </tbody>
 </table>
