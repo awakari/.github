@@ -39,9 +39,16 @@
             <td><b>Horizontal Scalability</b></td>
             <td><img width="16px" src="icon-yes.svg"/></td>
             <td><img width="16px" src="icon-yes.svg"/></td>
-            <td><img width="16px" src="icon-no.svg"/> Consumer is responsible for matching</td>
+            <td><img width="16px" src="icon-no.svg"/> Consumer matches</td>
             <td><img width="16px" src="icon-yes.svg"/></td>
             <td><img width="16px" src="icon-yes.svg"/></td>
+        </tr>
+        <tr>
+            <td><b>Matching Criteria</b></td>
+            <td><img width="16px" src="icon-no.svg"/>Channel only</td>
+            <td><img width="16px" src="icon-no.svg"/>Subject only</td>
+            <td><img width="16px" src="icon-no.svg"/>Topic only</td>
+            <td colspan="2"><img width="16px" src="icon-yes.svg"/>Any metadata (key-value)</td>
         </tr>
     </tbody>
 </table>
