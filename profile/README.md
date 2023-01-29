@@ -92,7 +92,7 @@ sequenceDiagram
     Source-)Resolver: message
     activate Resolver
     
-    loop message metadata attributes
+    loop message attributes
     
         Resolver->>Conditions: resolve by next attribute 
         activate Conditions
