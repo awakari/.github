@@ -7,8 +7,9 @@ bring additional subscription-based routing flexibility. Awakari subscriptions h
 
 <table>
     <thead>
+        <tr><td><b>Comparison to other messaging solutions</b></td></tr>
         <tr>
-            <td rowspan="2"></td>
+            <td rowspan="2"><b>Criteria</b></td>
             <td colspan="4" align="center"><b>Solution</b></td>
         </tr>
         <tr>
