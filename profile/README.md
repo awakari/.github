@@ -5,9 +5,9 @@ bring additional subscription-based routing flexibility. Awakari subscriptions h
 1. Scalability to handle billions of subscriptions
 2. Rich routing conditions in subscriptions
 
+Comparison to other message queue solutions:
 <table>
     <thead>
-        <tr><td><b>Comparison to other messaging solutions</b></td></tr>
         <tr>
             <td rowspan="2"><b>Criteria</b></td>
             <td colspan="4" align="center"><b>Solution</b></td>
@@ -78,6 +78,8 @@ aggregator). The high-level processing sequence follows:
 ```mermaid
 %%{init: {'theme': 'neutral' } }%%
 sequenceDiagram
+
+    autonumber
 
     actor Source
     participant Resolver
