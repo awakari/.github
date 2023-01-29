@@ -25,8 +25,8 @@ Awakari is a message routing system.
         </tr>
         <tr>
             <td>Persistence</td>
-            <td><img width="16px" src="icon-no.svg" title=""/></td>
-            <td><img width="16px" src="icon-yes.svg" title="in the JetStream mode"/></td>
+            <td><img width="16px" src="icon-no.svg" title=""/>&nbsp;<img width="16px" src="icon-yes.svg" title="may be configured?"/></td>
+            <td><img width="16px" src="icon-no.svg" title="core"/>&nbsp;<img width="16px" src="icon-yes.svg" title="in the JetStream mode"/></td>
             <td><img width="16px" src="icon-yes.svg" title=""/></td>
             <td><img width="16px" src="icon-no.svg" title=""/></td>
         </tr>
@@ -42,14 +42,14 @@ Awakari is a message routing system.
             <td><img width="16px" src="icon-no.svg" title="Limited"/></td>
             <td><img width="16px" src="icon-no.svg" title="Limited"/></td>
             <td><img width="16px" src="icon-yes.svg" title="Complete"/></td>
-            <td><img width="16px" src="icon-no.svg" title="Limited for kiwi-tree subscriptions"/><img width="16px" src="icon-yes.svg" title="Complete for kiwi-bird subscriptions"/></td>
+            <td><img width="16px" src="icon-no.svg" title="Limited for kiwi-tree subscriptions"/>&nbsp;<img width="16px" src="icon-yes.svg" title="Complete for kiwi-bird subscriptions"/></td>
         </tr>
         <tr>
             <td>Matching Time (N subscriptions)</td>
             <td><img width="16px" src="icon-no.svg" title="O(N)"/></td>
             <td><img width="16px" src="icon-no.svg" title="O(N)"/></td>
             <td><img width="16px" src="icon-no.svg" title="O(N)"/></td>
-            <td><img width="16px" src="icon-yes.svg" title="O(log(N)) for kiwi-tree subscriptions"/><img width="16px" src="icon-no.svg" title="O(N) for kiwi-bird subscriptions"/></td>
+            <td><img width="16px" src="icon-yes.svg" title="O(log(N)) for kiwi-tree subscriptions"/>&nbsp;<img width="16px" src="icon-no.svg" title="O(N) for kiwi-bird subscriptions"/></td>
         </tr>
         <tr>
             <td>Matching Criteria Attributes</td>
