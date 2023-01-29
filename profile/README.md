@@ -1,6 +1,9 @@
 # Scalable wildcard message routing
 
-Awakari is a message routing system.
+Awakari is a message pub/sub routing system. It's designed to be used ahead of a reliable message queue like Kafka to 
+bring additional subscription-based routing flexibility. Awakari subscriptions have the following additional features:
+1. Scalability to handle billions of subscriptions
+2. Rich routing conditions in subscriptions
 
 <table>
     <thead>
@@ -33,7 +36,7 @@ Awakari is a message routing system.
         <tr>
             <td>Delivery Guarantee</td>
             <td><img width="16px" src="icon-no.svg" title="At most once"/></td>
-            <td><img width="16px" src="icon-yes.svg" title="Exactly once (JetStream)"/></td>
+            <td><img width="16px" src="icon-no.svg" title="At most once"/>&nbsp;<img width="16px" src="icon-yes.svg" title="Exactly once (JetStream)"/></td>
             <td><img width="16px" src="icon-yes.svg" title="Exactly once"/></td>
             <td><img width="16px" src="icon-no.svg" title="At most once"/></td>
         </tr>
@@ -68,6 +71,8 @@ Awakari is a message routing system.
     </tbody>
 </table>
 
+Basically, Awakari consist of 3 storages (conditions, subscriptions, matches) and 2 stateless functions (resolver, 
+aggregator). The high-level processing sequence follows: 
 
 ```mermaid
 %%{init: {'theme': 'neutral' } }%%
@@ -75,7 +80,7 @@ sequenceDiagram
 
     actor Source
     participant Resolver
-    participant Kiwi
+    participant Conditions
     participant Subscriptions
     participant Matches
     participant Aggregator
@@ -84,17 +89,17 @@ sequenceDiagram
     Source-)Resolver: message
     activate Resolver
     
-    loop message metadata (k, v)
+    loop message metadata attributes
     
-        Resolver->>Kiwi: resolve by next (k, v)
-        activate Kiwi
-        Kiwi->>Resolver: next patterns page
-        deactivate Kiwi
+        Resolver->>Conditions: resolve by next attribute 
+        activate Conditions
+        Conditions->>Resolver: next conditions page
+        deactivate Conditions
         
         activate Resolver
-        loop each pattern in page
+        loop each condition in page
             
-            Resolver->>Subscriptions: resolve by next (k, pattern) pair
+            Resolver->>Subscriptions: resolve by next condition
             activate Subscriptions
             Subscriptions->>Resolver: next subscriptions page
             deactivate Subscriptions
