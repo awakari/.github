@@ -1,81 +1,73 @@
 # Scalable wildcard message routing
 
+Awakari is a message routing system.
+
 <table>
     <thead>
         <tr>
-            <td rowspan="3"></td>
-            <td colspan="5" align="center"><b>Solution</b></td>
+            <td rowspan="2"></td>
+            <td colspan="4" align="center"><b>Solution</b></td>
         </tr>
         <tr>
-            <td rowspan="2" align="center" valign="top"><b>Redis</b></td>
-            <td rowspan="2" align="center" valign="top"><b>Nats</b></td>
-            <td rowspan="2" align="center" valign="top"><b>Kafka</b></td>
-            <td colspan="2" align="center" valign="top"><b>Awakari</b></td>
-        </tr>
-        <tr>
-            <td>kiwi-tree</td>
-            <td>kiwi-bird</td>
+            <td align="center" valign="top"><b>Redis</b></td>
+            <td align="center" valign="top"><b>Nats</b></td>
+            <td align="center" valign="top"><b>Kafka</b></td>
+            <td align="center" valign="top"><b>Awakari</b></td>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td><b>Horizontal Scalability</b></td>
+            <td>Horizontal Scalability</td>
             <td><img width="16px" src="icon-yes.svg" title=""/></td>
             <td><img width="16px" src="icon-yes.svg" title=""/></td>
             <td><img width="16px" src="icon-no.svg" title="matching happens on the consumer side"/></td>
             <td><img width="16px" src="icon-yes.svg" title=""/></td>
-            <td><img width="16px" src="icon-yes.svg" title=""/></td>
         </tr>
         <tr>
-            <td><b>Persistence</b></td>
+            <td>Persistence</td>
             <td><img width="16px" src="icon-no.svg" title=""/></td>
-            <td><img width="16px" src="icon-yes.svg" title="JetStream"/></td>
+            <td><img width="16px" src="icon-yes.svg" title="in the JetStream mode"/></td>
             <td><img width="16px" src="icon-yes.svg" title=""/></td>
-            <td><img width="16px" src="icon-no.svg" title=""/></td>
             <td><img width="16px" src="icon-no.svg" title=""/></td>
         </tr>
         <tr>
-            <td><b>Delivery Guarantee</b></td>
+            <td>Delivery Guarantee</td>
             <td><img width="16px" src="icon-no.svg" title="At most once"/></td>
             <td><img width="16px" src="icon-yes.svg" title="Exactly once (JetStream)"/></td>
             <td><img width="16px" src="icon-yes.svg" title="Exactly once"/></td>
             <td><img width="16px" src="icon-no.svg" title="At most once"/></td>
-            <td><img width="16px" src="icon-no.svg" title="At most once"/></td>
         </tr>
         <tr>
-            <td><b>Full Pattern Syntax</b></td>
+            <td>Full Pattern Syntax</td>
             <td><img width="16px" src="icon-no.svg" title="Limited"/></td>
             <td><img width="16px" src="icon-no.svg" title="Limited"/></td>
             <td><img width="16px" src="icon-yes.svg" title="Complete"/></td>
-            <td><img width="16px" src="icon-no.svg" title="Limited"/></td>
-            <td><img width="16px" src="icon-yes.svg" title="Complete"/></td>
+            <td><img width="16px" src="icon-no.svg" title="Limited for kiwi-tree subscriptions"/><img width="16px" src="icon-yes.svg" title="Complete for kiwi-bird subscriptions"/></td>
         </tr>
         <tr>
-            <td><b>Matching Time</b> (N subscriptions)</td>
+            <td>Matching Time (N subscriptions)</td>
             <td><img width="16px" src="icon-no.svg" title="O(N)"/></td>
             <td><img width="16px" src="icon-no.svg" title="O(N)"/></td>
             <td><img width="16px" src="icon-no.svg" title="O(N)"/></td>
-            <td><img width="16px" src="icon-yes.svg" title="O(log(N))"/></td>
-            <td><img width="16px" src="icon-no.svg" title="O(N)"/></td>
+            <td><img width="16px" src="icon-yes.svg" title="O(log(N)) for kiwi-tree subscriptions"/><img width="16px" src="icon-no.svg" title="O(N) for kiwi-bird subscriptions"/></td>
         </tr>
         <tr>
-            <td><b>Matching Criteria Attributes</b></td>
+            <td>Matching Criteria Attributes</td>
             <td><img width="16px" src="icon-no.svg" title="Channel only"/></td>
             <td><img width="16px" src="icon-no.svg" title="Subject only"/></td>
             <td><img width="16px" src="icon-no.svg" title="Topic only"/></td>
             <td><img width="16px" src="icon-yes.svg" title="Any metadata (key/value)"/></td>
-            <td><img width="16px" src="icon-yes.svg" title="Any metadata (key/value)"/></td>
         </tr>
         <tr>
-            <td><b>Matching Criteria Groups/Logic</b></td>
+            <td>Matching Criteria Groups/Logic</td>
             <td><img width="16px" src="icon-no.svg" title=""/></td>
             <td><img width="16px" src="icon-no.svg" title=""/></td>
             <td><img width="16px" src="icon-no.svg" title=""/></td>
-            <td><img width="16px" src="icon-yes.svg" title="nested groups + logic and/or/xor"/></td>
             <td><img width="16px" src="icon-yes.svg" title="nested groups + logic and/or/xor"/></td>
         </tr>
     </tbody>
 </table>
+
 
 ```mermaid
 %%{init: {'theme': 'neutral' } }%%
