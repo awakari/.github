@@ -14,7 +14,7 @@ Comparison to other message pub/sub solutions:
         </tr>
         <tr>
             <td align="center" valign="top"><b>Redis</b></td>
-            <td align="center" valign="top"><b>Nats</b></td>
+            <td align="center" valign="top"><b>Nats/JetStream</b></td>
             <td align="center" valign="top"><b>Kafka</b></td>
             <td align="center" valign="top"><b>Awakari</b></td>
         </tr>
@@ -24,20 +24,20 @@ Comparison to other message pub/sub solutions:
             <td>Horizontal Scalability</td>
             <td><img width="16px" src="icon-yes.svg" title=""/></td>
             <td><img width="16px" src="icon-yes.svg" title=""/></td>
-            <td><img width="16px" src="icon-no.svg" title="matching happens on the consumer side"/><br/>matching happens on the consumer side</td>
+            <td><img width="16px" src="icon-no.svg" title="consumer-side topic matching"/><br/>consumer-side topic matching</td>
             <td><img width="16px" src="icon-yes.svg" title=""/></td>
         </tr>
         <tr>
             <td>Persistence</td>
-            <td><img width="16px" src="icon-no.svg" title=""/>&nbsp;<img width="16px" src="icon-yes.svg" title="may be configured?"/></td>
-            <td><img width="16px" src="icon-no.svg" title="core"/>&nbsp;<img width="16px" src="icon-yes.svg" title="in the JetStream mode"/></td>
+            <td><img width="16px" src="icon-no.svg" title=""/> <img width="16px" src="icon-yes.svg" title="may be configured?"/><br/>may be configured?</td>
+            <td><img width="16px" src="icon-yes.svg" title="in the JetStream mode"/></td>
             <td><img width="16px" src="icon-yes.svg" title=""/></td>
             <td><img width="16px" src="icon-no.svg" title=""/></td>
         </tr>
         <tr>
             <td>Delivery Guarantee</td>
             <td><img width="16px" src="icon-no.svg" title="At most once"/></td>
-            <td><img width="16px" src="icon-no.svg" title="At most once"/>&nbsp;<img width="16px" src="icon-yes.svg" title="Exactly once (JetStream)"/></td>
+            <td><img width="16px" src="icon-yes.svg" title="Exactly once (JetStream)"/></td>
             <td><img width="16px" src="icon-yes.svg" title="Exactly once"/></td>
             <td><img width="16px" src="icon-no.svg" title="At most once"/></td>
         </tr>
