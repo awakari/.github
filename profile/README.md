@@ -5,7 +5,7 @@ bring additional subscription-based routing flexibility. Awakari subscriptions h
 1. Scalability to handle billions of subscriptions
 2. Rich routing conditions in subscriptions
 
-Comparison to other message queue solutions:
+Comparison to other message pub/sub solutions:
 <table>
     <thead>
         <tr>
@@ -24,7 +24,7 @@ Comparison to other message queue solutions:
             <td>Horizontal Scalability</td>
             <td><img width="16px" src="icon-yes.svg" title=""/></td>
             <td><img width="16px" src="icon-yes.svg" title=""/></td>
-            <td><img width="16px" src="icon-no.svg" title="matching happens on the consumer side"/></td>
+            <td><img width="16px" src="icon-no.svg" title="matching happens on the consumer side"/>matching happens on the consumer side</td>
             <td><img width="16px" src="icon-yes.svg" title=""/></td>
         </tr>
         <tr>
