@@ -24,7 +24,7 @@ Comparison to other message pub/sub solutions:
             <td>Horizontal Scalability</td>
             <td><img width="16px" src="icon-yes.svg" title=""/></td>
             <td><img width="16px" src="icon-yes.svg" title=""/></td>
-            <td><img width="16px" src="icon-no.svg" title="matching happens on the consumer side"/>matching happens on the consumer side</td>
+            <td><img width="16px" src="icon-no.svg" title="matching happens on the consumer side"/><br/>matching happens on the consumer side</td>
             <td><img width="16px" src="icon-yes.svg" title=""/></td>
         </tr>
         <tr>
