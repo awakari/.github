@@ -13,8 +13,7 @@ Comparison to other message pub/sub solutions:
             <td colspan="4" align="center"><b>Solution</b></td>
         </tr>
         <tr>
-            <td align="center" valign="top"><b>Redis</b></td>
-            <td align="center" valign="top"><b>Nats (JetStream)</b></td>
+            <td align="center" valign="top"><b>Nats<br/>(JetStream)</b></td>
             <td align="center" valign="top"><b>Kafka</b></td>
             <td align="center" valign="top"><b>Awakari</b></td>
         </tr>
@@ -23,27 +22,23 @@ Comparison to other message pub/sub solutions:
         <tr>
             <td>Horizontal Scalability</td>
             <td><img width="16px" src="icon-yes.svg" title=""/></td>
-            <td><img width="16px" src="icon-yes.svg" title=""/></td>
             <td><img width="16px" src="icon-no.svg" title="consumer-side topic matching"/><br/>consumer-side topic matching</td>
             <td><img width="16px" src="icon-yes.svg" title=""/></td>
         </tr>
         <tr>
             <td>Persistence</td>
-            <td><img width="16px" src="icon-no.svg" title="may be configured?"/></td>
             <td><img width="16px" src="icon-yes.svg" title="in the JetStream mode"/></td>
             <td><img width="16px" src="icon-yes.svg" title=""/></td>
             <td><img width="16px" src="icon-no.svg" title=""/></td>
         </tr>
         <tr>
             <td>Delivery Guarantee</td>
-            <td><img width="16px" src="icon-no.svg" title="At most once"/></td>
             <td><img width="16px" src="icon-yes.svg" title="Exactly once (JetStream)"/></td>
             <td><img width="16px" src="icon-yes.svg" title="Exactly once"/></td>
             <td><img width="16px" src="icon-no.svg" title="At most once"/></td>
         </tr>
         <tr>
             <td>Full Pattern Syntax</td>
-            <td><img width="16px" src="icon-no.svg" title="Limited"/></td>
             <td><img width="16px" src="icon-no.svg" title="Limited"/></td>
             <td><img width="16px" src="icon-yes.svg" title="Complete"/></td>
             <td><img width="16px" src="icon-yes.svg" title="Complete for kiwi-bird subscriptions"/></td>
@@ -52,19 +47,16 @@ Comparison to other message pub/sub solutions:
             <td>Matching Time (N subscriptions)</td>
             <td><img width="16px" src="icon-no.svg" title="O(N)"/></td>
             <td><img width="16px" src="icon-no.svg" title="O(N)"/></td>
-            <td><img width="16px" src="icon-no.svg" title="O(N)"/></td>
             <td><img width="16px" src="icon-yes.svg" title="O(log(N)) for kiwi-tree subscriptions"/></td>
         </tr>
         <tr>
             <td>Matching Criteria Attributes</td>
-            <td><img width="16px" src="icon-no.svg" title="Channel only"/></td>
             <td><img width="16px" src="icon-no.svg" title="Subject only"/></td>
             <td><img width="16px" src="icon-no.svg" title="Topic only"/></td>
             <td><img width="16px" src="icon-yes.svg" title="Any metadata (key/value)"/></td>
         </tr>
         <tr>
             <td>Matching Criteria Groups/Logic</td>
-            <td><img width="16px" src="icon-no.svg" title=""/></td>
             <td><img width="16px" src="icon-no.svg" title=""/></td>
             <td><img width="16px" src="icon-no.svg" title=""/></td>
             <td><img width="16px" src="icon-yes.svg" title="nested groups + logic and/or/xor"/></td>
