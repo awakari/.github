@@ -78,7 +78,7 @@ sequenceDiagram
     participant Conditions
     participant Subscriptions
     participant Matches
-    participant Aggregator
+    participant Router
     actor Destination
 
     Source-)Resolver: message
@@ -112,20 +112,20 @@ sequenceDiagram
         deactivate Resolver
     end
         
-    Resolver-)Aggregator: message
+    Resolver-)Router: message
     deactivate Resolver
 
-    activate Aggregator
+    activate Router
     loop each matching subscriptions page
         
-        Aggregator->>Matches: message id
+        Router->>Matches: message id
         activate Matches
-        Matches->>Aggregator: next subscriptions page
+        Matches->>Router: next subscriptions page
         deactivate Matches
         
         loop each subscription in page
-            Aggregator-)Destination: message, route
-            deactivate Aggregator
+            Router-)Destination: message, route
+            deactivate Router
         end
         
     end
