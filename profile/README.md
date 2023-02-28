@@ -22,7 +22,7 @@ Comparison to other message pub/sub solutions:
         <tr>
             <td>Horizontal Scalability</td>
             <td><img width="16px" src="icon-yes.svg" title=""/></td>
-            <td><img width="16px" src="icon-no.svg" title="consumer-side topic matching"/><br/>consumer-side topic matching</td>
+            <td><img width="16px" src="icon-no.svg" title="consumer-side topic matching"/></td>
             <td><img width="16px" src="icon-yes.svg" title=""/></td>
         </tr>
         <tr>
