@@ -6,7 +6,7 @@ bring additional subscription-based routing flexibility. Awakari subscriptions h
 2. Rich routing conditions in subscriptions
 
 Comparison to other message pub/sub solutions:
-<table>
+<table align="center">
     <thead>
         <tr>
             <td rowspan="2"><b>Criteria</b></td>
