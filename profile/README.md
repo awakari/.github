@@ -1,9 +1,10 @@
-# Scalable wildcard message routing
+# Flexible and scalable message routing
 
-Awakari is a message pub/sub routing system. It's designed to be used ahead of a reliable message queue like Kafka to 
-bring additional subscription-based routing flexibility. Awakari subscriptions have the following additional features:
-1. Scalability to handle billions of subscriptions
-2. Rich routing conditions in subscriptions
+## 1. Overview
+
+Awakari is a message pub/sub routing system. Subscriptions have the following additional features:
+1. Scalability to handle any big number of subscriptions
+2. Rich subscription conditions: wildcards, grouping and logic functions
 
 Comparison to other message pub/sub solutions:
 <table>
@@ -64,8 +65,19 @@ Comparison to other message pub/sub solutions:
     </tbody>
 </table>
 
-Basically, Awakari consist of 3 storages (conditions, subscriptions, matches) and 2 stateless functions (resolver, 
-aggregator). The high-level processing sequence follows: 
+## 2. Purpose
+
+It's designed to be used ahead of a reliable message queue like Kafka to bring additional subscription-based routing 
+flexibility and scalability.
+
+## 3. Usage
+
+TODO examples
+
+## 4. Design
+
+The core of Awakari consist of 3 storages (conditions, subscriptions, matches) and 2 stateless services (resolver, 
+router). The high-level message processing sequence follows: 
 
 ```mermaid
 %%{init: {'theme': 'neutral' } }%%
