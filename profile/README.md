@@ -2,9 +2,12 @@
 
 ## 1. Overview
 
-Awakari is a message pub/sub routing system. Subscriptions have the following additional features:
-1. Scalability to handle any big number of subscriptions
-2. Rich subscription conditions: wildcards, grouping and logic functions
+Awakari is a message pub/sub routing system. Awakari subscriptions have the following additional features:
+* Scalability to handle any big number of subscriptions
+* Rich subscription conditions: 
+  * wildcards
+  * grouping
+  * logic functions
 
 Comparison to other message pub/sub solutions:
 <table>
