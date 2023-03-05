@@ -24,13 +24,16 @@ Comparison to other message pub/sub solutions:
     </thead>
     <tbody>
         <tr>
-            <td>Wildcard Subscriptions - Horizontal Scalability</td>
+          <td rowspan="2">Wildcard Subscriptions</td>
+        </tr>
+        <tr>
+            <td>Horizontal Scalability</td>
             <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title="consumer-side topic matching"/></td>
             <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
         </tr>
         <tr>
-            <td>Wildcard Subscriptions - Matching Time Complexity</td>
+            <td>Matching Time Complexity</td>
             <td align="center"><img width="16px" src="icon-no.svg" title="O(N)"/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title="O(N)"/></td>
             <td align="center"><img width="16px" src="icon-yes.svg" title="O(log(N)) for kiwi-tree subscriptions"/></td>
