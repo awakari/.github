@@ -161,17 +161,19 @@ Components:
 ```mermaid
 %%{init: {'theme': 'neutral' } }%%
 flowchart LR
-    resolverQueue([Resolver Queue])
-    resolver[[Resolver]]
+    subgraph pipeline
+        resolverQueue([Resolver Queue])
+        resolver[[Resolver]]
+        routerQueue([Router Queue])
+        router[[Router]]
+        outputQueue([Output Queue])
+        output[[Output]]
+    end
     subgraph storages
         conditions[(Conditions)]
         subscriptions[(Subscriptions)]
         matches[(Matches)]
     end
-    routerQueue([Router Queue])
-    router[[Router]]
-    outputQueue([Output Queue])
-    output[[Output]]
     resolver -->|search by value| conditions
     resolver --> |search by condition| subscriptions
     resolver --> |register| matches
