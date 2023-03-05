@@ -159,6 +159,7 @@ sequenceDiagram
 Components:
 
 ```mermaid
+%%{init: {'theme': 'neutral' } }%%
 flowchart LR
     resolverQueue([Resolver Queue])
     resolver[[Resolver]]
@@ -169,10 +170,11 @@ flowchart LR
     router[[Router]]
     outputQueue([Output Queue])
     output[[Output]]
-    resolverQueue --> resolver --> routerQueue --> router --> outputQueue --> output
+    -->|submit| resolverQueue --> resolver -->|submit| routerQueue --> router -->|submit| outputQueue --> output
     resolver --> conditions
     resolver --> subscriptions
     resolver --> matches
+    subscriptions --> conditions
     router --> matches
 ```
 
