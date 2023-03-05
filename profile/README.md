@@ -24,43 +24,25 @@ Comparison to other message pub/sub solutions:
     </thead>
     <tbody>
         <tr>
-            <td>Horizontal Scalability</td>
+            <td>Wildcard Subscriptions - Horizontal Scalability</td>
             <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title="consumer-side topic matching"/></td>
             <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
         </tr>
         <tr>
-            <td>Persistence</td>
-            <td align="center"><img width="16px" src="icon-yes.svg" title="in the JetStream mode"/></td>
-            <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title=""/></td>
-        </tr>
-        <tr>
-            <td>Delivery Guarantee</td>
-            <td align="center"><img width="16px" src="icon-yes.svg" title="Exactly once (JetStream)"/></td>
-            <td align="center"><img width="16px" src="icon-yes.svg" title="Exactly once"/></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title="At most once"/></td>
-        </tr>
-        <tr>
-            <td>Full Pattern Syntax</td>
-            <td align="center"><img width="16px" src="icon-no.svg" title="Limited"/></td>
-            <td align="center"><img width="16px" src="icon-yes.svg" title="Complete"/></td>
-            <td align="center"><img width="16px" src="icon-yes.svg" title="Complete for kiwi-bird subscriptions"/></td>
-        </tr>
-        <tr>
-            <td>Matching Time (N subscriptions)</td>
+            <td>Wildcard Subscriptions - Matching Time Complexity</td>
             <td align="center"><img width="16px" src="icon-no.svg" title="O(N)"/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title="O(N)"/></td>
             <td align="center"><img width="16px" src="icon-yes.svg" title="O(log(N)) for kiwi-tree subscriptions"/></td>
         </tr>
         <tr>
-            <td>Matching Criteria Attributes</td>
+            <td>Matching Criteria - Attributes</td>
             <td align="center"><img width="16px" src="icon-no.svg" title="Subject only"/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title="Topic only"/></td>
             <td align="center"><img width="16px" src="icon-yes.svg" title="Any metadata (key/value)"/></td>
         </tr>
         <tr>
-            <td>Matching Criteria Groups/Logic</td>
+            <td>Matching Criteria - Grouping and Logic</td>
             <td align="center"><img width="16px" src="icon-no.svg" title=""/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title=""/></td>
             <td align="center"><img width="16px" src="icon-yes.svg" title="nested groups + logic and/or/xor"/></td>
