@@ -13,7 +13,7 @@ Comparison to other message pub/sub solutions:
 <table>
     <thead>
         <tr>
-            <td rowspan="2"><b>Criteria</b></td>
+            <td rowspan="2" colspan="2"><b>Criteria</b></td>
             <td colspan="4" align="center"><b>Solution</b></td>
         </tr>
         <tr>
