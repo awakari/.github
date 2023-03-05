@@ -160,13 +160,20 @@ Components:
 
 ```mermaid
 flowchart LR
+    resolverQueue([Resolver Queue])
     resolver[[Resolver]]
     conditions[(Conditions)]
     subscriptions[(Subscriptions)]
     matches[(Matches)]
-    router[[Router]]
     routerQueue([Router Queue])
-    resolver --> routerQueue --> router
+    router[[Router]]
+    outputQueue([Output Queue])
+    output[[Output]]
+    resolverQueue --> resolver --> routerQueue --> router --> outputQueue --> output
+    resolver --> conditions
+    resolver --> subscriptions
+    resolver --> matches
+    router --> matches
 ```
 
 # 6. Roadmap
