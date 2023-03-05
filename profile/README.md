@@ -174,7 +174,7 @@ flowchart LR
         subscriptions[(Subscriptions)]
         matches[(Matches)]
     end
-    frontend (Frontend) -->|create, read, delete| subscriptions
+    frontend(Frontend) -->|create, read, delete| subscriptions
     resolver -->|search by value| conditions
     resolver --> |search by condition| subscriptions
     resolver --> |register| matches
