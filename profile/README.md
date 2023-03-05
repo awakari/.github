@@ -170,12 +170,12 @@ flowchart LR
     router[[Router]]
     outputQueue([Output Queue])
     output[[Output]]
-    resolverQueue --> resolver -->|submit| routerQueue --> router -->|submit| outputQueue --> output
     resolver -->|search by value| conditions
     resolver --> |search by condition| subscriptions
     resolver --> |register| matches
     subscriptions --> |create, delete| conditions
     router --> |search| matches
+    resolverQueue --> resolver -->|submit| routerQueue --> router -->|submit| outputQueue --> output
 ```
 
 # 6. Roadmap
