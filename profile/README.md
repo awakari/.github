@@ -174,12 +174,13 @@ flowchart LR
         subscriptions[(Subscriptions)]
         matches[(Matches)]
     end
+    frontend (Frontend) -->|create, read, delete| subscriptions
     resolver -->|search by value| conditions
     resolver --> |search by condition| subscriptions
     resolver --> |register| matches
     subscriptions --> |create, delete| conditions
     router --> |search| matches
-    resolverQueue --> resolver -->|submit| routerQueue --> router -->|submit| outputQueue --> output
+    resolverQueue --> resolver -->|submit| routerQueue --> router -->|submit| outputQueue --> output -->|notify| frontend
 ```
 
 # 6. Roadmap
