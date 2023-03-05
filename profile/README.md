@@ -160,7 +160,7 @@ Components:
 
 ```mermaid
 %%{init: {'theme': 'neutral' } }%%
-flowchart LR
+flowchart TB
     subgraph pipeline
         resolverQueue([Resolver Queue])
         resolver[[Resolver]]
