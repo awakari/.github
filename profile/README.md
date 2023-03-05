@@ -163,9 +163,11 @@ Components:
 flowchart LR
     resolverQueue([Resolver Queue])
     resolver[[Resolver]]
-    conditions[(Conditions)]
-    subscriptions[(Subscriptions)]
-    matches[(Matches)]
+    subgraph storages
+        conditions[(Conditions)]
+        subscriptions[(Subscriptions)]
+        matches[(Matches)]
+    end
     routerQueue([Router Queue])
     router[[Router]]
     outputQueue([Output Queue])
