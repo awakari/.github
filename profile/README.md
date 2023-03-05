@@ -24,9 +24,7 @@ Comparison to other message pub/sub solutions:
     </thead>
     <tbody>
         <tr>
-          <td rowspan="2">Wildcard Subscriptions</td>
-        </tr>
-        <tr>
+            <td rowspan="2">Wildcard Subscriptions</td>
             <td>Horizontal Scalability</td>
             <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title="consumer-side topic matching"/></td>
