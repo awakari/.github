@@ -1,15 +1,30 @@
-# Flexible and scalable message routing
+# Contents
 
-## 1. Overview
+1. [Overview](#1-overview)<br/>
+   1.1. [Comparison](#11-comparison)<br/>
+   1.2. [Purpose](#12-purpose)<br/>
+   1.3. [Definitions](#13-definitions)<br/>
+2. [Deployment](#2-deployment)<br/>
+3. [Usage](#3-usage)<br/>
+4. [Configuration](#4-configuration)<br/>
+5. [Design](#5-design)<br/>
+6. [Roadmap](#6-roadmap)<br/>
+7. [Contributing](#7-contributing)<br/>
 
-Awakari is a message pub/sub routing system. Awakari subscriptions have the following additional features:
+# 1. Overview
+
+Awakari is a flexible and scalable message pub/sub routing system. Awakari brings additional features to the 
+subscriptions:
 * Scalability to handle any big number of subscriptions
 * Rich subscription conditions: 
   * wildcards
-  * grouping
+  * arbitrary grouping and nested conditions 
   * logic functions
 
-Comparison to other message pub/sub solutions:
+## 1.1. Comparison
+
+Awakari may be used together with another reliable message queue system and inherit the persistence and delivery 
+guarantee. The key differences from other message pub/sub solutions are:
 <table>
     <thead>
         <tr>
@@ -17,9 +32,9 @@ Comparison to other message pub/sub solutions:
             <td colspan="4" align="center"><b>Solution</b></td>
         </tr>
         <tr>
-            <td align="center" valign="top"><b>Nats<br/>(JetStream)</b></td>
-            <td align="center" valign="top"><b>Kafka</b></td>
             <td align="center" valign="top"><b>Awakari</b></td>
+            <td align="center" valign="top"><b>Kafka</b></td>
+            <td align="center" valign="top"><b>Nats<br/>(JetStream)</b></td>
         </tr>
     </thead>
     <tbody>
@@ -27,40 +42,52 @@ Comparison to other message pub/sub solutions:
             <td rowspan="2">Wildcard Subscriptions</td>
             <td>Horizontal Scalability</td>
             <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title="consumer-side topic matching"/></td>
+            <td align="center"><img width="16px" src="icon-no.svg" title="consumer- side topic matching"/></td>
             <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
         </tr>
         <tr>
             <td>Matching Time Complexity</td>
-            <td align="center"><img width="16px" src="icon-no.svg" title="O(N)"/></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title="O(N)"/></td>
             <td align="center"><img width="16px" src="icon-yes.svg" title="O(log(N)) for kiwi-tree subscriptions"/></td>
+            <td align="center"><img width="16px" src="icon-no.svg" title="O(N)"/></td>
+            <td align="center"><img width="16px" src="icon-no.svg" title="O(N)"/></td>
         </tr>
         <tr>
-            <td>Matching Criteria - Attributes</td>
-            <td align="center"><img width="16px" src="icon-no.svg" title="Subject only"/></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title="Topic only"/></td>
+            <td rowspan="2">Matching Criteria</td> 
+            <td></td>Attributes</td>
             <td align="center"><img width="16px" src="icon-yes.svg" title="Any metadata (key/value)"/></td>
+            <td align="center"><img width="16px" src="icon-no.svg" title="Topic only"/></td>
+            <td align="center"><img width="16px" src="icon-no.svg" title="Subject only"/></td>
         </tr>
         <tr>
-            <td>Matching Criteria - Grouping and Logic</td>
+            <td>Grouping and Logic</td>
+            <td align="center"><img width="16px" src="icon-yes.svg" title="nested arbitrary groups + logic and/or/xor"/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title=""/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title=""/></td>
-            <td align="center"><img width="16px" src="icon-yes.svg" title="nested groups + logic and/or/xor"/></td>
         </tr>
     </tbody>
 </table>
 
-## 2. Purpose
+## 1.2. Purpose
 
-It's designed to be used ahead of a reliable message queue like Kafka to bring additional subscription-based routing 
-flexibility and scalability.
+TODO
 
-## 3. Usage
+## 1.3. Definitions
 
-TODO examples
+TODO
 
-## 4. Design
+# 2. Deployment
+
+TODO
+
+# 3. Usage
+
+TODO
+
+# 4. Configuration
+
+TODO
+
+# 5. Design
 
 The core of Awakari consist of 3 storages (conditions, subscriptions, matches) and 2 stateless services (resolver, 
 router). The high-level message processing sequence follows: 
@@ -128,3 +155,20 @@ sequenceDiagram
         
     end
 ```
+
+Components:
+
+```mermaid
+flowchart LR
+    resolver[[Resolver]]
+    router[[Router]]
+    resolver --> router
+```
+
+# 6. Roadmap
+
+Refer to the [page](ROADMAP.md)
+
+# 7. Contributing
+
+Refer to the [page](CONTRIBUTING.md)
