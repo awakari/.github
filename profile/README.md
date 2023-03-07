@@ -167,7 +167,6 @@ flowchart TB
         routerQueue([Router Queue])
         router[[Router]]
         outputQueue([Output Queue])
-        output[[Output]]
     end
     subgraph storages
         conditions[(Conditions)]
@@ -180,7 +179,7 @@ flowchart TB
     resolver --> |register| matches
     subscriptions --> |create, delete| conditions
     router --> |search| matches
-    resolverQueue --> resolver -->|submit| routerQueue --> router -->|submit| outputQueue --> output -->|notify| frontend
+    resolverQueue --> resolver -->|submit| routerQueue --> router -->|submit| outputQueue -->|notify| frontend
 ```
 
 # 6. Roadmap
