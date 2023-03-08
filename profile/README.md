@@ -161,11 +161,6 @@ Components:
 ```mermaid
 %%{init: {'theme': 'neutral' } }%%
 flowchart LR
-    subgraph storages
-        conditions[(Conditions)]
-        subscriptions[(Subscriptions)]
-        matches[(Matches)]
-    end
     subgraph pipeline
         direction TB
         producer[[Producer]]
@@ -175,6 +170,11 @@ flowchart LR
         router[[Router]]
         consumerQueue([Consumer Queue])
         consumer[[Consumer]]
+        subgraph storages
+            conditions[(Conditions)]
+            subscriptions[(Subscriptions)]
+            matches[(Matches)]
+        end
     end
     frontend(Frontend) -->|create, read, delete| subscriptions
     producer -->|submit| resolverQueue
