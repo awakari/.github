@@ -167,14 +167,14 @@ flowchart TB
         matches[(Matches)]
     end
     subgraph pipeline
+        outputQueue([Output Queue])
         resolverQueue([Resolver Queue])
         resolver[[Resolver]]
         routerQueue([Router Queue])
         router[[Router]]
+        producer(Message Producer)
+        consumer(Message Consumer)
     end
-    producer(Message Producer)
-    outputQueue([Output Queue])
-    consumer(Message Consumer)
     frontend(Frontend) -->|create, read, delete| subscriptions
     producer -->|submit| resolverQueue
     resolver -->|search by value| conditions
