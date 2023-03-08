@@ -168,18 +168,12 @@ flowchart TB
     end
     subgraph pipeline
         producer[[Producer]]
-        subgraph resolver
-            resolverQueue([Resolver Queue])
-            resolverFunc[[Resolver]]
-        end
-        subgraph router
-            routerQueue([Router Queue])
-            routerFunc[[Router]]
-        end
-        subgraph consumer
-            consumerQueue([Consumer Queue])
-            consumerFunc[[Consumer]]
-        end
+        resolverQueue([Resolver Queue])
+        resolver[[Resolver]]
+        routerQueue([Router Queue])
+        router[[Router]]
+        consumerQueue([Consumer Queue])
+        consumer[[Consumer]]
     end
     frontend(Frontend) -->|create, read, delete| subscriptions
     producer -->|submit| resolverQueue
