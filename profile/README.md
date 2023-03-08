@@ -186,7 +186,7 @@ flowchart TB
     router --> |search| matches
     resolverQueue --> resolver -->|submit| routerQueue --> router -->|submit| consumerQueue --> consumer -->|notify| frontend
     
-    conditions -- frontend
+    conditions --> frontend
 ```
 
 # 6. Roadmap
