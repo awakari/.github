@@ -166,11 +166,11 @@ flowchart TB
         resolver[[Resolver]]
         routerQueue([Router Queue])
         router[[Router]]
-    end
-    subgraph storages
-        conditions[(Conditions)]
-        subscriptions[(Subscriptions)]
-        matches[(Matches)]
+        subgraph storages
+            conditions[(Conditions)]
+            subscriptions[(Subscriptions)]
+            matches[(Matches)]
+        end
     end
     outputQueue([Output Queue])
     frontend(Frontend) -->|create, read, delete| subscriptions
