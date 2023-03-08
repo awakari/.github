@@ -160,7 +160,7 @@ Components:
 
 ```mermaid
 %%{init: {'theme': 'neutral' } }%%
-flowchart TB
+flowchart LR
     subgraph storages
         conditions[(Conditions)]
         subscriptions[(Subscriptions)]
@@ -183,9 +183,6 @@ flowchart TB
     subscriptions --> |create, delete| conditions
     router --> |search| matches
     resolverQueue --> resolver -->|submit| routerQueue --> router -->|submit| consumerQueue --> consumer -->|notify| frontend
-    
-    conditions --> frontend
-    producer --> conditions
 ```
 
 # 6. Roadmap
