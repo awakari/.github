@@ -161,16 +161,16 @@ Components:
 ```mermaid
 %%{init: {'theme': 'neutral' } }%%
 flowchart TB
+    subgraph storages
+        conditions[(Conditions)]
+        subscriptions[(Subscriptions)]
+        matches[(Matches)]
+    end
     subgraph pipeline
         resolverQueue([Resolver Queue])
         resolver[[Resolver]]
         routerQueue([Router Queue])
         router[[Router]]
-        subgraph storages
-            conditions[(Conditions)]
-            subscriptions[(Subscriptions)]
-            matches[(Matches)]
-        end
     end
     outputQueue([Output Queue])
     frontend(Frontend) -->|create, read, delete| subscriptions
