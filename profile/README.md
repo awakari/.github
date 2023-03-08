@@ -167,6 +167,7 @@ flowchart LR
         matches[(Matches)]
     end
     subgraph pipeline
+        direction TB
         producer[[Producer]]
         resolverQueue([Resolver Queue])
         resolver[[Resolver]]
