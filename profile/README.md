@@ -162,13 +162,11 @@ Components:
 %%{init: {'theme': 'neutral' } }%%
 flowchart TB
     subgraph storages
-        direction LR
         conditions[(Conditions)]
         subscriptions[(Subscriptions)]
         matches[(Matches)]
     end
     subgraph pipeline
-        direction LR
         producer[[Producer]]
         resolverQueue([Resolver Queue])
         resolver[[Resolver]]
@@ -187,6 +185,7 @@ flowchart TB
     resolverQueue --> resolver -->|submit| routerQueue --> router -->|submit| consumerQueue --> consumer -->|notify| frontend
     
     conditions --> frontend
+    producer --> conditions
 ```
 
 # 6. Roadmap
