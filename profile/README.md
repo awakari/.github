@@ -170,12 +170,10 @@ flowchart LR
         router[[Router]]
         consumerQueue([Consumer Queue])
         consumer[[Consumer]]
-        subgraph storages
-            conditions[(Conditions)]
-            subscriptions[(Subscriptions)]
-            matches[(Matches)]
-        end
     end
+    conditions[(Conditions)]
+    subscriptions[(Subscriptions)]
+    matches[(Matches)]
     frontend(Frontend) -->|create, read, delete| subscriptions
     producer -->|submit| resolverQueue
     resolver -->|search by value| conditions
