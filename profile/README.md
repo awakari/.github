@@ -161,9 +161,11 @@ Components:
 ```mermaid
 %%{init: {'theme': 'neutral' } }%%
 flowchart TB
+    subgraph storages
         conditions[(Conditions)]
         subscriptions[(Subscriptions)]
         matches[(Matches)]
+    end
         producer[[Producer]]
         resolverQueue([Resolver Queue])
         resolver[[Resolver]]
