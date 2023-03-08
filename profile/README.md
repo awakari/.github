@@ -172,10 +172,10 @@ flowchart TB
         routerQueue([Router Queue])
         router[[Router]]
     end
-    thirdPartyInput(thirdPartyInput)
+    thirdPartyInput(3rd Party Message Source)
     outputQueue([Output Queue])
     frontend(Frontend) -->|create, read, delete| subscriptions
-    thirdPartyInput -->|submit| resolver
+    thirdPartyInput -->|submit| resolverQueue
     resolver -->|search by value| conditions
     resolver --> |search by condition| subscriptions
     resolver --> |register| matches
