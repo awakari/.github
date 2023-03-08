@@ -170,15 +170,15 @@ flowchart TB
         producer[[Producer]]
         subgraph resolver
             resolverQueue([Resolver Queue])
-            resolver[[Resolver]]
+            resolverFunc[[Resolver]]
         end
         subgraph router
             routerQueue([Router Queue])
-            router[[Router]]
+            routerFunc[[Router]]
         end
         subgraph consumer
             consumerQueue([Consumer Queue])
-            consumer[[Consumer]]
+            consumerFunc[[Consumer]]
         end
     end
     frontend(Frontend) -->|create, read, delete| subscriptions
