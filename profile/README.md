@@ -53,7 +53,7 @@ guarantee. The key differences from other message pub/sub solutions are:
         </tr>
         <tr>
             <td rowspan="2">Matching Criteria</td> 
-            <td></td>Attributes</td>
+            <td>Attributes</td>
             <td align="center"><img width="16px" src="icon-yes.svg" title="Any metadata (key/value)"/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title="Topic only"/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title="Subject only"/></td>
@@ -166,13 +166,13 @@ flowchart TB
         resolver[[Resolver]]
         routerQueue([Router Queue])
         router[[Router]]
-        outputQueue([Output Queue])
     end
     subgraph storages
         conditions[(Conditions)]
         subscriptions[(Subscriptions)]
         matches[(Matches)]
     end
+    outputQueue([Output Queue])
     frontend(Frontend) -->|create, read, delete| subscriptions
     resolver -->|search by value| conditions
     resolver --> |search by condition| subscriptions
