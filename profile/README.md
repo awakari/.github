@@ -167,13 +167,19 @@ flowchart TB
         matches[(Matches)]
     end
     subgraph pipeline
-        outputQueue([Output Queue])
-        resolverQueue([Resolver Queue])
-        resolver[[Resolver]]
-        routerQueue([Router Queue])
-        router[[Router]]
-        producer(Message Producer)
-        consumer(Message Consumer)
+        producer[[Producer]]
+        subgraph resolver
+            resolverQueue([Resolver Queue])
+            resolver[[Resolver]]
+        end
+        subgraph router
+            routerQueue([Router Queue])
+            router[[Router]]
+        end
+        subgraph consumer
+            consumerQueue([Consumer Queue])
+            consumer[[Consumer]]
+        end
     end
     frontend(Frontend) -->|create, read, delete| subscriptions
     producer -->|submit| resolverQueue
@@ -182,7 +188,7 @@ flowchart TB
     resolver --> |register| matches
     subscriptions --> |create, delete| conditions
     router --> |search| matches
-    resolverQueue --> resolver -->|submit| routerQueue --> router -->|submit| outputQueue --> consumer -->|notify| frontend
+    resolverQueue --> resolver -->|submit| routerQueue --> router -->|submit| consumerQueue --> consumer -->|notify| frontend
 ```
 
 # 6. Roadmap
