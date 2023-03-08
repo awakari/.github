@@ -171,9 +171,11 @@ flowchart TB
         consumerQueue([Consumer Queue])
         consumer[[Consumer]]
     end
-    conditions[(Conditions)]
-    subscriptions[(Subscriptions)]
-    matches[(Matches)]
+    subgraph storages
+        conditions[(Conditions)]
+        subscriptions[(Subscriptions)]
+        matches[(Matches)]
+    end
     frontend(Frontend) -->|create, read, delete| subscriptions
     producer -->|submit| resolverQueue
     resolver -->|search by value| conditions
