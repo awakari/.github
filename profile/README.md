@@ -172,16 +172,17 @@ flowchart TB
         routerQueue([Router Queue])
         router[[Router]]
     end
-    thirdPartyInput(3rd Party Message Source)
+    producer(Message Producer)
     outputQueue([Output Queue])
+    consumer(Message Consumer)
     frontend(Frontend) -->|create, read, delete| subscriptions
-    thirdPartyInput -->|submit| resolverQueue
+    producer -->|submit| resolverQueue
     resolver -->|search by value| conditions
     resolver --> |search by condition| subscriptions
     resolver --> |register| matches
     subscriptions --> |create, delete| conditions
     router --> |search| matches
-    resolverQueue --> resolver -->|submit| routerQueue --> router -->|submit| outputQueue -->|notify| frontend
+    resolverQueue --> resolver -->|submit| routerQueue --> router -->|submit| outputQueue --> consumer -->|notify| frontend
 ```
 
 # 6. Roadmap
