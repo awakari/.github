@@ -158,33 +158,7 @@ sequenceDiagram
 
 Components:
 
-```mermaid
-%%{init: {'theme': 'neutral' } }%%
-flowchart TB
-    subgraph pipeline
-        direction TB
-        producer[[Producer]]
-        resolverQueue([Resolver Queue])
-        resolver[[Resolver]]
-        routerQueue([Router Queue])
-        router[[Router]]
-        consumerQueue([Consumer Queue])
-        consumer[[Consumer]]
-    end
-    subgraph storages
-        conditions[(Conditions)]
-        subscriptions[(Subscriptions)]
-        matches[(Matches)]
-    end
-    frontend(Frontend) -->|create, read, delete| subscriptions
-    producer -->|submit| resolverQueue
-    resolver -->|search by value| conditions
-    resolver --> |search by condition| subscriptions
-    resolver --> |register| matches
-    subscriptions --> |create, delete| conditions
-    router --> |search| matches
-    resolverQueue --> resolver -->|submit| routerQueue --> router -->|submit| consumerQueue --> consumer -->|notify| frontend
-```
+![components](components.png)
 
 # 6. Roadmap
 
