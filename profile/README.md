@@ -15,8 +15,12 @@
 Conventional search engines are used to find information by a query. 
 The problem is reverse in the modern world of real-time data streams.
 It's necessary to filter and consume the data matching a query on the fly.
+Existing stream processing solutions offer only the iteration way to find matching queries.
+For example, a system may have billions of user queries registered.
+Then every incoming message causes the iteration over the billions queries to find all the matches.
+So this doesn't scale efficiently when number of queries grows.
 
-Awakari is a message pub/sub routing system that comes to solve this problem.
+Awakari is a message pub/sub system that comes to solve this problem.
 It brings additional features:
 * Rich subscription matching conditions: 
   * Wildcards
@@ -25,7 +29,7 @@ It brings additional features:
     * Logic functions
 * Scalability:
   * Handle any big number of subscriptions
-  * Sustain any large message throughput without latency impact
+  * Sustain any large message throughput without a latency impact
 
 ## 1.1. Comparison
 
