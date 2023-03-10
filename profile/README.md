@@ -137,7 +137,7 @@ sequenceDiagram
     
     loop Message Attributes
     
-        Resolver->>Conditions: Search by Key/Value, Cursor
+        Resolver->>Conditions: Search by Key/Value
         activate Conditions
         Conditions->>Resolver: Next Conditions Page
         deactivate Conditions
@@ -145,7 +145,7 @@ sequenceDiagram
         activate Resolver
         loop Each Condition
             
-            Resolver->>Subscriptions: Search by Condition, Cursor
+            Resolver->>Subscriptions: Search by Condition
             activate Subscriptions
             Subscriptions->>Resolver: Next Subscriptions Page
             deactivate Subscriptions
@@ -169,7 +169,7 @@ sequenceDiagram
     activate Router
     loop Each Matching Subscriptions Page
         
-        Router->>Matches: Search by Message Id, Cursor
+        Router->>Matches: Search by Message Id
         activate Matches
         Matches->>Router: Next Subscriptions Page
         deactivate Matches
