@@ -106,6 +106,10 @@ The core of Awakari consist of:
   * Router
   * Consumer
 
+Additionally, there's:
+* UI to deliver the messages to a user and manage subscriptions
+* Optional 3rd-party message consumers 
+
 ![components](components.png)
 
 The high-level message processing sequence follows: 
