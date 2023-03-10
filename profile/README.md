@@ -135,26 +135,26 @@ sequenceDiagram
     Producer-)Resolver: message
     activate Resolver
     
-    loop message attributes
+    loop Message Attributes
     
-        Resolver->>Conditions: resolve by next attribute 
+        Resolver->>Conditions: Search by Key/Value, Cursor
         activate Conditions
-        Conditions->>Resolver: next conditions page
+        Conditions->>Resolver: Next Conditions Page
         deactivate Conditions
         
         activate Resolver
-        loop each condition in page
+        loop Each Condition
             
-            Resolver->>Subscriptions: resolve by next condition
+            Resolver->>Subscriptions: Search by Condition, Cursor
             activate Subscriptions
-            Subscriptions->>Resolver: next subscriptions page
+            Subscriptions->>Resolver: Next Subscriptions Page
             deactivate Subscriptions
             
             activate Resolver
-            loop each subscription in page
-                Resolver->>Matches: register next match for message id, subscription
+            loop Each Subscription
+                Resolver->>Matches: Register Match Candidate
                 activate Matches
-                Matches-->>Resolver: ack
+                Matches-->>Resolver: Ack
                 deactivate Matches
             end
             deactivate Resolver
@@ -167,15 +167,15 @@ sequenceDiagram
     deactivate Resolver
 
     activate Router
-    loop each matching subscriptions page
+    loop Each Matching Subscriptions Page
         
-        Router->>Matches: message id
+        Router->>Matches: Search by Message Id, Cursor
         activate Matches
-        Matches->>Router: next subscriptions page
+        Matches->>Router: Next Subscriptions Page
         deactivate Matches
         
-        loop each subscription in page
-            Router-)Consumer: message, route
+        loop Each Matching Subscription
+            Router-)Consumer: Message, Destination
             deactivate Router
         end
         
