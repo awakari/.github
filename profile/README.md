@@ -8,18 +8,24 @@
 3. [Usage](#3-usage)<br/>
 4. [Configuration](#4-configuration)<br/>
 5. [Design](#5-design)<br/>
-6. [Roadmap](#6-roadmap)<br/>
-7. [Contributing](#7-contributing)<br/>
+6. [Additional Infromation](#6-additional-information)<br/>
 
 # 1. Overview
 
-Awakari is a flexible and scalable message pub/sub routing system. Awakari brings additional features to the 
-subscriptions:
-* Scalability to handle any big number of subscriptions
-* Rich subscription conditions: 
-  * wildcards
-  * arbitrary grouping and nested conditions 
-  * logic functions
+Conventional search engines are used to find information by a query. 
+The problem is reverse in the modern world of real-time data streams.
+It's necessary to filter and consume the data matching a query on the fly.
+
+Awakari is a message pub/sub routing system that comes to solve this problem.
+It brings additional features:
+* Rich subscription matching conditions: 
+  * Wildcards
+  * Grouping:
+    * Nested conditions and groups 
+    * Logic functions
+* Scalability:
+  * Handle any big number of subscriptions
+  * Sustain any large message throughput without latency impact
 
 ## 1.1. Comparison
 
@@ -89,8 +95,20 @@ TODO
 
 # 5. Design
 
-The core of Awakari consist of 3 storages (conditions, subscriptions, matches) and 2 stateless services (resolver, 
-router). The high-level message processing sequence follows: 
+The core of Awakari consist of: 
+* Storage Services
+  * Conditions
+  * Subscriptions
+  * Matches
+* Stateless Processing Pipeline
+  * Producer
+  * Resolver
+  * Router
+  * Consumer
+
+![components](components.png)
+
+The high-level message processing sequence follows: 
 
 ```mermaid
 %%{init: {'theme': 'neutral' } }%%
@@ -98,15 +116,15 @@ sequenceDiagram
 
     autonumber
 
-    actor Source
+    actor Producer
     participant Resolver
     participant Conditions
     participant Subscriptions
     participant Matches
     participant Router
-    actor Destination
+    actor Consumer
 
-    Source-)Resolver: message
+    Producer-)Resolver: message
     activate Resolver
     
     loop message attributes
@@ -149,21 +167,14 @@ sequenceDiagram
         deactivate Matches
         
         loop each subscription in page
-            Router-)Destination: message, route
+            Router-)Consumer: message, route
             deactivate Router
         end
         
     end
 ```
 
-Components:
+# 6. Additional Information
 
-![components](components.png)
-
-# 6. Roadmap
-
-Refer to the [page](ROADMAP.md)
-
-# 7. Contributing
-
-Refer to the [page](CONTRIBUTING.md)
+* [Roadmap](ROADMAP.md)
+* [Contributing](CONTRIBUTING.md)
