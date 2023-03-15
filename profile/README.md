@@ -105,14 +105,13 @@ The core of Awakari consist of:
   * Subscriptions
   * Matches
 * Stateless Processing Pipeline
-  * Producer
   * Resolver
   * Router
-  * Consumer
 
 Additionally, there's:
-* UI to deliver the messages to a user and manage subscriptions
-* Optional 3rd-party message consumers 
+* Source message producer
+* Routed message consumer
+* UI
 
 ![components](components.png)
 
