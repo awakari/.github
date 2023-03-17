@@ -107,6 +107,7 @@ The core of Awakari consist of:
 * Stateless Processing Pipeline
   * Resolver
   * Router
+* Queue Service
 
 Additionally, there's:
 * Source message producer
