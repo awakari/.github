@@ -238,20 +238,30 @@ sequenceDiagram
     participant Matches
     participant Messages
     
+    activate Cleaner
     Cleaner->>Messages: Scan
+    deactivate Cleaner
+    
     activate Messages
     Messages->>Cleaner: Next Messages Page
     deactivate Messages
      
+    activate Cleaner
     loop each Message
     
         Cleaner->>Matches: Search by Message
         activate Matches
+        
         Matches->>Cleaner: Found: True/False
-        deactivate Matches    
-    
+        deactivate Matches
+        
     end
     
+    Cleaner->>Messages: Delete Filtered Messages
+    activate Messages
+    Messages-->>Cleaner: Ack
+    
+    deactivate Cleaner
 ```
 
 # 6. Additional Information
