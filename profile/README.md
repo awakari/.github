@@ -222,7 +222,7 @@ Cleaner flow:
 sequenceDiagram
 
     autonumber
-    actor Cleaner
+    participant Cleaner
     participant Matches
     participant Messages
     
