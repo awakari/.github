@@ -135,6 +135,8 @@ sequenceDiagram
     activate Resolver
     
     loop Message
+    
+        activate Resolver
         loop Message Attributes
         
             Resolver->>Conditions: Search by Key/Value
@@ -162,6 +164,7 @@ sequenceDiagram
             end
             deactivate Resolver
         end
+        deactivate Resolver
     end
         
     Resolver-)Messages: Submit Messages
@@ -183,34 +186,41 @@ sequenceDiagram
     participant Messages
 
     Consumer->>Router: Open Messages Stream by Account
+    
     activate Router
     Router->>Subscriptions: Get Subscriptions by Account
+    deactivate Router
     
     activate Subscriptions
     Subscriptions->>Router: Next Subscriptions Page
     deactivate Subscriptions
     
-    loop each Subscription
     activate Router
+    loop each Subscription
     
         Router->>Matches: Withdraw by Subscription
+        deactivate Router
+        
         activate Matches
         Matches->>Router: Next Matches Page
         deactivate Matches
         
-        loop each Match
         activate Router
-            
+        loop each Match      
+          
             Router->>Messages: Search by Ids
+            deactivate Router
+        
             activate Messages
             Messages->>Router: Next Messages Page
             deactivate Messages
+            
+            activate Router
             Router-)Consumer: Push Messages
-        
-        deactivate Router    
+            
         end
-        
-    deactivate Router  
+        deactivate Router
+          
     end
         
     deactivate Router
