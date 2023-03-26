@@ -104,19 +104,20 @@ The core of Awakari consist of:
   * Conditions
   * Subscriptions
   * Matches
-* Stateless Processing Pipeline
+  * Messages
+* Stateless Services
   * Resolver
   * Router
+  * Cleaner
 * Queue Service
 
-Additionally, there's:
-* Source message producer
-* Routed message consumer
-* UI
+Additionally, there may be:
+* Message Producer
+* API Gateway
 
 ![components](components.png)
 
-Producer flow: 
+Resolver flow: 
 
 ```mermaid
 %%{init: {'theme': 'neutral' } }%%
@@ -174,7 +175,7 @@ sequenceDiagram
     deactivate Resolver
 ```
 
-Consumer flow:
+Router flow:
 
 ```mermaid
 %%{init: {'theme': 'neutral' } }%%
@@ -184,45 +185,32 @@ sequenceDiagram
 
     actor Consumer
     participant Router
-    participant Subscriptions
     participant Matches
     participant Messages
 
     Consumer->>Router: Open Messages Stream by Account
     
     activate Router
-    Router->>Subscriptions: Get Subscriptions by Account
+    Router->>Matches: Withdraw by Subscription
     deactivate Router
     
-    activate Subscriptions
-    Subscriptions->>Router: Next Subscriptions Page
-    deactivate Subscriptions
+    activate Matches
+    Matches->>Router: Next Matches Page
+    deactivate Matches
     
     activate Router
-    loop each Subscription
+    loop each Match      
+      
+        Router->>Messages: Search by Ids
     
-        Router->>Matches: Withdraw by Subscription
-        
-        activate Matches
-        Matches->>Router: Next Matches Page
-        deactivate Matches
+        activate Messages
+        Messages->>Router: Next Messages Page
+        deactivate Messages
         
         activate Router
-        loop each Match      
-          
-            Router->>Messages: Search by Ids
-        
-            activate Messages
-            Messages->>Router: Next Messages Page
-            deactivate Messages
-            
-            activate Router
-            Router-)Consumer: Push Messages
-            deactivate Router
-            
-        end
+        Router-)Consumer: Push Messages
         deactivate Router
-          
+        
     end
     deactivate Router
 ```
