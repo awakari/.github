@@ -129,8 +129,7 @@ sequenceDiagram
     participant Conditions
     participant Subscriptions
     participant Matches
-    participant Router
-    actor Consumer
+    participant Messages
 
     Producer-)Resolver: message
     activate Resolver
@@ -163,23 +162,8 @@ sequenceDiagram
         deactivate Resolver
     end
         
-    Resolver-)Router: message
+    Resolver-)Messages: message
     deactivate Resolver
-
-    activate Router
-    loop Each Matching Subscriptions Page
-        
-        Router->>Matches: Search by Message Id
-        activate Matches
-        Matches->>Router: Next Subscriptions Page
-        deactivate Matches
-        
-        loop Each Matching Subscription
-            Router-)Consumer: Message, Destination
-            deactivate Router
-        end
-        
-    end
 ```
 
 # 6. Additional Information
