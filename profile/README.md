@@ -168,8 +168,10 @@ sequenceDiagram
     end
         
     Resolver->>Messages: Insert Messages
-    deactivate Resolver
+    activate Messages
     Messages-->>Resolver: Ack
+    deactivate Messages
+    deactivate Resolver
 ```
 
 Consumer flow:
@@ -233,6 +235,22 @@ sequenceDiagram
 
     autonumber
     actor Cleaner
+    participant Matches
+    participant Messages
+    
+    Cleaner->>Messages: Scan
+    activate Messages
+    Messages->>Cleaner: Next Messages Page
+    deactivate Messages
+     
+    loop each Message
+    
+        Cleaner->>Matches: Search by Message
+        activate Matches
+        Matches->>Cleaner: Found: True/False
+        deactivate Matches    
+    
+    end
     
 ```
 
