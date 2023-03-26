@@ -197,11 +197,13 @@ sequenceDiagram
     activate Matches
     Matches->>Router: Next Matches Page
     deactivate Matches
-    
-    activate Router
+
+    activate Router    
     loop each Match      
-      
+    
+        activate Router      
         Router->>Messages: Search by Ids
+        deactivate Router
     
         activate Messages
         Messages->>Router: Next Messages Page
