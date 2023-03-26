@@ -185,6 +185,29 @@ sequenceDiagram
     Consumer-)Router: Get Messages by Account
     activate Router
     Router->>Subscriptions: Get Subscriptions by Account
+    
+    activate Subscriptions
+    Subscriptions->>Router: Next Subscriptions Page
+    deactivate Subscriptions
+    
+    loop each Subscription
+    
+        Router->>Matches: Withdraw by Subscription
+        activate Matches
+        Matches->>Router: Next Matches Page
+        deactivate Matches
+        
+        loop each Match
+            
+            Router->>Messages: Search by Ids
+            activate Messages
+            Messages->>Router: Next Messages Page
+            deactivate Messages
+            Router-)Consumer: Push Messages
+            
+        end
+         
+    end
         
     deactivate Router
 ```
