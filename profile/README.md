@@ -185,12 +185,6 @@ sequenceDiagram
     Consumer-)Router: Get Messages by Account
     activate Router
     Router->>Subscriptions: Get Subscriptions by Account
-    
-    activate Subscriptions
-    Subscriptions->>Next Subscriptions Page
-    deactivate Subscriptions
-    
-    
         
     deactivate Router
 ```
