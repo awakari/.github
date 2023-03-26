@@ -199,7 +199,6 @@ sequenceDiagram
     loop each Subscription
     
         Router->>Matches: Withdraw by Subscription
-        deactivate Router
         
         activate Matches
         Matches->>Router: Next Matches Page
@@ -222,7 +221,6 @@ sequenceDiagram
         deactivate Router
           
     end
-        
     deactivate Router
 ```
 
