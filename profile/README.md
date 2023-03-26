@@ -167,8 +167,9 @@ sequenceDiagram
         deactivate Resolver
     end
         
-    Resolver-)Messages: Submit Messages
+    Resolver->>Messages: Insert Messages
     deactivate Resolver
+    Messages-->>Resolver: Ack
 ```
 
 Consumer flow:
@@ -222,6 +223,17 @@ sequenceDiagram
           
     end
     deactivate Router
+```
+
+Cleaner flow:
+
+```mermaid
+%%{init: {'theme': 'neutral' } }%%
+sequenceDiagram
+
+    autonumber
+    actor Cleaner
+    
 ```
 
 # 6. Additional Information
