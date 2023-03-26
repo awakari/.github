@@ -116,7 +116,7 @@ Additionally, there's:
 
 ![components](components.png)
 
-The high-level message processing sequence follows: 
+Producer flow: 
 
 ```mermaid
 %%{init: {'theme': 'neutral' } }%%
@@ -166,6 +166,50 @@ sequenceDiagram
         
     Resolver-)Messages: Submit Messages
     deactivate Resolver
+```
+
+Consumer flow:
+
+```mermaid
+%%{init: {'theme': 'neutral' } }%%
+sequenceDiagram
+
+    autonumber
+
+    actor Consumer
+    participant Router
+    participant Subscriptions
+    participant Matches
+    participant Messages
+
+    Consumer-)Router: Get Messages by Account
+    activate Router
+    Router->>Subscriptions: Get Subscriptions by Account
+    
+    activate Subscriptions
+    Subscriptions->>Next Subscriptions Page
+    deactivate Subscriptions
+    
+    loop each Subscription
+    
+        Router->>Matches: Withdraw by Subscription
+        activate Matches
+        Matches->>Router: Next Matches Page
+        deactivate Matches
+        
+        loop each Match
+            
+            Router->>Messages: Search by Ids
+            activate Messages
+            Messages->>Router: Next Messages Page
+            deactivate Messages
+            Router-)Consumer: Push Messages
+            
+        end
+         
+    end
+        
+    deactivate Router
 ```
 
 # 6. Additional Information
