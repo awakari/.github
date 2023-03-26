@@ -200,8 +200,7 @@ sequenceDiagram
 
     activate Router    
     loop each Match      
-    
-        activate Router      
+        
         Router->>Messages: Search by Ids
         deactivate Router
     
@@ -214,7 +213,6 @@ sequenceDiagram
         deactivate Router
         
     end
-    deactivate Router
 ```
 
 Cleaner flow:
