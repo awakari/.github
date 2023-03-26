@@ -182,7 +182,7 @@ sequenceDiagram
     participant Matches
     participant Messages
 
-    Consumer-)Router: Get Messages by Account
+    Consumer->>Router: Open Messages Stream by Account
     activate Router
     Router->>Subscriptions: Get Subscriptions by Account
     
