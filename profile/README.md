@@ -260,6 +260,7 @@ sequenceDiagram
     Cleaner->>Messages: Delete Filtered Messages
     activate Messages
     Messages-->>Cleaner: Ack
+    deactivate Messages
     
     deactivate Cleaner
 ```
