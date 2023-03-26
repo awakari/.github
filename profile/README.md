@@ -190,6 +190,7 @@ sequenceDiagram
     Subscriptions->>Router: Next Subscriptions Page
     deactivate Subscriptions
     
+    activate Router
     loop each Subscription
     
         Router->>Matches: Withdraw by Subscription
@@ -197,6 +198,7 @@ sequenceDiagram
         Matches->>Router: Next Matches Page
         deactivate Matches
         
+        activate Router
         loop each Match
             
             Router->>Messages: Search by Ids
@@ -206,8 +208,10 @@ sequenceDiagram
             Router-)Consumer: Push Messages
             
         end
+        deactivate Router
          
     end
+    deactivate Router
         
     deactivate Router
 ```
