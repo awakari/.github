@@ -208,7 +208,6 @@ sequenceDiagram
         loop each Match      
           
             Router->>Messages: Search by Ids
-            deactivate Router
         
             activate Messages
             Messages->>Router: Next Messages Page
@@ -216,6 +215,7 @@ sequenceDiagram
             
             activate Router
             Router-)Consumer: Push Messages
+            deactivate Router
             
         end
         deactivate Router
