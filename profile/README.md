@@ -145,45 +145,45 @@ sequenceDiagram
     Queue->>Resolver: Messages
     deactivate Queue
     
-    activate Resolver
-    loop Message
+    loop Infinite
     
         activate Resolver
-        loop Message Attributes
+        loop Message
         
-            Resolver->>Conditions: Search by Key/Value
-            activate Conditions
-            Conditions->>Resolver: Next Conditions Page
-            deactivate Conditions
+            loop Message Attributes
             
-            activate Resolver
-            loop Each Condition
+                Resolver->>Conditions: Search by Key/Value
+                activate Conditions
+                Conditions->>Resolver: Next Conditions Page
+                deactivate Conditions
                 
-                Resolver->>Subscriptions: Search by Condition
-                activate Subscriptions
-                Subscriptions->>Resolver: Next Subscriptions Page
-                deactivate Subscriptions
-                
-                activate Resolver
-                loop Each Subscription
-                    Resolver->>Matches: Register Match Candidate
-                    activate Matches
-                    Matches-->>Resolver: Ack
-                    deactivate Matches
+                loop Each Condition
+                    
+                    Resolver->>Subscriptions: Search by Condition
+                    activate Subscriptions
+                    Subscriptions->>Resolver: Next Subscriptions Page
+                    deactivate Subscriptions
+                    
+                    loop Each Subscription
+                        Resolver->>Matches: Register Match Candidate
+                        activate Matches
+                        Matches-->>Resolver: Ack
+                        deactivate Matches
+                    end
+                    
                 end
-                deactivate Resolver
-                
             end
-            deactivate Resolver
         end
-        deactivate Resolver
-    end
+            
+        Resolver->>Messages: Insert Messages
         
-    Resolver->>Messages: Insert Messages
-    activate Messages
-    Messages-->>Resolver: Ack
-    deactivate Messages
-    deactivate Resolver
+        activate Messages
+        Messages-->>Resolver: Ack
+        deactivate Messages
+        
+        deactivate Resolver
+        
+    end
 ```
 
 Router flow:
