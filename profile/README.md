@@ -226,7 +226,7 @@ sequenceDiagram
         deactivate Router
         
         activate Matches
-        Matches-->Router: Deleted Count 
+        Matches->>Router: Deleted Count 
         deactivate Matches
         
         activate Router
