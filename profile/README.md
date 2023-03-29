@@ -108,7 +108,6 @@ The core of Awakari consist of:
 * Stateless Services
   * Resolver
   * Router
-  * Cleaner
 * Queue Service
 
 Additionally, there may be:
@@ -191,7 +190,7 @@ sequenceDiagram
     Consumer->>Router: Open Messages Stream by Account
     
     activate Router
-    Router->>Matches: Withdraw by Subscription
+    Router->>Matches: Search by Subscription
     deactivate Router
     
     activate Matches
@@ -209,48 +208,17 @@ sequenceDiagram
         deactivate Messages
         
         activate Router
-        Router-)Consumer: Push Messages
+        Router->>Consumer: Push Messages
         deactivate Router
+
+        activate Consumer
+        Consumer-->>Router: Ack
+        deactivate Consumer
         
     end
-```
 
-Cleaner flow:
-
-```mermaid
-%%{init: {'theme': 'neutral' } }%%
-sequenceDiagram
-
-    autonumber
-    participant Cleaner
-    participant Matches
-    participant Messages
+    Router->>Matches: Delete Processed
     
-    activate Cleaner
-    Cleaner->>Messages: Scan
-    deactivate Cleaner
-    
-    activate Messages
-    Messages->>Cleaner: Next Messages Page
-    deactivate Messages
-     
-    activate Cleaner
-    loop each Message
-    
-        Cleaner->>Matches: Search by Message
-        activate Matches
-        
-        Matches->>Cleaner: Found: True/False
-        deactivate Matches
-        
-    end
-    
-    Cleaner->>Messages: Delete Filtered Messages
-    activate Messages
-    Messages-->>Cleaner: Ack
-    deactivate Messages
-    
-    deactivate Cleaner
 ```
 
 # 6. Additional Information
