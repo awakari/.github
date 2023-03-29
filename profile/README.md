@@ -215,9 +215,16 @@ sequenceDiagram
         Consumer-->>Router: Ack
         deactivate Consumer
         
+        activate Router
+        
     end
 
     Router->>Matches: Delete Processed
+    deactivate Router
+    
+    activate Matches
+    Matches-->>Router: Ack
+    deactivate Matches
     
 ```
 
