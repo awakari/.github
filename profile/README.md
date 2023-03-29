@@ -138,7 +138,7 @@ sequenceDiagram
     deactivate Queue
     
     activate Resolver
-    loop Infinite
+    loop
     
         Resolver->>Queue: Poll Messages
         deactivate Resolver
@@ -160,7 +160,7 @@ sequenceDiagram
                 deactivate Conditions
                 
                 activate Resolver
-                loop Each Condition
+                loop Conditions
                     
                     Resolver->>Subscriptions: Search by Condition
                     deactivate Resolver
@@ -170,7 +170,7 @@ sequenceDiagram
                     deactivate Subscriptions
                     
                     activate Resolver
-                    loop Each Subscription
+                    loop Subscriptions
                         
                         Resolver->>Matches: Register Match Candidate
                         deactivate Resolver
@@ -192,7 +192,8 @@ sequenceDiagram
         activate Messages
         Messages-->>Resolver: Ack
         deactivate Messages
-                
+        
+        activate Resolver
     end
 ```
 
@@ -213,7 +214,7 @@ sequenceDiagram
 
     activate Router
     
-    loop each Match      
+    loop Matches
     
         Router->>Matches: Search by Account
         deactivate Router
@@ -242,7 +243,7 @@ sequenceDiagram
     
     end
 
-    loop until all routed matches deleted
+    loop Until all matches deleted
     
         Router->>Matches: Delete Remaining
         deactivate Router
