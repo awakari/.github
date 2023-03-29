@@ -187,18 +187,22 @@ sequenceDiagram
     participant Matches
     participant Messages
 
-    Consumer->>Router: Open Messages Stream by Account
-    
+    Consumer->>Router: Get Messages by Account
+
     activate Router
-    Router->>Matches: Search by Subscription
+    loop each Match      
+    
+        activate RouterRouter->>Matches: Delete Remaining
     deactivate Router
     
     activate Matches
-    Matches->>Router: Next Matches Page
-    deactivate Matches
-
-    activate Router    
-    loop each Match      
+    Matches-->>Router: Ack
+        Router->>Matches: Search by Account
+        deactivate Router
+        
+        activate Matches
+        Matches->>Router: Next Matches Page
+        deactivate Matches
         
         Router->>Messages: Search by Ids
         deactivate Router
@@ -216,16 +220,23 @@ sequenceDiagram
         deactivate Consumer
         
         activate Router
-        
+    
     end
 
-    Router->>Matches: Delete Processed
+    loop until all routed matches deleted
+    
+        Router->>Matches: Delete Remaining
+        deactivate Router
+        
+        activate Matches
+        Matches-->Router: Deleted Count 
+        deactivate Matches
+        
+        activate Router
+        
+    end
+    
     deactivate Router
-    
-    activate Matches
-    Matches-->>Router: Ack
-    deactivate Matches
-    
 ```
 
 # 6. Additional Information
