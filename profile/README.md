@@ -125,15 +125,27 @@ sequenceDiagram
     autonumber
 
     actor Producer
+    participant Queue
     participant Resolver
     participant Conditions
     participant Subscriptions
     participant Matches
     participant Messages
 
-    Producer-)Resolver: Submit Messages
-    activate Resolver
+    Producer->>Queue: Submit Messages
+    activate Queue
+    Queue-->Producer: Accepted Count
+    deactivate Queue
     
+    activate Resolver
+    Resolver->>Queue: Poll Messages
+    deactivate Resolver
+    
+    activate Queue
+    Queue->>Resolver: Messages
+    deactivate Queue
+    
+    activate Resolver
     loop Message
     
         activate Resolver
