@@ -137,15 +137,15 @@ sequenceDiagram
     Queue-->Producer: Accepted Count
     deactivate Queue
     
-    activate Resolver
-    Resolver->>Queue: Poll Messages
-    deactivate Resolver
-    
-    activate Queue
-    Queue->>Resolver: Messages
-    deactivate Queue
-    
     loop Infinite
+    
+        activate Resolver
+        Resolver->>Queue: Poll Messages
+        deactivate Resolver
+        
+        activate Queue
+        Queue->>Resolver: Messages
+        deactivate Queue
     
         activate Resolver
         loop Message
@@ -153,29 +153,39 @@ sequenceDiagram
             loop Message Attributes
             
                 Resolver->>Conditions: Search by Key/Value
+                deactivate Resolver
+                
                 activate Conditions
                 Conditions->>Resolver: Next Conditions Page
                 deactivate Conditions
                 
+                activate Resolver
                 loop Each Condition
                     
                     Resolver->>Subscriptions: Search by Condition
+                    deactivate Resolver
+                    
                     activate Subscriptions
                     Subscriptions->>Resolver: Next Subscriptions Page
                     deactivate Subscriptions
                     
+                    activate Resolver
                     loop Each Subscription
+                        
                         Resolver->>Matches: Register Match Candidate
+                        deactivate Resolver
+                        
                         activate Matches
                         Matches-->>Resolver: Ack
                         deactivate Matches
+                        
                     end
-                    
                 end
             end
         end
             
         Resolver->>Messages: Insert Messages
+        deactivate Resolver
         
         activate Messages
         Messages-->>Resolver: Ack
