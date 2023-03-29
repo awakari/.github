@@ -137,9 +137,9 @@ sequenceDiagram
     Queue-->Producer: Accepted Count
     deactivate Queue
     
+    activate Resolver
     loop Infinite
     
-        activate Resolver
         Resolver->>Queue: Poll Messages
         deactivate Resolver
         
@@ -192,9 +192,7 @@ sequenceDiagram
         activate Messages
         Messages-->>Resolver: Ack
         deactivate Messages
-        
-        activate Resolver
-        
+                
     end
 ```
 
