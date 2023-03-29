@@ -192,11 +192,7 @@ sequenceDiagram
     activate Router
     loop each Match      
     
-        activate RouterRouter->>Matches: Delete Remaining
-    deactivate Router
-    
-    activate Matches
-    Matches-->>Router: Ack
+        activate Router
         Router->>Matches: Search by Account
         deactivate Router
         
