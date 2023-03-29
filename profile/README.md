@@ -190,9 +190,9 @@ sequenceDiagram
     Consumer->>Router: Get Messages by Account
 
     activate Router
+    
     loop each Match      
     
-        activate Router
         Router->>Matches: Search by Account
         deactivate Router
         
@@ -200,6 +200,7 @@ sequenceDiagram
         Matches->>Router: Next Matches Page
         deactivate Matches
         
+        activate Router
         Router->>Messages: Search by Ids
         deactivate Router
     
