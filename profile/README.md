@@ -192,7 +192,9 @@ sequenceDiagram
         activate Messages
         Messages-->>Resolver: Ack
         deactivate Messages
-                
+        
+        activate Resolver
+        
     end
 ```
 
