@@ -243,9 +243,9 @@ sequenceDiagram
     
     end
 
-    loop Until all matches deleted
+    loop Remaining Matches
     
-        Router->>Matches: Delete Remaining
+        Router->>Matches: Delete Matches
         deactivate Router
         
         activate Matches
