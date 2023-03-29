@@ -179,20 +179,20 @@ sequenceDiagram
                         Matches-->>Resolver: Ack
                         deactivate Matches
                         
+                        activate Resolver
+                        
                     end
                 end
             end
         end
-            
+        
         Resolver->>Messages: Insert Messages
         deactivate Resolver
         
         activate Messages
         Messages-->>Resolver: Ack
         deactivate Messages
-        
-        deactivate Resolver
-        
+                
     end
 ```
 
