@@ -210,13 +210,13 @@ sequenceDiagram
     participant Matches
     participant Messages
 
-    Consumer->>Router: Get Messages by Account
+    Consumer->>Router: Get Messages by Account and Cursor
 
     activate Router
     
     loop Matches
     
-        Router->>Matches: Search by Account
+        Router->>Matches: Search by Account and Cursor
         deactivate Router
         
         activate Matches
@@ -241,19 +241,6 @@ sequenceDiagram
         
         activate Router
     
-    end
-
-    loop Remaining Matches
-    
-        Router->>Matches: Delete Matches
-        deactivate Router
-        
-        activate Matches
-        Matches->>Router: Deleted Count 
-        deactivate Matches
-        
-        activate Router
-        
     end
     
     deactivate Router
