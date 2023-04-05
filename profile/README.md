@@ -105,7 +105,6 @@ The core of Awakari consist of:
   * Subscriptions
   * Matches
   * Messages
-  * Quotas
 * Stateless Services
   * Resolver
   * Router
@@ -127,7 +126,6 @@ sequenceDiagram
 
     actor Producer
     participant Resolver
-    participant Quotas
     participant Conditions
     participant Subscriptions
     participant Matches
@@ -136,15 +134,7 @@ sequenceDiagram
     Producer->>Resolver: Submit Messages
     
     activate Resolver
-    Resolver->>Quotas: Account Usage
-    deactivate Resolver
-    
-    activate Quotas 
-    Quotas->>Resolver: Accepted Count
-    deactivate Quotas
-    
-    activate Resolver
-    Resolver-->Producer: Accepted Count
+    Resolver-->>Producer: Accepted Count
     
     loop
     
