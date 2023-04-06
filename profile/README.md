@@ -106,8 +106,8 @@ The core of Awakari consist of:
   * Matches
   * Messages
 * Stateless Services
-  * Resolver
-  * Router
+  * Writer
+  * Reader
 * Queue Service
 
 Additionally, there may be:
@@ -116,7 +116,7 @@ Additionally, there may be:
 
 ![components](components.png)
 
-Resolver flow: 
+Write flow: 
 
 ```mermaid
 %%{init: {'theme': 'neutral' } }%%
@@ -125,70 +125,70 @@ sequenceDiagram
     autonumber
 
     actor Producer
-    participant Resolver
+    participant Writer
     participant Conditions
     participant Subscriptions
     participant Matches
     participant Messages
 
-    Producer->>Resolver: Submit Messages
+    Producer->>Writer: Submit Messages
     
-    activate Resolver
-    Resolver-->>Producer: Accepted Count
+    activate Writer
+    Writer-->>Producer: Accepted Count
     
     loop
     
-        Resolver->>Resolver: Poll Messages from the Queue
+        Writer->>Writer: Poll Messages from the Queue
         loop Message
         
             loop Message Attributes
             
-                Resolver->>Conditions: Search by Key/Value
-                deactivate Resolver
+                Writer->>Conditions: Search by Key/Value
+                deactivate Writer
                 
                 activate Conditions
-                Conditions->>Resolver: Next Conditions Page
+                Conditions->>Writer: Next Conditions Page
                 deactivate Conditions
                 
-                activate Resolver
+                activate Writer
                 loop Conditions
                     
-                    Resolver->>Subscriptions: Search by Condition
-                    deactivate Resolver
+                    Writer->>Subscriptions: Search by Condition
+                    deactivate Writer
                     
                     activate Subscriptions
-                    Subscriptions->>Resolver: Next Subscriptions Page
+                    Subscriptions->>Writer: Next Subscriptions Page
                     deactivate Subscriptions
                     
-                    activate Resolver
+                    activate Writer
                     loop Subscriptions
                         
-                        Resolver->>Matches: Register Match Candidate
-                        deactivate Resolver
+                        Writer->>Matches: Register Match Candidate
+                        deactivate Writer
                         
                         activate Matches
-                        Matches-->>Resolver: Ack
+                        Matches-->>Writer: Ack
                         deactivate Matches
                         
-                        activate Resolver
+                        activate Writer
                         
                     end
                 end
             end
         end
         
-        Resolver->>Messages: Insert Messages
-        deactivate Resolver
+        Writer->>Messages: Insert Messages
+        deactivate Writer
         
         activate Messages
-        Messages-->>Resolver: Ack
+        Messages-->>Writer: Ack
         deactivate Messages
         
-        activate Resolver
+        activate Writer
     end
 ```
 
-Router flow:
+Read flow:
 
 ```mermaid
 %%{init: {'theme': 'neutral' } }%%
@@ -197,44 +197,44 @@ sequenceDiagram
     autonumber
 
     actor Consumer
-    participant Router
+    participant Reader
     participant Matches
     participant Messages
 
-    Consumer->>Router: Get Messages by Account and Cursor
+    Consumer->>Reader: Get Messages by Account and Cursor
 
-    activate Router
+    activate Reader
     
     loop Matches
     
-        Router->>Matches: Search by Account and Cursor
-        deactivate Router
+        Reader->>Matches: Search by Account and Cursor
+        deactivate Reader
         
         activate Matches
-        Matches->>Router: Next Matches Page
+        Matches->>Reader: Next Matches Page
         deactivate Matches
         
-        activate Router
-        Router->>Messages: Search by Ids
-        deactivate Router
+        activate Reader
+        Reader->>Messages: Search by Ids
+        deactivate Reader
     
         activate Messages
-        Messages->>Router: Next Messages Page
+        Messages->>Reader: Next Messages Page
         deactivate Messages
         
-        activate Router
-        Router->>Consumer: Push Messages
-        deactivate Router
+        activate Reader
+        Reader->>Consumer: Push Messages
+        deactivate Reader
 
         activate Consumer
-        Consumer-->>Router: Ack
+        Consumer-->>Reader: Ack
         deactivate Consumer
         
-        activate Router
+        activate Reader
     
     end
     
-    deactivate Router
+    deactivate Reader
 ```
 
 # 6. Additional Information
