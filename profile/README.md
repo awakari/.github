@@ -208,10 +208,10 @@ sequenceDiagram
     activate Matches
     Matches->>Reader: Matches
     deactivate Matches
-        
+
+    activate Reader        
     loop Matches
 
-        activate Reader
         Reader->>Messages: Search by Message Id
         deactivate Reader
     
@@ -230,7 +230,6 @@ sequenceDiagram
         activate Reader
     
     end
-    
     deactivate Reader
 ```
 
