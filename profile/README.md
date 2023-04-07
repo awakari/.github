@@ -138,46 +138,44 @@ sequenceDiagram
     
     loop
     
-        Writer->>Writer: Poll Messages from the Queue
-        loop Message
+        Writer->>Writer: Get Message from the Queue
         
-            loop Message Attributes
+        loop Message Attributes
+        
+            Writer->>Conditions: Search by Key/Value
+            deactivate Writer
             
-                Writer->>Conditions: Search by Key/Value
+            activate Conditions
+            Conditions->>Writer: Conditions
+            deactivate Conditions
+            
+            activate Writer
+            loop Conditions
+                
+                Writer->>Subscriptions: Search by Condition
                 deactivate Writer
                 
-                activate Conditions
-                Conditions->>Writer: Next Conditions Page
-                deactivate Conditions
+                activate Subscriptions
+                Subscriptions->>Writer: Subscriptions
+                deactivate Subscriptions
                 
                 activate Writer
-                loop Conditions
+                loop Subscriptions
                     
-                    Writer->>Subscriptions: Search by Condition
+                    Writer->>Matches: Register Match Candidate
                     deactivate Writer
                     
-                    activate Subscriptions
-                    Subscriptions->>Writer: Next Subscriptions Page
-                    deactivate Subscriptions
+                    activate Matches
+                    Matches-->>Writer: Ack
+                    deactivate Matches
                     
                     activate Writer
-                    loop Subscriptions
-                        
-                        Writer->>Matches: Register Match Candidate
-                        deactivate Writer
-                        
-                        activate Matches
-                        Matches-->>Writer: Ack
-                        deactivate Matches
-                        
-                        activate Writer
-                        
-                    end
+                    
                 end
             end
         end
         
-        Writer->>Messages: Insert Messages
+        Writer->>Messages: Insert Message
         deactivate Writer
         
         activate Messages
@@ -201,7 +199,7 @@ sequenceDiagram
     participant Matches
     participant Messages
 
-    Consumer->>Reader: Get Messages by Account and Cursor
+    Consumer->>Reader: Read Messages
 
     activate Reader
     
@@ -211,7 +209,7 @@ sequenceDiagram
         deactivate Reader
         
         activate Matches
-        Matches->>Reader: Next Matches Page
+        Matches->>Reader: Matches
         deactivate Matches
         
         activate Reader
@@ -219,7 +217,7 @@ sequenceDiagram
         deactivate Reader
     
         activate Messages
-        Messages->>Reader: Next Messages Page
+        Messages->>Reader: Messages
         deactivate Messages
         
         activate Reader
