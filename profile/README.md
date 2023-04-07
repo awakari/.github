@@ -136,7 +136,7 @@ sequenceDiagram
     activate Writer
     Writer-->>Producer: Accepted Count
     
-    loop
+    loop Messages
     
         Writer->>Writer: Get Message from the Queue
         
@@ -202,26 +202,25 @@ sequenceDiagram
     Consumer->>Reader: Read Messages
 
     activate Reader
-    
+    Reader->>Matches: Search by Account
+    deactivate Reader
+        
+    activate Matches
+    Matches->>Reader: Matches
+    deactivate Matches
+        
     loop Matches
-    
-        Reader->>Matches: Search by Account and Cursor
-        deactivate Reader
-        
-        activate Matches
-        Matches->>Reader: Matches
-        deactivate Matches
-        
+
         activate Reader
-        Reader->>Messages: Search by Ids
+        Reader->>Messages: Search by Message Id
         deactivate Reader
     
         activate Messages
-        Messages->>Reader: Messages
+        Messages->>Reader: Message
         deactivate Messages
         
         activate Reader
-        Reader->>Consumer: Push Messages
+        Reader->>Consumer: Push Message
         deactivate Reader
 
         activate Consumer
