@@ -228,6 +228,7 @@ sequenceDiagram
         deactivate Messages
         
         activate Reader
+        Reader->>Reader: Set Match Attributes to Message
         Reader->>Consumer: Push Message
         deactivate Reader
 
