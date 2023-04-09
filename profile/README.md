@@ -124,21 +124,14 @@ sequenceDiagram
 
     autonumber
 
-    actor Producer
-    participant Writer
+    actor Writer
     participant Conditions
     participant Subscriptions
     participant Matches
     participant Router
-
-    Producer->>Writer: Submit Messages
     
     activate Writer
-    Writer->>Writer: Submit Messages to Queue
-    Writer->>Producer: Accepted Count
-    
-    loop Messages
-    
+    loop
         Writer->>Writer: Get Message from the Queue
         
         loop Message Attributes
@@ -181,7 +174,7 @@ sequenceDiagram
                 end
             end
         end
-        
+            
         Writer->>Router: Route Messages
         deactivate Writer
         
@@ -194,7 +187,7 @@ sequenceDiagram
     end
 ```
 
-Router flow:
+Route flow:
 
 ```mermaid
 %%{init: {'theme': 'neutral' } }%%
