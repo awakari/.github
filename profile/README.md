@@ -135,8 +135,8 @@ sequenceDiagram
     Producer->>Writer: Submit Messages
     
     activate Writer
-    Writer-->>Writer: Submit Messages to Queue
-    Writer-->>Producer: Accepted Count
+    Writer->>Writer: Submit Messages to Queue
+    Writer->>Producer: Accepted Count
     
     loop Messages
     
@@ -169,10 +169,10 @@ sequenceDiagram
                     
                     activate Matches
                     Matches->>Reader: Register Complete Match
-                    Reader->>Reader: Submit Match to Queue
                     deactivate Matches
                     
                     activate Reader
+                    Reader->>Reader: Submit Match to Queue
                     Reader-->>Matches: Ack
                     deactivate Reader
                     
