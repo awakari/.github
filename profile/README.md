@@ -130,8 +130,8 @@ sequenceDiagram
     participant Matches
     participant Router
     
-    activate Writer
     loop
+        activate Writer
         Writer->>Writer: Get Message from the Queue
         
         loop Message Attributes
