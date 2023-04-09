@@ -104,9 +104,9 @@ The core of Awakari consist of:
   * Conditions
   * Subscriptions
   * Matches
-  * Messages
 * Stateless Services
   * Writer
+  * Router
   * Reader
 * Queue Service
 
@@ -129,8 +129,7 @@ sequenceDiagram
     participant Conditions
     participant Subscriptions
     participant Matches
-    participant Reader
-    participant Messages
+    participant Router
 
     Producer->>Writer: Submit Messages
     
@@ -170,14 +169,8 @@ sequenceDiagram
                     deactivate Writer
                     
                     activate Matches
-                    Matches->>Matches: Upsert, Check whether Match becomes complete
-                    Matches->>Reader: Register Complete Match
-                    deactivate Matches
-                    
-                    activate Reader
-                    Reader->>Reader: Submit Match to Queue
-                    Reader-->>Matches: Ack
-                    deactivate Reader
+                    Matches->>Matches: Merge/Upsert
+                    deactivate Matches                  
                     
                     activate Matches
                     Matches-->>Writer: Ack
@@ -189,19 +182,19 @@ sequenceDiagram
             end
         end
         
-        Writer->>Messages: Insert
+        Writer->>Router: Route Messages
         deactivate Writer
         
-        activate Messages
-        Messages->>Messages: Insert to Storage
-        Messages-->>Writer: Ack
-        deactivate Messages
+        activate Router
+        Router->>Router: Submit Messages to Queue
+        Router-->>Writer: Accepted Count
+        deactivate Router
         
         activate Writer
     end
 ```
 
-Read flow:
+Router flow:
 
 ```mermaid
 %%{init: {'theme': 'neutral' } }%%
@@ -216,7 +209,7 @@ sequenceDiagram
     Consumer->>Reader: Read Messages by Subscription
 
     activate Reader
-    Reader->>Reader: Filter Matches by Subscription from Queue
+    Reader->>Reader: Filter Messages by Subscription from Queue
     loop Matches
 
         Reader->>Messages: Get by Id
