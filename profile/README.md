@@ -148,6 +148,7 @@ sequenceDiagram
             deactivate Writer
             
             activate Conditions
+            Conditions->>Conditions: Search by Key/Value
             Conditions->>Writer: Conditions
             deactivate Conditions
             
@@ -158,6 +159,7 @@ sequenceDiagram
                 deactivate Writer
                 
                 activate Subscriptions
+                Subscriptions->>Subscriptions: Search by Condition
                 Subscriptions->>Writer: Subscriptions
                 deactivate Subscriptions
                 
@@ -168,6 +170,7 @@ sequenceDiagram
                     deactivate Writer
                     
                     activate Matches
+                    Matches->>Matches: Upsert, Check whether Match becomes complete
                     Matches->>Reader: Register Complete Match
                     deactivate Matches
                     
@@ -186,10 +189,11 @@ sequenceDiagram
             end
         end
         
-        Writer->>Messages: Insert Message
+        Writer->>Messages: Insert
         deactivate Writer
         
         activate Messages
+        Messages->>Messages: Insert to Storage
         Messages-->>Writer: Ack
         deactivate Messages
         
@@ -209,13 +213,13 @@ sequenceDiagram
     participant Reader
     participant Messages
 
-    Consumer->>Reader: Read Messages
+    Consumer->>Reader: Read Messages by Subscription
 
     activate Reader
-    Reader->>Reader: Filter Matches from Queue
+    Reader->>Reader: Filter Matches by Subscription from Queue
     loop Matches
 
-        Reader->>Messages: Search by Message Id
+        Reader->>Messages: Get by Id
         deactivate Reader
     
         activate Messages
