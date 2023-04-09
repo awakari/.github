@@ -223,6 +223,7 @@ sequenceDiagram
         deactivate Reader
     
         activate Messages
+        Messages->>Messages: Get from Storage by Id
         Messages->>Reader: Message
         deactivate Messages
         
