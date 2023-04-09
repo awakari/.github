@@ -132,7 +132,7 @@ sequenceDiagram
     
     loop
         activate Writer
-        Writer->>Writer: Get Message from the Queue
+        Writer->>Writer: Receive Message from Queue
         
         loop Message Attributes
         
@@ -180,7 +180,7 @@ sequenceDiagram
         
         activate Router
         Router->>Router: Submit Messages to Queue
-        Router-->>Writer: Accepted Count
+        Router-->>Writer: Ack
         deactivate Router
         
         activate Writer
@@ -195,37 +195,39 @@ sequenceDiagram
 
     autonumber
 
-    actor Consumer
+    actor Router
+    participant Matches
     participant Reader
-    participant Messages
 
-    Consumer->>Reader: Read Messages by Subscription
-
-    activate Reader
-    Reader->>Reader: Filter Messages by Subscription from Queue
-    loop Matches
-
-        Reader->>Messages: Get by Id
-        deactivate Reader
-    
-        activate Messages
-        Messages->>Messages: Get from Storage by Id
-        Messages->>Reader: Message
-        deactivate Messages
+    loop
         
-        activate Reader
-        Reader->>Reader: Set Match Attributes to Message
-        Reader->>Consumer: Push Message
-        deactivate Reader
-
-        activate Consumer
-        Consumer-->>Reader: Ack
-        deactivate Consumer
+        activate Router
+        Router->>Router: Receive Message from Queue
+        Router->>Matches: Search by Message
+        deactivate Router
         
-        activate Reader
-    
+        activate Matches
+        Matches->>Matches: Search Complete Matches by Message 
+        Matches->>Router: Complete Matches
+        deactivate Matches
+        
+        activate Router
+        loop Complete Matches
+            
+            Router->>Reader: Publish Message by Subscription
+            deactivate Router
+            
+            activate Reader
+            Reader->>Reader: Submit Message to Queue
+            Reader-->>Router: Ack
+            deactivate Reader
+            
+            activate Router
+                       
+        end
+        deactivate Router
+        
     end
-    deactivate Reader
 ```
 
 # 6. Additional Information
