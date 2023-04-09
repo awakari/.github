@@ -129,6 +129,7 @@ sequenceDiagram
     participant Conditions
     participant Subscriptions
     participant Matches
+    participant Reader
     participant Messages
 
     Producer->>Writer: Submit Messages
@@ -164,6 +165,14 @@ sequenceDiagram
                     
                     Writer->>Matches: Register Match Candidate
                     deactivate Writer
+                    
+                    activate Matches
+                    Matches->>Reader: Register Complete Match
+                    deactivate Matches
+                    
+                    activate Reader
+                    Reader-->>Matches: Ack
+                    deactivate Reader
                     
                     activate Matches
                     Matches-->>Writer: Ack
@@ -202,14 +211,7 @@ sequenceDiagram
     Consumer->>Reader: Read Messages
 
     activate Reader
-    Reader->>Matches: Search by Account
-    deactivate Reader
-        
-    activate Matches
-    Matches->>Reader: Matches
-    deactivate Matches
-
-    activate Reader        
+    Reader->>Reader: Filter Matches from Queue
     loop Matches
 
         Reader->>Messages: Search by Message Id
