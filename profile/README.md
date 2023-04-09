@@ -218,7 +218,7 @@ sequenceDiagram
             deactivate Router
             
             activate Reader
-            Reader->>Reader: Submit Message to Queue
+            Reader->>Reader: Submit Message to Queue by Subscription
             Reader-->>Router: Ack
             deactivate Reader
             
