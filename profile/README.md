@@ -104,10 +104,10 @@ The core of Awakari consist of:
   * Conditions
   * Subscriptions
   * Matches
+  * Reader
 * Stateless Services
   * Writer
   * Router
-  * Reader
 * Queue Service
 
 Additionally, there may be:
@@ -218,7 +218,7 @@ sequenceDiagram
             deactivate Router
             
             activate Reader
-            Reader->>Reader: Submit Message to Queue by Subscription
+            Reader->>Reader: Submit Message by Subscription
             Reader-->>Router: Ack
             deactivate Reader
             
