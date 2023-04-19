@@ -101,134 +101,19 @@ TODO
 
 The core of Awakari consist of: 
 * Storage Services
-  * Conditions
-  * Subscriptions
-  * Matches
-  * Reader
+  * Conditions, e.g. [Kiwi Tree](https://github.com/awakari/kiwi-tree)
+  * [Subscriptions](https://github.com/awakari/subscriptions)
+  * [Matches](https://github.com/awakari/matches)
+  * [Reader](https://github.com/awakari/reader)
 * Stateless Services
-  * Writer
-  * Router
-* Queue Service
+  * [Writer](https://github.com/awakari/writer)
+  * [Router](https://github.com/awakari/router)
 
-Additionally, there may be:
-* Message Producer
+In the SaaS variant there are also:
+* Message Producer, e.g. [RSS](https://github.com/awakari/producer-rss)
 * API Gateway
 
 ![components](components.png)
-
-Write flow: 
-
-```mermaid
-%%{init: {'theme': 'neutral' } }%%
-sequenceDiagram
-
-    autonumber
-
-    actor Writer
-    participant Conditions
-    participant Subscriptions
-    participant Matches
-    participant Router
-    
-    loop
-        activate Writer
-        Writer->>Writer: Receive Message from Queue
-        
-        loop Message Attributes
-        
-            Writer->>Conditions: Search by Key/Value
-            deactivate Writer
-            
-            activate Conditions
-            Conditions->>Conditions: Search by Key/Value
-            Conditions->>Writer: Conditions
-            deactivate Conditions
-            
-            activate Writer
-            loop Conditions
-                
-                Writer->>Subscriptions: Search by Condition
-                deactivate Writer
-                
-                activate Subscriptions
-                Subscriptions->>Subscriptions: Search by Condition
-                Subscriptions->>Writer: Subscriptions
-                deactivate Subscriptions
-                
-                activate Writer
-                loop Subscriptions
-                    
-                    Writer->>Matches: Register Match Candidate
-                    deactivate Writer
-                    
-                    activate Matches
-                    Matches->>Matches: Merge/Upsert
-                    deactivate Matches                  
-                    
-                    activate Matches
-                    Matches-->>Writer: Ack
-                    deactivate Matches
-                    
-                    activate Writer
-                    
-                end
-            end
-        end
-            
-        Writer->>Router: Route Messages
-        deactivate Writer
-        
-        activate Router
-        Router->>Router: Submit Messages to Queue
-        Router-->>Writer: Ack
-        deactivate Router
-        
-        activate Writer
-    end
-```
-
-Route flow:
-
-```mermaid
-%%{init: {'theme': 'neutral' } }%%
-sequenceDiagram
-
-    autonumber
-
-    actor Router
-    participant Matches
-    participant Reader
-
-    loop
-        
-        activate Router
-        Router->>Router: Receive Message from Queue
-        Router->>Matches: Search by Message
-        deactivate Router
-        
-        activate Matches
-        Matches->>Matches: Search Complete Matches by Message 
-        Matches->>Router: Complete Matches
-        deactivate Matches
-        
-        activate Router
-        loop Complete Matches
-            
-            Router->>Reader: Publish Message by Subscription
-            deactivate Router
-            
-            activate Reader
-            Reader->>Reader: Submit Message by Subscription
-            Reader-->>Router: Ack
-            deactivate Reader
-            
-            activate Router
-                       
-        end
-        deactivate Router
-        
-    end
-```
 
 # 6. Additional Information
 
