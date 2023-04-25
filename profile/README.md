@@ -33,8 +33,7 @@ It brings additional features:
 
 ## 1.1. Comparison
 
-Awakari may be used together with another reliable message queue system and inherit the persistence and delivery 
-guarantee. The key differences from other message pub/sub solutions are:
+The key differences from other message pub/sub solutions are:
 <table>
     <thead>
         <tr>
