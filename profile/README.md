@@ -98,18 +98,12 @@ TODO
 
 # 5. Design
 
-The core of Awakari consist of: 
-* Storage Services
-  * Conditions, e.g. [Kiwi Tree](https://github.com/awakari/kiwi-tree)
-  * [Subscriptions](https://github.com/awakari/subscriptions)
-  * [Matches](https://github.com/awakari/matches)
-  * [Reader](https://github.com/awakari/reader)
-* Stateless Services
-  * [Writer](https://github.com/awakari/writer)
-  * [Router](https://github.com/awakari/router)
-
-In the SaaS variant there are also:
-* Message Producer, e.g. [RSS](https://github.com/awakari/producer-rss)
+The core of Awakari consist of:
+* [Writer](https://github.com/awakari/writer)
+* [Subscriptions](https://github.com/awakari/subscriptions)
+* Conditions, e.g. [Kiwi Tree](https://github.com/awakari/kiwi-tree)
+* [Matches](https://github.com/awakari/matches)
+* [Messages](https://github.com/awakari/messages) 
 * API Gateway
 
 ![components](components.png)
