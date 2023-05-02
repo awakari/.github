@@ -104,7 +104,7 @@ The core of Awakari consist of:
 * Conditions, e.g. [Kiwi Tree](https://github.com/awakari/kiwi-tree)
 * [Matches](https://github.com/awakari/matches)
 * [Messages](https://github.com/awakari/messages) 
-* API Gateway
+* [API Gateway](https://github.com/awakari/api-gateway)
 
 ![components](components.png)
 
