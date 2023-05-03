@@ -103,7 +103,8 @@ The core of Awakari consist of:
 * [Subscriptions](https://github.com/awakari/subscriptions)
 * Conditions, e.g. [Kiwi Tree](https://github.com/awakari/kiwi-tree)
 * [Matches](https://github.com/awakari/matches)
-* [Messages](https://github.com/awakari/messages) 
+* [Messages](https://github.com/awakari/messages)
+* [Quotas](https://github.com/awakari/quotas)
 * [API Gateway](https://github.com/awakari/api-gateway)
 
 ![components](components.png)
