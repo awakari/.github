@@ -105,7 +105,7 @@ The core of Awakari consist of:
 * [Matches](https://github.com/awakari/matches)
 * [Messages](https://github.com/awakari/messages)
 
-![components](components.png)
+![components](components-core.png)
 
 # 6. Additional Information
 
