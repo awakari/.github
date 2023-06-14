@@ -98,14 +98,7 @@ TODO
 
 # 5. Design
 
-The core of Awakari consist of:
-* [Writer](https://github.com/awakari/writer)
-* [Subscriptions](https://github.com/awakari/subscriptions)
-* Conditions, e.g. [Kiwi Tree](https://github.com/awakari/kiwi-tree)
-* [Matches](https://github.com/awakari/matches)
-* [Messages](https://github.com/awakari/messages)
-
-![components](components-core.png)
+TODO
 
 # 6. Additional Information
 
