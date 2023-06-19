@@ -12,24 +12,13 @@
 
 # 1. Overview
 
-Conventional search engines are used to find information by a query. 
-The problem is reverse in the modern world of real-time data streams.
-It's necessary to filter and consume the data matching a query on the fly.
-Existing stream processing solutions offer only the iteration way to find matching queries.
-For example, a system may have billions of user queries registered.
-Then every incoming message causes the iteration over the billions queries to find all the matches.
-So this doesn't scale efficiently when number of queries grows.
+Conventional search is used to find an important information by a query.
+The problem is reverse in the modern world of real-time message streams.
+It's necessary to filter and consume messages matching a query on the fly.
+Existing messaging solutions offer only "channels" or "topics" for this.
+Nevertheless, these tend to contain tons of irrelevant information.
 
-Awakari is a message pub/sub system that comes to solve this problem.
-It brings additional features:
-* Rich subscription matching conditions: 
-  * Wildcards
-  * Grouping:
-    * Nested conditions and groups 
-    * Logic functions
-* Scalability:
-  * Handle any big number of subscriptions
-  * Sustain any large message throughput without a latency impact
+Awakari comes to solve this problem by using flexible subscriptions instead of channels.
 
 ## 1.1. Comparison
 
@@ -51,7 +40,7 @@ The key differences from other message pub/sub solutions are:
             <td rowspan="2">Wildcard Subscriptions</td>
             <td>Horizontal Scalability</td>
             <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title="consumer- side topic matching"/></td>
+            <td align="center"><img width="16px" src="icon-no.svg" title="consumer - side topic matching"/></td>
             <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
         </tr>
         <tr>
@@ -62,7 +51,7 @@ The key differences from other message pub/sub solutions are:
         </tr>
         <tr>
             <td rowspan="2">Matching Criteria</td> 
-            <td>Attributes</td>
+            <td>Arbitrary Attributes</td>
             <td align="center"><img width="16px" src="icon-yes.svg" title="Any metadata (key/value)"/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title="Topic only"/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title="Subject only"/></td>
