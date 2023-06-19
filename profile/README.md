@@ -12,13 +12,11 @@
 
 # 1. Overview
 
-Conventional search is used to find an important information by a query.
-The problem is reverse in the modern world of real-time message streams.
-It's necessary to filter and consume messages matching a query on the fly.
-Existing messaging solutions offer only "channels" or "topics" for this.
-Nevertheless, these tend to contain tons of irrelevant information.
-
-Awakari comes to solve this problem by using flexible subscriptions instead of channels.
+In the modern world of information streams its getting harder to find what is important timely.
+Conventional search engines, social networks and messengers doesn't solve this problem.
+Awakari offers comprehensive subscriptions mechanism to catch the relevant messages in the common stream.
+It allows users to publish their messages to the common stream.
+Other users decide, what they want to receive.
 
 ## 1.1. Comparison
 
