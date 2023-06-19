@@ -14,6 +14,7 @@
 
 In the modern world of information streams its getting harder to find what is important timely.
 Conventional search engines, social networks and messengers doesn't solve this problem.
+
 Awakari offers comprehensive subscriptions to catch the relevant messages among everything.
 It allows users to publish their messages to the common stream.
 Other users decide, what they want to receive.
