@@ -87,29 +87,44 @@ The key differences from other messaging solutions are:
 
 ## 1.2. Purpose
 
-TODO
+### 1.2.1. Get Notified 
+
+Subscribe for important info and receive the relevant information in the real time.
+Latest news and updates from any source.
+
+### 1.2.2. Advertise
+
+Publish own information and everyone interested will receive it.
+
+### 1.2.3. Integrate
+
+Publish and receive messages using RSS feeds, Chat Bots or message queues.
+Use Machine Learning algorithms to classify and label the image, audio or video data when publish.
 
 ## 1.3. Definitions
 
-TODO
+Awarkari works with messages and subscriptions.
+
+### 1.3.1. Matching Condition
+
+A condition represents a message matching criteria. [Learn more](https://github.com/awakari/subscriptions#121-condition)
+
+### 1.3.2. Subscription
+
+Subscriptions is a set of matching conditions associated with a specific user.
+[Learn more](https://github.com/awakari/subscriptions#122-subscription)
+
+### 1.3.3. Message
+
+The entity being routed and delivered by Awakari. The accepted format is [Cloud Events](https://cloudevents.io)
 
 # 2. Deployment
 
-TODO
+There are two deployment options:
+1. [Self-Hosted](https://github.com/awakari/core#3-deployment)
+2. Cloud
 
-# 3. Usage
-
-TODO
-
-# 4. Configuration
-
-TODO
-
-# 5. Design
-
-TODO
-
-# 6. Additional Information
+# 3. Additional Information
 
 * [Roadmap](ROADMAP.md)
 * [Contributing](CONTRIBUTING.md)
