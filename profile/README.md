@@ -65,14 +65,14 @@ The key differences from other message pub/sub solutions are:
         <tr>
             <td rowspan="2">Hosting</td> 
             <td>Cloud</td>
-            <td align="center"><img width="16px" src="icon-yes.svg" title="Any metadata (key/value)"/></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title="Topic only"/></td>
+            <td align="center"><img width="16px" src="icon-yes.svg" /></td>
+            <td align="center"><img width="16px" src="icon-yes.svg" /></td>
             <td align="center"><img width="16px" src="icon-no.svg" title="Subject only"/></td>
         </tr>
         <tr>
             <td>Self-Hosted</td>
-            <td align="center"><img width="16px" src="icon-yes.svg" title="nested arbitrary groups + logic and/or/xor"/></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title=""/></td>
+            <td align="center"><img width="16px" src="icon-yes.svg"/></td>
+            <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title=""/></td>
         </tr>
     </tbody>
