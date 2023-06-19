@@ -124,6 +124,8 @@ There are two deployment options:
 1. [Self-Hosted](https://github.com/awakari/core#3-deployment)
 2. Cloud
 
+![components](components.png)
+
 # 3. Additional Information
 
 * [Roadmap](ROADMAP.md)
