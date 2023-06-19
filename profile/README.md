@@ -33,7 +33,7 @@ The key differences from other messaging solutions are:
             <td align="center" valign="top"><b>Awakari</b></td>
             <td align="center" valign="top"><b>Kafka</b></td>
             <td align="center" valign="top"><b>Nats<br/>(JetStream)</b></td>
-            <td align="center" valign="top"><b>AWS SNS/SQS</b></td>
+            <td align="center" valign="top"><b>AWS<br/>SNS/SQS</b></td>
         </tr>
     </thead>
     <tbody>
