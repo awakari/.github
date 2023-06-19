@@ -38,10 +38,10 @@ The key differences from other messaging solutions are:
     </thead>
     <tbody>
         <tr>
-            <td rowspan="2">Wildcard Subscriptions</td>
+            <td rowspan="2">Matching Patterns</td>
             <td>Horizontal Scalability</td>
             <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title="consumer - side topic matching"/></td>
+            <td align="center"><img width="16px" src="icon-no.svg" title="consumer-side topic matching"/></td>
             <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title="not applicable"/></td>
         </tr>
