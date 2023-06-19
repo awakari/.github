@@ -22,7 +22,7 @@ Awakari comes to solve this problem by using flexible subscriptions instead of c
 
 ## 1.1. Comparison
 
-The key differences from other message pub/sub solutions are:
+The key differences from other messaging solutions are:
 <table>
     <thead>
         <tr>
@@ -33,6 +33,7 @@ The key differences from other message pub/sub solutions are:
             <td align="center" valign="top"><b>Awakari</b></td>
             <td align="center" valign="top"><b>Kafka</b></td>
             <td align="center" valign="top"><b>Nats<br/>(JetStream)</b></td>
+            <td align="center" valign="top"><b>AWS SNS/SQS</b></td>
         </tr>
     </thead>
     <tbody>
@@ -42,12 +43,14 @@ The key differences from other message pub/sub solutions are:
             <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title="consumer - side topic matching"/></td>
             <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
+            <td align="center"><img width="16px" src="icon-no.svg" title="not applicable"/></td>
         </tr>
         <tr>
             <td>Matching Time Complexity</td>
             <td align="center"><img width="16px" src="icon-yes.svg" title="O(log(N)) for kiwi-tree subscriptions"/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title="O(N)"/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title="O(N)"/></td>
+            <td align="center"><img width="16px" src="icon-no.svg" title="not applicable"/></td>
         </tr>
         <tr>
             <td rowspan="2">Matching Criteria</td> 
@@ -55,24 +58,28 @@ The key differences from other message pub/sub solutions are:
             <td align="center"><img width="16px" src="icon-yes.svg" title="Any metadata (key/value)"/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title="Topic only"/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title="Subject only"/></td>
+            <td align="center"><img width="16px" src="icon-no.svg" title="Topic only"/></td>
         </tr>
         <tr>
             <td>Grouping and Logic</td>
             <td align="center"><img width="16px" src="icon-yes.svg" title="nested arbitrary groups + logic and/or/xor"/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title=""/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title=""/></td>
+            <td align="center"><img width="16px" src="icon-no.svg" title="the only option available is to subscribe queue to multiple topics"/></td>
         </tr>
         <tr>
             <td rowspan="2">Hosting</td> 
             <td>Cloud</td>
             <td align="center"><img width="16px" src="icon-yes.svg" /></td>
             <td align="center"><img width="16px" src="icon-yes.svg" /></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title="Subject only"/></td>
+            <td align="center"><img width="16px" src="icon-no.svg" /></td>
+            <td align="center"><img width="16px" src="icon-yes.svg" /></td>
         </tr>
         <tr>
             <td>Self-Hosted</td>
             <td align="center"><img width="16px" src="icon-yes.svg"/></td>
             <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
+            <td align="center"><img width="16px" src="icon-no.svg" title=""/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title=""/></td>
         </tr>
     </tbody>
