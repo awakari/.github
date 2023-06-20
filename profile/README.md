@@ -155,7 +155,7 @@ The entity being routed and delivered by Awakari. The accepted format is [Cloud 
 There are two deployment options:
 1. [Self-Hosted Core](https://github.com/awakari/core#3-deployment)
 2. Cloud SaaS:
-  1. `demo.awakari.cloud:443`
+   1. `demo.awakari.cloud:443`
 
 ![components](components.png)
 
