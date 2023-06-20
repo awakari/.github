@@ -3,7 +3,7 @@
 1. [Overview](#1-overview)<br/>
    1.1. [Comparison](#11-comparison)<br/>
    1.2. [Purpose](#12-purpose)<br/>
-   1.3. [Definitions](#13-definitions)<br/>
+   1.3. [Concepts](#13-concepts)<br/>
 2. [Deployment](#2-deployment)<br/>
 3. [Usage](#3-usage)<br/>
 4. [Configuration](#4-configuration)<br/>
@@ -89,21 +89,51 @@ The key differences from other messaging solutions are:
 
 ## 1.2. Purpose
 
-### 1.2.1. Get Notified 
+### 1.2.1. Manage Subscriptions
 
-Subscribe for important info and receive the relevant information in the real time.
-Latest news and updates from any source.
+Define custom message matching conditions:
 
-### 1.2.2. Advertise
+#### 1.2.1.1. Arbitrary Attributes
 
-Publish own information and everyone interested will receive it.
+Specify custom keys to match: 
+* category
+* location
+* language
+* ...
 
-### 1.2.3. Integrate
+#### 1.2.1.2. Pattern Matching
+
+For example `*el?ow` will match:
+* yellow
+* elbow
+* ...
+
+#### 1.2.1.3. Composite Conditions
+
+Groups of nested conditions and groups
+
+#### 1.2.1.4. Logic Functions
+
+* And
+* Or
+* Xor
+* Not
+
+
+### 1.2.2. Receive Push Notifications 
+
+Receive new messages timely. Exactly-Once delivery.
+
+### 1.2.3. Broadcast
+
+Publish info, everyone interested in it will receive it.
+
+### 1.2.4. Integrate
 
 Publish and receive messages using RSS feeds, Chat Bots or message queues.
 Use Machine Learning algorithms to classify and label the image, audio or video data when publish.
 
-## 1.3. Definitions
+## 1.3. Concepts
 
 Awarkari works with messages and subscriptions.
 
@@ -123,8 +153,9 @@ The entity being routed and delivered by Awakari. The accepted format is [Cloud 
 # 2. Deployment
 
 There are two deployment options:
-1. [Self-Hosted](https://github.com/awakari/core#3-deployment)
-2. Cloud
+1. [Self-Hosted Core](https://github.com/awakari/core#3-deployment)
+2. Cloud SaaS:
+  1. `demo.awakari.cloud:443`
 
 ![components](components.png)
 
