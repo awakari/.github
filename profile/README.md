@@ -12,12 +12,15 @@
 
 # 1. Overview
 
-In the modern world of information streams its getting harder to find what is important timely.
-Conventional search engines, social networks and messengers doesn't solve this problem.
+Awakari is a messaging pub/sub service.
 
-Awakari offers comprehensive subscriptions to catch the relevant messages among everything.
-It allows users to publish their messages to the common stream.
-Other users decide, what they want to receive.
+In the modern world of information streams its getting harder to find what is important timely. Conventional search engines, social networks and messengers doesn't solve this problem.
+
+Awakari offers comprehensive subscriptions to catch the relevant messages. It allows users to publish their messages to the common stream. Other users decide, what they want to receive.
+
+Awakari works with:
+* Streams of [Cloud Events](https://cloudevents.io/).
+* Subscriptions with sets of matching conditions.
 
 ## 1.1. Comparison
 
