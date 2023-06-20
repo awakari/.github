@@ -78,7 +78,7 @@ The key differences from other messaging solutions are:
             <td>Self-Hosted</td>
             <td align="center"><img width="16px" src="icon-yes.svg"/></td>
             <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title=""/></td>
+            <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
             <td align="center"><img width="16px" src="icon-no.svg" title=""/></td>
         </tr>
     </tbody>
