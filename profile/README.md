@@ -42,12 +42,9 @@ Specify custom keys to match:
 * language
 * ...
 
-#### 1.2.1.2. Pattern Matching
+#### 1.2.1.2. Full-Text Search
 
-For example `*el?ow` will match:
-* yellow
-* elbow
-* ...
+Specify text search terms to match
 
 #### 1.2.1.3. Composite Conditions
 
@@ -63,7 +60,7 @@ Groups of nested conditions and groups
 
 ### 1.2.2. Receive Push Notifications 
 
-Receive new messages timely. Exactly-Once delivery.
+Receive new messages timely and exactly once.
 
 ### 1.2.3. Broadcast
 
@@ -72,11 +69,11 @@ Publish info, everyone interested in it will receive it.
 ### 1.2.4. Integrate
 
 Publish and receive messages using RSS feeds, Chat Bots or message queues.
-Use Machine Learning algorithms to classify and label the image, audio or video data when publish.
+Leverage Machine Learning algorithms to classify and label the image, audio or video data when publishing.
 
 ## 1.3. Concepts
 
-Awarkari works with messages and subscriptions.
+Awarkari works with events and subscriptions.
 
 ### 1.3.1. Matching Condition
 
@@ -87,7 +84,7 @@ A condition represents a message matching criteria. [Learn more](https://github.
 Subscriptions is a set of matching conditions associated with a specific user.
 [Learn more](https://github.com/awakari/subscriptions#122-subscription)
 
-### 1.3.3. Message
+### 1.3.3. Event
 
 The entity being routed and delivered by Awakari. The accepted format is [Cloud Events](https://cloudevents.io)
 
