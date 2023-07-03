@@ -29,7 +29,7 @@ The closest Awakari analogue is a [Percolate Query in Elasticsearch](https://www
     <thead>
         <tr>
             <td rowspan="2" colspan="2"><b>Criteria</b></td>
-            <td colspan="4" align="center"><b>Solution</b></td>
+            <td colspan="2" align="center"><b>Solution</b></td>
         </tr>
         <tr>
             <td align="center" valign="top"><b>Awakari</b></td>
