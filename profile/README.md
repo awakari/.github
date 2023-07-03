@@ -12,11 +12,11 @@
 
 # 1. Overview
 
-Awakari is a messaging pub/sub service.
+Awakari is an event-driven publish/subscribe system.
 
-In the modern world of information streams its getting harder to find what is important timely. Conventional search engines, social networks and messengers doesn't solve this problem.
-
-Awakari offers comprehensive subscriptions to catch the relevant messages. It allows users to publish their messages to the common stream. Other users decide, what they want to receive.
+Publish events to the common stream.
+Define comprehensive search conditions as a subscription.
+Awakari will push the relevant events as notifications.
 
 Awakari works with:
 * Streams of [Cloud Events](https://cloudevents.io/).
@@ -24,7 +24,7 @@ Awakari works with:
 
 ## 1.1. Comparison
 
-The key differences from other messaging solutions are:
+The closest Awakari analogue is a [Percolate Query in Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-percolate-query.html).
 <table>
     <thead>
         <tr>
@@ -33,27 +33,10 @@ The key differences from other messaging solutions are:
         </tr>
         <tr>
             <td align="center" valign="top"><b>Awakari</b></td>
-            <td align="center" valign="top"><b>Kafka</b></td>
-            <td align="center" valign="top"><b>Nats<br/>(JetStream)</b></td>
-            <td align="center" valign="top"><b>AWS<br/>SNS/SQS</b></td>
+            <td align="center" valign="top"><b>Percolate Query<br/>(Elasticsearch)</b></td>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td rowspan="2">Matching Patterns</td>
-            <td>Horizontal Scalability</td>
-            <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title="consumer-side topic matching"/></td>
-            <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title="not applicable"/></td>
-        </tr>
-        <tr>
-            <td>Matching Time Complexity</td>
-            <td align="center"><img width="16px" src="icon-yes.svg" title="O(log(N)) for kiwi-tree subscriptions"/></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title="O(N)"/></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title="O(N)"/></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title="not applicable"/></td>
-        </tr>
         <tr>
             <td rowspan="2">Matching Criteria</td> 
             <td>Arbitrary Attributes</td>
@@ -74,15 +57,11 @@ The key differences from other messaging solutions are:
             <td>Cloud</td>
             <td align="center"><img width="16px" src="icon-yes.svg" /></td>
             <td align="center"><img width="16px" src="icon-yes.svg" /></td>
-            <td align="center"><img width="16px" src="icon-no.svg" /></td>
-            <td align="center"><img width="16px" src="icon-yes.svg" /></td>
         </tr>
         <tr>
             <td>Self-Hosted</td>
             <td align="center"><img width="16px" src="icon-yes.svg"/></td>
             <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
-            <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title=""/></td>
         </tr>
     </tbody>
 </table>
