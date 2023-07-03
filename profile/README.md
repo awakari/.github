@@ -25,46 +25,8 @@ Awakari works with:
 ## 1.1. Comparison
 
 The closest Awakari analogue is a [Percolate Query in Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-percolate-query.html).
-<table>
-    <thead>
-        <tr>
-            <td rowspan="2" colspan="2"><b>Criteria</b></td>
-            <td colspan="2" align="center"><b>Solution</b></td>
-        </tr>
-        <tr>
-            <td align="center" valign="top"><b>Awakari</b></td>
-            <td align="center" valign="top"><b>Percolate Query<br/>(Elasticsearch)</b></td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan="2">Matching Criteria</td> 
-            <td>Arbitrary Attributes</td>
-            <td align="center"><img width="16px" src="icon-yes.svg" title="Any metadata (key/value)"/></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title="Topic only"/></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title="Subject only"/></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title="Topic only"/></td>
-        </tr>
-        <tr>
-            <td>Grouping and Logic</td>
-            <td align="center"><img width="16px" src="icon-yes.svg" title="nested arbitrary groups + logic and/or/xor"/></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title=""/></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title=""/></td>
-            <td align="center"><img width="16px" src="icon-no.svg" title="the only option available is to subscribe queue to multiple topics"/></td>
-        </tr>
-        <tr>
-            <td rowspan="2">Hosting</td> 
-            <td>Cloud</td>
-            <td align="center"><img width="16px" src="icon-yes.svg" /></td>
-            <td align="center"><img width="16px" src="icon-yes.svg" /></td>
-        </tr>
-        <tr>
-            <td>Self-Hosted</td>
-            <td align="center"><img width="16px" src="icon-yes.svg"/></td>
-            <td align="center"><img width="16px" src="icon-yes.svg" title=""/></td>
-        </tr>
-    </tbody>
-</table>
+
+The key difference is that Awakari pushes the new matching events when user is online through a gRPC stream.
 
 ## 1.2. Purpose
 
