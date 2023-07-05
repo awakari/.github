@@ -2,8 +2,7 @@
 
 1. [Overview](#1-overview)<br/>
 2. [Concepts](#2-concepts)<br/>
-3. [Usage](#3-usage)<br/>
-4. [Additional Information](#4-additional-information)<br/>
+3. [Additional Information](#3-additional-information)<br/>
 
 # 1. Overview
 
@@ -25,11 +24,7 @@ Subscriptions is a set of matching conditions associated with a specific user.
 
 The entity being routed and delivered by Awakari. The accepted format is [Cloud Events](https://cloudevents.io)
 
-# 3. Usage
-
-TODO
-
-# 4. Additional Information
+# 3. Additional Information
 
 * [Roadmap](ROADMAP.md)
 * [Contributing](CONTRIBUTING.md)
