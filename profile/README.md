@@ -24,7 +24,7 @@ Subscriptions is a set of matching conditions associated with a specific user.
 
 ## 2.3. Event
 
-The entity being routed and delivered by Awakari. The accepted format is [Cloud Events](https://cloudevents.io)
+The entity being routed and delivered by Awakari. The accepted format is [Cloud Events](https://cloudevents.io).
 
 # 3. Access
 
@@ -47,7 +47,7 @@ openssl req -new -newkey rsa:4096 -nodes \
 > Never specify additional certificate attributes like "O", "OU", etc.
 > The resulting DN should not contain commas.
 
-Then request the client certificate.
+Then request the client certificate (currently by email).
 
 # 4. Usage
 
@@ -61,7 +61,7 @@ Refer to [Client SDK Usage](https://github.com/awakari/client-sdk-go#3-usage).
 
 ## 4.2. API
 
-### 4.2.1. Preparation
+Preparation steps:
 
 1. Install [grpcurl](https://github.com/fullstorydev/grpcurl)
 2. Download the necessary proto files and save to the current directory:
@@ -69,7 +69,63 @@ Refer to [Client SDK Usage](https://github.com/awakari/client-sdk-go#3-usage).
     2. [Reader](https://awakari.com/proto/reader.proto)
     3. [Resolver](https://awakari.com/proto/resolver.proto)
 
-### 4.2.2. Subscriptions
+### 4.2.1. Limits
+
+Usage limit represents the successful API call count limit. The limit is identified per:
+* group id
+* user id (optional)
+* subject
+
+There are the group-level limits where user id is not specified. All users from the group share the group limit in this
+case.
+
+Usage subject may be one of:
+* Subscriptions (code 1)
+* Publish Events (code 2)
+
+Check current subscriptions limits (`"subj": 1`):
+```shell
+grpcurl \
+  -key test0.client0.key \
+  -cert test0.client0.crt \
+  -cacert ca.crt \
+  -H 'X-Awakari-User-Id: john.doe@company1.com' \
+  -d '{"subj": 1}' \
+  demo.awakari.cloud:443 \
+  awakari.api.limits.Service/Get
+```
+
+A successfull response looks like:
+```json
+{
+  "count": "1000"
+}
+```
+
+> [!NOTE]
+> The empty `userId` attribute in the response means the usage limit is group-level limit.
+
+### 4.2.2. 
+
+Usage permits represents the current usage statistics (counters) by the subject. Similar to usage limit, the counters
+represent the group-level usage when the user id is empty.
+
+User-specific events publishing permits checking command example:
+```shell
+grpcurl \
+  -key test0.client0.key \
+  -cert test0.client0.crt \
+  -cacert ca.crt \
+  -H 'X-Awakari-User-Id: john.doe@company1.com' \
+  -d '{"subj": 2}' \
+  demo.awakari.cloud:443 \
+  awakari.api.permits.Service/GetUsage
+```
+
+> [!NOTE]
+> Skip the "X-Awakari-User-Id" header to get the group-level permits.
+
+### 4.2.3. Subscriptions
 
 Create:
 ```shell
@@ -106,10 +162,12 @@ A successful response contains the created subscription id:
 }
 ```
 
-Note the created subscription id and use it further to read the messages.
+Note the created subscription id and use it further to read the events.
 Learn more about the [Subscriptions API](https://github.com/awakari/client-sdk-go/blob/master/api/grpc/subscriptions/service.proto).
 
-### 4.2.3. Read Events
+### 4.2.4. Events
+
+#### 4.4.2.1. Read
 
 ```shell
 grpcurl \
@@ -132,12 +190,12 @@ Specify the subscription id in the payload:
 This starts a reader stream. A new event appear in the response once system receives anything matching the subscription.
 Leave this shell/window open and switch to another. Later switch back and check for new events received.
 
-It's necessary to acknowledge every received message:
+It's necessary to acknowledge every received event:
 ```json
 {"ack": { "count": 1}}
 ```
 
-### 4.2.4. Write Events
+#### 4.2.4.2. Write
 
 ```shell
 grpcurl \
@@ -181,9 +239,9 @@ A successful response looks like:
 }
 ```
 
-After this it's possible to submit more messages.
+After this it's possible to submit more events.
 
-When finished, close the writer stream by pressing ^C or leave it open to publish any other messages later.
+When finished, close the writer stream by pressing ^C or leave it open to publish any other events later.
 
 # 5. Additional Information
 
