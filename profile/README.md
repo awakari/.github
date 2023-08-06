@@ -107,7 +107,7 @@ A successfull response looks like:
 > [!NOTE]
 > The empty `userId` attribute in the response means the usage limit is group-level limit.
 
-### 4.2.1.2. Permits
+#### 4.2.1.2. Permits
 
 Usage permits represents the current usage statistics (counters) by the subject. Similar to usage limit, the counters
 represent the group-level usage when the user id is empty.
