@@ -69,7 +69,9 @@ Preparation steps:
     2. [Reader](https://awakari.com/proto/reader.proto)
     3. [Resolver](https://awakari.com/proto/resolver.proto)
 
-### 4.2.1. Limits
+### 4.2.1. Usage 
+
+#### 4.2.1.2. Limits
 
 Usage limit represents the successful API call count limit. The limit is identified per:
 * group id
@@ -105,7 +107,7 @@ A successfull response looks like:
 > [!NOTE]
 > The empty `userId` attribute in the response means the usage limit is group-level limit.
 
-### 4.2.2. 
+### 4.2.1.2. Permits
 
 Usage permits represents the current usage statistics (counters) by the subject. Similar to usage limit, the counters
 represent the group-level usage when the user id is empty.
@@ -125,7 +127,7 @@ grpcurl \
 > [!NOTE]
 > Skip the "X-Awakari-User-Id" header to get the group-level permits.
 
-### 4.2.3. Subscriptions
+### 4.2.2. Subscriptions
 
 Create:
 ```shell
@@ -165,9 +167,9 @@ A successful response contains the created subscription id:
 Note the created subscription id and use it further to read the events.
 Learn more about the [Subscriptions API](https://github.com/awakari/client-sdk-go/blob/master/api/grpc/subscriptions/service.proto).
 
-### 4.2.4. Events
+### 4.2.3. Events
 
-#### 4.4.2.1. Read
+#### 4.2.3.1. Read
 
 ```shell
 grpcurl \
@@ -195,7 +197,7 @@ It's necessary to acknowledge every received event:
 {"ack": { "count": 1}}
 ```
 
-#### 4.2.4.2. Write
+#### 4.2.3.2. Write
 
 ```shell
 grpcurl \
