@@ -19,7 +19,7 @@ Awarkari works with events and subscriptions.
 A condition represents a message matching criteria. 
 Currently, Awakari supports the following condition types: 
 * text matching
-* numeric condtions (<, ≤, =, ≥, >)
+* numeric comparison (<, ≤, =, ≥, >)
 * groups of nested condtions with logic (And, Or, Xor)
 
 ## 2.2. Subscription
