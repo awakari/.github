@@ -16,7 +16,11 @@ Awarkari works with events and subscriptions.
 
 ## 2.1. Matching Condition
 
-A condition represents a message matching criteria. Currently, Awakari supports text matching conditions.
+A condition represents a message matching criteria. 
+Currently, Awakari supports the following condition types: 
+* text matching
+* numeric comparison (<, ≤, =, ≥, >)
+* groups of nested condtions with logic (And, Or, Xor)
 
 ## 2.2. Subscription
 
