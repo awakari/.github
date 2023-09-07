@@ -47,7 +47,7 @@ openssl req -new -newkey rsa:4096 -nodes \
 > Never specify additional certificate attributes like "O", "OU", etc.
 > The resulting DN should not contain commas.
 
-Then request the client certificate (currently by email).
+Then request the client certificate (currently by [email](mailto:awakari@awakari.com)).
 
 # 4. Usage
 
