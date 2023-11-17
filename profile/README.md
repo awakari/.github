@@ -4,7 +4,8 @@
 2. [Concepts](#2-concepts)<br/>
 3. [Access](#3-access)<br/>
 4. [Usage](#4-usage)<br/>
-5. [Additional Information](#5-additional-information)<br/>
+5. [Design](#5-design)
+6. [Additional Information](#6-additional-information)<br/>
 
 # 1. Overview
 
@@ -249,7 +250,47 @@ After this it's possible to submit more events.
 
 When finished, close the writer stream by pressing ^C or leave it open to publish any other events later.
 
-# 5. Additional Information
+# 5. Design
+
+## 5.1. Data Schema
+
+| Attribute             | Type       | Description                     | Known Usage                                                                 |                  
+|-----------------------|------------|---------------------------------|-----------------------------------------------------------------------------|
+| `author`              | string     | 1st author info, name and email | set by source-feeds                                                         |
+| `awakarigroupid`      | string     | group id                        | set by resolver from the "X-Awakari-Group-Id" gRPC header                   |
+| `awakarimatchfound`   | bool       |                                 | internal, set and used by resolver                                          |
+| `awakariregistered`   | bool       |                                 | internal, set and used by resolver                                          |
+| `awakarispanid`       | string     | tracing span id                 | set and used by core components when tracing is enabled                     |
+| `awakaritraceid`      | string     | trace id                        | set and used by core components when tracing is enabled                     |
+| `awakariuserid`       | string     | user id                         | set by resolver from the "X-Awakari-User-Id" gRPC header, removed by reader |
+| `categories`          | string     | space-separated item categories | set by source-feeds                                                         |
+| `data`                | string     | event payload, mostly text      | set by any source, may be empty                                             |  
+| `feedcategories`      | string     | space-separated feed categories | set by source-feeds                                                         |
+| `feeddescription`     | string     |                                 | set by source-feeds                                                         |
+| `feedimagetitle`      | string     |                                 | set by source-feeds                                                         |
+| `feedimageurl`        | uri        |                                 | set by source-feeds                                                         |
+| `feedtitle`           | string     |                                 | set by source-feeds                                                         |
+| `feedurl`             | uri        |                                 | set by source-feeds                                                         |
+| `id`                  | string     | event id                        | set by any source to a unique value                                         |
+| `imagetitle`          | string     |                                 | set by source-feeds                                                         |
+| `imageurl`            | uri        |                                 | set by source-feeds                                                         |
+| `language`            | string     |                                 | set by source-feeds                                                         |
+| `source`              | string     |                                 | bot-telegram: "@AwakariBot", others: source link URL                        |
+| `specversion`         | string     | meaningless, always "1.0"?      | set by any source                                                           |
+| `subject`             | any source |                                 | source-feeds: RSS item guid, source-sites: site URL                         |
+| `summary`             | string     |                                 | set by source-feeds                                                         |
+| `tgfileid`            | string     | telegram file id                | set and used by bot-telegram                                                |
+| `tgfileimgheight`     | int32      | telegram image height           | set and used by bot-telegram                                                |
+| `tgfileimgwidth`      | int32      | telegram image width            | set and used by bot-telegram                                                |
+| `tgfilemediaduration` | int32      | telegram media duration         | set and used by bot-telegram                                                |
+| `tgfiletype`          | int32      | telegram file type              | set and used by bot-telegram                                                | 
+| `tgfileuniqueid`      | string     | telegram file unique id         | set and used by bot-telegram                                                |
+| `tgmessageid`         | string     | telegram message id             | internal, set by bot-telegram                                               |
+| `time`                | timestamp  |                                 | set by any source                                                           |
+| `title`               | string     |                                 | set by source-feeds                                                         |
+| `type`                | string     | various meaningless values      | set by any source                                                           |
+
+# 6. Additional Information
 
 * [Roadmap](ROADMAP.md)
 * [Contributing](CONTRIBUTING.md)
