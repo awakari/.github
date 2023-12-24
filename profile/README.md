@@ -36,15 +36,12 @@ The entity being routed and delivered by Awakari. The accepted format is [Cloud 
 Using the Awakari cloud API requires mutual TLS authentication and encryption to secure all client data.
 Hence, to access the cloud API it's necessary to have a client certificate.
 
-For the demo purposes, there is the cloud instance `demo.awakari.cloud` available.
-Ready-to-use demo client certificates are in the [certs/demo](certs/demo) directory.
-
-For production usage, prepare own client certificate request:
+Prepare own client certificate request:
 ```shell
 openssl req -new -newkey rsa:4096 -nodes \
   -keyout client.key \
   -out client.csr \
-  -addext "subjectAltName=DNS:awakari.cloud" \
+  -addext "subjectAltName=DNS:api.awakari.com" \
   -subj '/CN=group0.company1.com'
 ```
 
@@ -98,7 +95,7 @@ grpcurl \
   -cacert ca.crt \
   -H 'X-Awakari-User-Id: john.doe@company1.com' \
   -d '{"subj": 1}' \
-  demo.awakari.cloud:443 \
+  api.awakari.com:443 \
   awakari.api.limits.Service/Get
 ```
 
@@ -125,7 +122,7 @@ grpcurl \
   -cacert ca.crt \
   -H 'X-Awakari-User-Id: john.doe@company1.com' \
   -d '{"subj": 2}' \
-  demo.awakari.cloud:443 \
+  api.awakari.com:443 \
   awakari.api.permits.Service/GetUsage
 ```
 
@@ -142,7 +139,7 @@ grpcurl \
   -cacert ca.crt \
   -H 'X-Awakari-User-Id: john.doe@company1.com' \
   -d @ \
-  demo.awakari.cloud:443 \
+  api.awakari.com:443 \
   awakari.subscriptions.proxy.Service/Create
 ```
 
@@ -185,7 +182,7 @@ grpcurl \
   -max-time 86400 \
   -H 'X-Awakari-User-Id: john.doe@company1.com' \
   -d @ \
-  demo.awakari.cloud:443 \
+  api.awakari.com:443 \
   awakari.reader.Service/Read
 ```
 
@@ -212,7 +209,7 @@ grpcurl \
   -proto writer.proto \
   -H 'X-Awakari-User-Id: john.doe@company1.com' \
   -d @ \
-  demo.awakari.cloud:443 \
+  api.awakari.com:443 \
   awakari.resolver.Service/SubmitMessages
 ```
 
