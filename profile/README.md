@@ -276,14 +276,14 @@ When finished, close the writer stream by pressing ^C or leave it open to publis
 | `language`            | string     |                                     | set by source-feeds                                                         |
 | `latitude`            | string     | Location Latitude                   | set by various sources                                                      |
 | `longitude`           | string     | Location Longitude                  | set by various sources                                                      |
-| `pricemax`            | int        | Max total price, x100 of `currency` | set by pub wizard                                                           |
-| `pricemin`            | int        | Min total price, x100 of `currency` | set by pub wizard                                                           |
-| `quantitymax`         | int        | Max quantity                        | set by pub wizard                                                           |
-| `quantitymin`         | int        | Min quantity                        | set by pub wizard                                                           |
+| `pricemax`            | string     | Max total price                     | set by pub wizard                                                           |
+| `pricemin`            | string     | Min total price                     | set by pub wizard                                                           |
+| `quantitymax`         | string     | Max quantity                        | set by pub wizard                                                           |
+| `quantitymin`         | string     | Min quantity                        | set by pub wizard                                                           |
 | `quantityunit`        | string     | Quantity units, may be empty        | set by pub wizard                                                           |
 | `source`              | string     |                                     | bot-telegram: "@AwakariBot", others: source link URL                        |
 | `specversion`         | string     | meaningless, always "1.0"?          | set by any source                                                           |
-| `subject`             | any source |                                     | source-feeds: RSS item guid, source-sites: site URL                         |
+| `subject`             | string     |                                     | source-feeds: RSS item guid, source-sites: site URL                         |
 | `summary`             | string     |                                     | set by source-feeds                                                         |
 | `tags`                | string     | space separated tags                | set by pub wizard                                                           |
 | `tgfileid`            | string     | telegram file id                    | set and used by bot-telegram                                                |
