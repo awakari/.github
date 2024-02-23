@@ -9,11 +9,11 @@
 
 # 1. Overview
 
-Awakari is a service that combines publish/subscribe capability with real-time search.
+Awakari is a continuous search engine.
 
 # 2. Concepts
 
-Awarkari works with events and subscriptions.
+As a publish/subscribe service it works with events and subscriptions.
 
 ## 2.1. Matching Condition
 
