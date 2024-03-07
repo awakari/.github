@@ -4,16 +4,17 @@
 2. [Concepts](#2-concepts)<br/>
 3. [Access](#3-access)<br/>
 4. [Usage](#4-usage)<br/>
-5. [Design](#5-design)
+5. [Design](#5-design)<br/>
 6. [Additional Information](#6-additional-information)<br/>
 
 # 1. Overview
 
-Awakari is a continuous search engine.
+Awakari is a real-time search engine.
 
 # 2. Concepts
 
 As a publish/subscribe service it works with events and subscriptions.
+The purpose is to perform a continuous search capturing relevant events in the events stream.
 
 ## 2.1. Matching Condition
 
