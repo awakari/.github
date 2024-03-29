@@ -9,28 +9,35 @@
 
 # 1. Overview
 
-Awakari is a real-time search engine.
+Awakari is a live search service.
+It consumes a stream of events and routes to every matching subscription.
 
 # 2. Concepts
 
-As a publish/subscribe service it works with events and subscriptions.
-The purpose is to perform a continuous search capturing relevant events in the events stream.
+## 2.1. Condition
 
-## 2.1. Matching Condition
-
-A condition represents a message matching criteria. 
+A condition represents an event matching criteria.
 Currently, Awakari supports the following condition types: 
 * text matching
 * numeric comparison (<, ≤, =, ≥, >)
 * groups of nested condtions with logic (And, Or, Xor)
 
+Any condition may be negative ("Not").
+The matching is structured by design: text and numeric conditions may be used to match a certain attribute of an event.
+
 ## 2.2. Subscription
 
-Subscriptions is a set of matching conditions associated with a specific user.
+Subscription is a set of matching conditions associated with a specific user.
+In Public UI subscription is named *query*.
 
 ## 2.3. Event
 
-The entity being routed and delivered by Awakari. The accepted format is [Cloud Events](https://cloudevents.io).
+The entity being routed and delivered by Awakari. 
+The accepted format is [Cloud Events](https://cloudevents.io).
+There are multiple source integrations, producing events from: 
+* Web feeds (like RSS)
+* Fediverse publishers
+* Telegram channels
 
 # 3. Access
 
