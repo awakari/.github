@@ -9,14 +9,13 @@
 
 # 1. Overview
 
-Awakari is a live search service.
-It consumes a stream of events and routes to every matching subscription.
+Awakari: real-time search results alerting service.
 
 # 2. Concepts
 
 ## 2.1. Condition
 
-A condition represents an event matching criteria.
+An alert condition represents an event matching criteria.
 Currently, Awakari supports the following condition types: 
 * text matching
 * numeric comparison (<, ≤, =, ≥, >)
@@ -27,8 +26,7 @@ The matching is structured by design: text and numeric conditions may be used to
 
 ## 2.2. Subscription
 
-Subscription is a set of matching conditions associated with a specific user.
-In Public UI subscription is named *query*.
+Subscription is a set of matching conditions associated with a specific user (i.e. alert).
 
 ## 2.3. Event
 
