@@ -7,7 +7,9 @@
 
 The opt-out method depends on the source type. Each method is described below.
 
-## Public Web Feed (RSS/Atom/...)
+## Web Feed
+
+(RSS/Atom/...)
 
 Use [robots.txt](https://en.wikipedia.org/wiki/Robots.txt) to restrict Awakari from processing the feed.
 
