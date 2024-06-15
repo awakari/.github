@@ -118,6 +118,6 @@ TODO
 
 # 6. Additional Information
 
-* [Opt-Out Methods](OPT-OUT.md)
-* [Roadmap](ROADMAP.md)
-* [Contributing](CONTRIBUTING.md)
+* [Opt-Out Methods](../OPT-OUT.md)
+* [Roadmap](../ROADMAP.md)
+* [Contributing](../CONTRIBUTING.md)
