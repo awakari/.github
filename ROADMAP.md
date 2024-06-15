@@ -1,3 +1,3 @@
 # Roadmap
 
-* Reference ML integration to label and consume multimedia.
+* Reference ML integration to label input multimedia.
