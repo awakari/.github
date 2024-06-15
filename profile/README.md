@@ -25,6 +25,9 @@ Currently, Awakari supports the following condition types:
 * numeric comparison (<, ≤, =, ≥, >)
 * groups of nested condtions with logic (And, Or, Xor)
 
+Any condition may be negative ("Not").
+The matching is structured by design: text and numeric conditions may be used to match a certain attribute of an event.
+
 ## 2.2. Interest
 
 Interest is a set of matching conditions associated with a specific user.
@@ -32,7 +35,12 @@ Internally interest is named subscription.
 
 ## 2.3. Event
 
-The entity being routed and delivered by Awakari. The accepted format is [Cloud Events](https://cloudevents.io).
+The entity being routed and delivered by Awakari. 
+The accepted format is [Cloud Events](https://cloudevents.io).
+There are multiple source integrations, producing events from: 
+* Web feeds (like RSS)
+* Fediverse publishers
+* Telegram channels
 
 # 3. Access
 
