@@ -5,7 +5,7 @@
 
 # Opt-Out Methods
 
-The opt-out method depends on the source type. Each method is described below.
+Applicable for sources. The opt-out method depends on the source type. Each method is described below.
 
 ## Web Feed
 
@@ -15,7 +15,7 @@ Use [robots.txt](https://en.wikipedia.org/wiki/Robots.txt) to restrict Awakari f
 
 ## Fediverse
 
-Put the `#nobot` tag in:
+Put the `#nobot` tag in either:
 1. Actor's [summary](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-summary) to avoid following the specific actor.
 2. Activity object's [content](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-content) to avoid processing the specific activity (e.g. post).
 
@@ -26,13 +26,14 @@ Note that the `#nobot` tag should be separated by whitespaces from another text,
 Mastodon users have additional configuration options to avoid a processing by Awakari:
 ![mastodon](mastodon.png)
 
+Either:
 1. Disable the *Feature profile and posts in discovery algorithms* checkbox
 2. Disable the *Automatically accept new followers* checkbox
 3. Disable the *Include profile page in search engines* checkbox
 
 ## Telegram Channel
 
-Put the `#nobot` tag in:
+Put the `#nobot` tag in either:
 1. Channel info to avoid Awakari listening the channel public posts.
 2. Post text to avoid Awakari processing the specific public channel post.
 
