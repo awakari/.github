@@ -13,13 +13,19 @@ Applicable for sources. The opt-out method depends on the source type. Each meth
 
 Use [robots.txt](https://en.wikipedia.org/wiki/Robots.txt) to restrict Awakari from processing the feed.
 
+## Bluesky
+The post text should either:
+1. end with `#nobot`
+2. contain `#nobot` followed by space symbol
+3. contain `#nobot` followed by end of line (`\n`) symbol
+
 ## Fediverse
 
 Put the `#nobot` tag in either:
 1. Actor's [summary](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-summary) to avoid following the specific actor.
 2. Activity object's [content](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-content) to avoid processing the specific activity (e.g. post).
 
-Note that the `#nobot` tag should be separated by whitespaces from another text, if any. 
+Note that the `#nobot` tag should be separated by whitespaces from another text, if any.
 
 ### Mastodon
 
