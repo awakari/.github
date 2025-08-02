@@ -21,7 +21,7 @@ The accepted format is [Cloud Events](https://cloudevents.io).
 
 [API documentation to publish events](https://pub.awakari.com/swagger/index.html#/Events)
 
-## 2.2.2. Sources
+### 2.2.2. Sources
 
 A publishing source, or, sometimes just *source* is an entity that publishes new events.
 There are multiple source integrations, producing events from:
