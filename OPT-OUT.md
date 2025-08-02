@@ -1,11 +1,17 @@
 * Awakari is automatically processing, sharing and temporarily storing a **public** data from various **public** sources.
 * Awakari is doing the best effort to avoid the processing of a personal data or a data under a copyright.
-* Awakari is free to use and doesn't "sell" a data.
+* Awakari is free to use within basic limits
+* Awakari doesn't "sell" a data neither use it to train any AI
 * Awakari always specifies the content original source.
 
 # Opt-Out Methods
 
-Applicable for sources. The opt-out method depends on the source type. Each method is described below.
+Applicable for publishing sources. The opt-out method depends on the source type. Each method is described below.
+
+1. [Web Feed](#web-feed)
+2. [Bluesky](#bluesky)
+3. [Fediverse](#fediverse)
+4. [Telegram Channel](#telegram-channel)
 
 ## Web Feed
 
