@@ -41,9 +41,7 @@ Any source also converts an input (feed entry, publisher's post, etc) to the int
 
 Subscription is a combination of a specific interest and delivery address.
 
-API documentation:
-* [Subscriptions](https://reader.awakari.com/swagger/index.html#/Subscriptions)
-* [Feeds](https://reader.awakari.com/swagger/index.html#/Feeds)
+[API documentation](https://subscriptions.awakari.com/swagger/index.html)
 
 ## 2.3. Interests
 
